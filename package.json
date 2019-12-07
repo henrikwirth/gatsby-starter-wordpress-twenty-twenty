@@ -23,6 +23,7 @@
     "gatsby": "2.17.2",
     "gatsby-image": "^2.2.34",
     "gatsby-plugin-chakra-ui": "^0.1.0",
+    "gatsby-plugin-netlify-cache": "^1.2.0",
     "gatsby-plugin-sharp": "2.2.32",
     "gatsby-source-filesystem": "^2.1.39",
     "gatsby-transformer-sharp": "2.3.0",
