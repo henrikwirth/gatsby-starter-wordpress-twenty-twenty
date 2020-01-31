@@ -36,7 +36,7 @@ module.exports = {
             lazyNodes: false,
           },
           Alot: {
-            limit: 100
+            limit: 10000
           },
           // example of afterRemoteNodeProcessed API
           // Page: {
