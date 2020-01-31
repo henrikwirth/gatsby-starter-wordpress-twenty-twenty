@@ -34,10 +34,9 @@ module.exports = {
           // },
           MediaItem: {
             lazyNodes: false,
-            limit: 1000,
           },
           Alot: {
-            limit: 1
+            limit: 100
           },
           // example of afterRemoteNodeProcessed API
           // Page: {
