@@ -1,8 +1,40 @@
 import React from "react"
 import { Box, Heading, Grid } from "@chakra-ui/core"
-import { Link } from "gatsby"
+import { Link, useStaticQuery, graphql } from "gatsby"
+import { getUrlPath } from "../utils/get-url-path"
 
 function Layout({ children }) {
+  const { wpMenu, allWpCategory, allWpTag } = useStaticQuery(graphql`
+    {
+      allWpTag {
+        nodes {
+          name
+        }
+      }
+      allWpCategory {
+        nodes {
+          name
+        }
+      }
+      wpMenu(slug: { eq: "test-menu-2" }) {
+        name
+        menuItems {
+          nodes {
+            label
+            url
+            # @todo this is throwing an error:
+            # connectedObject {
+            #   __typename
+            #   ... on WpPost {
+            #     uri
+            #   }
+            # }
+          }
+        }
+      }
+    }
+  `)
+
   return (
     <div>
       <Grid style={{ margin: `0 auto` }} maxW="90%" w={900} alignSelf="center">
@@ -24,8 +56,40 @@ function Layout({ children }) {
               </span>
             </Link>
           </Heading>
+          <Heading as="h2">Test Menu</Heading>
+          {!!wpMenu &&
+            !!wpMenu.menuItems &&
+            !!wpMenu.menuItems.nodes &&
+            wpMenu.menuItems.nodes.map((menuItem, i) => (
+              <Link key={i + menuItem.url} to={getUrlPath(menuItem.url)}>
+                {menuItem.label}
+                <br />
+              </Link>
+            ))}
         </Box>
+
         <Box mb={100}>{children}</Box>
+
+        <Heading as="h2">Categories</Heading>
+        <Box mb={50}>
+          {allWpCategory && allWpCategory.nodes && (
+            <ul>
+              {allWpCategory.nodes.map(category => (
+                <li key={category.name}>{category.name}</li>
+              ))}
+            </ul>
+          )}
+        </Box>
+        <Heading as="h2">Tags</Heading>
+        <Box mb={50}>
+          {allWpTag && allWpTag.nodes && (
+            <ul>
+              {allWpTag.nodes.map(tag => (
+                <li key={tag.name}>{tag.name}</li>
+              ))}
+            </ul>
+          )}
+        </Box>
       </Grid>
     </div>
   )
