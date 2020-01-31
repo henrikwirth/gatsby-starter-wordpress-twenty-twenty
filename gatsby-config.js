@@ -63,5 +63,6 @@ module.exports = {
     },
     `gatsby-plugin-chakra-ui`,
     `gatsby-transformer-sharp`,
+    `gatsby-plugin-netlify-cache`
   ],
 }
