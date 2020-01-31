@@ -33,7 +33,7 @@ module.exports = {
           //   exclude: true,
           // },
           MediaItem: {
-            lazyNodes: true,
+            lazyNodes: false,
           },
           Alot: {
             limit: 1
