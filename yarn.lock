@@ -6249,10 +6249,10 @@ gatsby-source-filesystem@^2.1.39:
     valid-url "^1.0.9"
     xstate "^4.6.7"
 
-gatsby-source-wordpress-experimental@0.0.0--alpha.1-dev-1580452781874:
-  version "0.0.0--alpha.1-dev-1580452781874"
-  resolved "http://localhost:4873/gatsby-source-wordpress-experimental/-/gatsby-source-wordpress-experimental-0.0.0--alpha.1-dev-1580452781874.tgz#4cc232c0bf427569b231d7ce06e53e633c150f71"
-  integrity sha512-Nf7fnFO6PTRPjLSJhQ5p4Ba6EsLpin64oeFdfX7KorsTYaCK24ik9VZPhiDC6+jmYmuCUqymU/JWDfLi/7dfHg==
+gatsby-source-wordpress-experimental@^0.0.0--alpha.2:
+  version "0.0.0--alpha.2"
+  resolved "https://registry.yarnpkg.com/gatsby-source-wordpress-experimental/-/gatsby-source-wordpress-experimental-0.0.0--alpha.2.tgz#4311bc605d24edee348d113823c7b2fb82fd1bd0"
+  integrity sha512-aIObaRBvNPAFGnFAuATunS7ZEeezUyjoj8bMvxrZ9sGiwWvsdK/kJPs4CNCled6iZLYO3C6smrxg/KTkgPodtA==
   dependencies:
     "@babel/runtime" "^7.6.3"
     "@rematch/core" "^1.3.0"
@@ -9713,7 +9713,7 @@ parse-passwd@^1.0.0:
   resolved "https://registry.yarnpkg.com/parse-passwd/-/parse-passwd-1.0.0.tgz#6d5b934a456993b23d37f40a382d6f1666a8e5c6"
   integrity sha1-bVuTSkVpk7I9N/QKOC1vFmao5cY=
 
-parse-path@^4.0.0:
+parse-path@^4.0.0, parse-path@^4.0.1:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/parse-path/-/parse-path-4.0.1.tgz#0ec769704949778cb3b8eda5e994c32073a1adff"
   integrity sha512-d7yhga0Oc+PwNXDvQ0Jv1BuWkLVPXcAoQ/WREgd6vNNoKYaW52KI+RdOFjI63wjkmps9yUE8VS4veP+AgpQ/hA==
