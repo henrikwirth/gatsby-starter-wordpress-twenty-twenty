@@ -1,3 +1,7 @@
+require("dotenv").config({
+  path: `.env.concurrent_download`,
+})
+
 module.exports = {
   plugins: [
     `gatsby-plugin-sharp`,
@@ -36,7 +40,7 @@ module.exports = {
             lazyNodes: false,
           },
           Alot: {
-            limit: 10000
+            limit: 5000
           },
           // example of afterRemoteNodeProcessed API
           // Page: {
