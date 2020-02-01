@@ -33,7 +33,7 @@ This starter uses an early alpha version of the upcoming `gatsby-source-wordpres
 
 ## Recommendations
 
-- For now I recommend hosting on pantheon (or another high-performance WP host) for your remote WP server, and using Local by Flywheel (only the latest version) to do local development. You can use this with other setups, but it may be less enjoyable if your server is slower than the recommended setup. More work will be done in the future to ensure this works well on all types of hosts.
+- For now I recommend hosting on pantheon (or another high-performance WP host) for your remote WP server, and using Local by Flywheel (only the latest version) to do local development. You can use this with other setups, but it may be less enjoyable if your server is slower than the recommended setup. More work will be done in the future to ensure this works well on all types of hosts. If you use a slower setup, change GATSBY_CONCURRENT_DOWNLOADS to a lower number to prevent your server from getting overloaded.
 - Stick to WPGraphQL v0.6.x for now, as previous or future versions may not yet work with the new source plugin (untested)
 
 ## Super rough and unscientific benchmarks using pantheon as a host
