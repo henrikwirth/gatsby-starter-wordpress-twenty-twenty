@@ -3,6 +3,8 @@ import { Box, Heading, Grid } from "@chakra-ui/core"
 import { Link, useStaticQuery, graphql } from "gatsby"
 import { getUrlPath } from "../utils/get-url-path"
 
+import "../assets/style.css"
+
 function Layout({ children }) {
   const { wpMenu, allWpCategory, allWpTag } = useStaticQuery(graphql`
     {

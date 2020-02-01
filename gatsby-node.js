@@ -1,6 +1,7 @@
 const { resolve } = require(`path`)
 const path = require(`path`)
 const glob = require(`glob`)
+const chunk = require(`lodash/chunk`)
 
 const getTemplates = () => {
   const sitePath = path.resolve(`./`)
@@ -75,4 +76,41 @@ exports.createPages = async ({ actions, graphql }) => {
       })
     )
   }
+
+  // create the homepage
+  const { data } = await graphql(`
+    {
+      allWpContentNode(
+        filter: { nodeType: { in: ["Post", "Page", "Alot"] } }
+        sort: { fields: date, order: DESC }
+      ) {
+        nodes {
+          uri
+          id
+        }
+      }
+    }
+  `)
+
+  const perPage = 10
+  const chunkedContentNodes = chunk(data.allWpContentNode.nodes, perPage)
+
+  await Promise.all(
+    chunkedContentNodes.map(async (nodesChunk, i) => {
+      const firstNode = nodesChunk[0]
+      const page = i + 1
+
+      await actions.createPage({
+        component: resolve(`./src/templates/index.js`),
+        path: page === 1 ? `/` : `/${page}`,
+        context: {
+          firstId: firstNode.id,
+          page: page,
+          offset: perPage * page,
+          totalPages: chunkedContentNodes.length - 1,
+          perPage,
+        },
+      })
+    })
+  )
 }

@@ -5873,10 +5873,10 @@ gatsby-source-filesystem@^2.1.47:
     valid-url "^1.0.9"
     xstate "^4.7.2"
 
-gatsby-source-wordpress-experimental@0.0.0--alpha.6:
-  version "0.0.0--alpha.6"
-  resolved "https://registry.yarnpkg.com/gatsby-source-wordpress-experimental/-/gatsby-source-wordpress-experimental-0.0.0--alpha.6.tgz#70c67ab6fce1e40a01e72ce0cf4f169192a2dc3e"
-  integrity sha512-jlWh00rleW3g+9d/nSbkVjxnDXqELD38uudW9wyP5yj66XV96dmVm/TtvYhI3SWc15b8aSaesEsE7sUEloZ9Ig==
+gatsby-source-wordpress-experimental@0.0.0--alpha.7:
+  version "0.0.0--alpha.7"
+  resolved "https://registry.yarnpkg.com/gatsby-source-wordpress-experimental/-/gatsby-source-wordpress-experimental-0.0.0--alpha.7.tgz#cb01e1b1ff083aa239ea4efe2ddab97d2bab7297"
+  integrity sha512-1t2g5SNr1LZdk/OfkuxlIURrkT1FT9xetlJU3+KwXJQZLlquulsd+9V4taxZbDseYmgxgo09ouhiBZ71oLrD6w==
   dependencies:
     "@babel/runtime" "^7.6.3"
     "@rematch/core" "^1.3.0"
@@ -10361,6 +10361,13 @@ react-lifecycles-compat@^3.0.4:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
   integrity sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
+
+react-paginate@^6.3.2:
+  version "6.3.2"
+  resolved "https://registry.yarnpkg.com/react-paginate/-/react-paginate-6.3.2.tgz#4e18cbdb2654d308566775fa14df11e820188391"
+  integrity sha512-Ch++Njfv8UHpLtIMiQouAPeJQA5Ki86kIYfCer6c1B96Rvn3UF27se+goCilCP8oHNXNsA2R2kxvzanY1YIkyg==
+  dependencies:
+    prop-types "^15.6.1"
 
 react-reconciler@^0.24.0:
   version "0.24.0"

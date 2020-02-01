@@ -1,12 +1,14 @@
 import React from "react"
-import { graphql, Link } from "gatsby"
+import { graphql, Link, navigate } from "gatsby"
 import Img from "gatsby-image"
+import ReactPaginate from "react-paginate"
 
-import { Stack, Box, Heading, Text, Grid } from "@chakra-ui/core"
+import { Stack, Box, Heading, Text, Grid, Button } from "@chakra-ui/core"
+
 import Layout from "../components/layout"
 import { normalizePath } from "../utils/get-url-path"
 
-export default ({ data }) => {
+export default ({ data, pageContext }) => {
   const pages = data.allWpContentNode.nodes
 
   return (
@@ -32,9 +34,11 @@ export default ({ data }) => {
                     <Heading as="h2" size="md">
                       {page.title}
                     </Heading>
-                    <Heading as="h3" size="sm">
-                      Author: {page.author.name}
-                    </Heading>
+                    {!!page.author && !!page.author.name && (
+                      <Heading as="h3" size="sm">
+                        Author: {page.author.name}
+                      </Heading>
+                    )}
 
                     <Box>
                       <Text
@@ -48,6 +52,43 @@ export default ({ data }) => {
           </Box>
         ))}
       </Stack>
+
+      {pageContext && pageContext.totalPages > 3 && (
+        <Box mt={10}>
+          <ReactPaginate
+            previousLabel={
+              pageContext &&
+              pageContext.page !== 1 && (
+                <Button>
+                  <Link to={pageContext.page - 1}>Previous page</Link>
+                </Button>
+              )
+            }
+            nextLabel={
+              pageContext &&
+              pageContext.totalPages !== pageContext.page && (
+                <Button>
+                  <Link to={pageContext.page + 1}>Next page</Link>
+                </Button>
+              )
+            }
+            onPageChange={({ selected }) => {
+              const page = selected + 1
+              const path = page === 1 ? `/` : `/${page}`
+              console.log(path)
+              navigate(path)
+            }}
+            breakLabel={"..."}
+            breakClassName={"break-me"}
+            pageCount={pageContext.totalPages}
+            marginPagesDisplayed={2}
+            pageRangeDisplayed={5}
+            containerClassName={"pagination"}
+            subContainerClassName={"pages pagination"}
+            activeClassName={"active"}
+          />
+        </Box>
+      )}
     </Layout>
   )
 }
@@ -61,20 +102,29 @@ export const query = graphql`
     }
   }
 
-  query HomePage {
+  query HomePage($offset: Int!, $perPage: Int!) {
+    # @todo there's a bug with @nodeInterface that causes this query to not re-run if the individual node list queries aren't also added here. even though they aren't being used.
     allWpPost {
       nodes {
-        title
+        id
       }
     }
     allWpPage {
       nodes {
-        title
+        id
       }
     }
+    allWpAlot {
+      nodes {
+        id
+      }
+    }
+
+    # this query is actually being used
     allWpContentNode(
-      limit: 20
-      filter: { nodeType: { in: ["Post", "Page"] } }
+      limit: $perPage
+      skip: $offset
+      filter: { nodeType: { in: ["Post", "Page", "Alot"] } }
       sort: { fields: date, order: DESC }
     ) {
       nodes {
