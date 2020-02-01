@@ -26,6 +26,7 @@
     "gatsby-image": "^2.2.39",
     "gatsby-plugin-chakra-ui": "^0.1.2",
     "gatsby-plugin-netlify-cache": "^1.2.0",
+    "gatsby-plugin-react-svg": "^3.0.0",
     "gatsby-plugin-sharp": "2.4.4",
     "gatsby-source-filesystem": "^2.1.47",
     "gatsby-source-wordpress-experimental": "0.0.0--alpha.7",

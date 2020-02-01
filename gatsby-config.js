@@ -46,6 +46,14 @@ module.exports = {
     },
     `gatsby-plugin-chakra-ui`,
     `gatsby-transformer-sharp`,
+    {
+      resolve: "gatsby-plugin-react-svg",
+      options: {
+        rule: {
+          include: /\.inline\.svg$/, // See below to configure properly
+        },
+      },
+    },
     `gatsby-plugin-netlify-cache`,
   ],
 }

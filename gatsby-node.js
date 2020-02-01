@@ -80,10 +80,7 @@ exports.createPages = async ({ actions, graphql }) => {
   // create the homepage
   const { data } = await graphql(`
     {
-      allWpContentNode(
-        filter: { nodeType: { in: ["Post", "Page", "Alot"] } }
-        sort: { fields: date, order: DESC }
-      ) {
+      allWpAlot(sort: { fields: date, order: DESC }) {
         nodes {
           uri
           id
@@ -93,7 +90,7 @@ exports.createPages = async ({ actions, graphql }) => {
   `)
 
   const perPage = 10
-  const chunkedContentNodes = chunk(data.allWpContentNode.nodes, perPage)
+  const chunkedContentNodes = chunk(data.allWpAlot.nodes, perPage)
 
   await Promise.all(
     chunkedContentNodes.map(async (nodesChunk, i) => {

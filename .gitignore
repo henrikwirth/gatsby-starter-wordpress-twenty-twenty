@@ -57,3 +57,4 @@ typings/
 .cache/
 public
 yarn-error.log
+src/.DS_Store

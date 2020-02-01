@@ -8,90 +8,83 @@ import { Stack, Box, Heading, Text, Grid, Button } from "@chakra-ui/core"
 import Layout from "../components/layout"
 import { normalizePath } from "../utils/get-url-path"
 
-export default ({ data, pageContext }) => {
-  const pages = data.allWpContentNode.nodes
-
-  return (
-    <Layout>
-      <Stack spacing={5}>
-        {pages.map(page => (
-          <Box key={page.link}>
-            <Link to={normalizePath(page.uri)}>
-              <Box p={5} shadow="md" borderWidth="1px">
-                <Grid templateColumns="1fr 2fr" gap={6}>
-                  <Box>
-                    {!!page.featuredImage &&
-                      !!page.featuredImage.remoteFile &&
-                      !!page.featuredImage.remoteFile.childImageSharp && (
-                        <Img
-                          fluid={
-                            page.featuredImage.remoteFile.childImageSharp.fluid
-                          }
-                        />
-                      )}
-                  </Box>
-                  <Box>
-                    <Heading as="h2" size="md">
-                      {page.title}
-                    </Heading>
-                    {!!page.author && !!page.author.name && (
-                      <Heading as="h3" size="sm">
-                        Author: {page.author.name}
-                      </Heading>
-                    )}
-
-                    <Box>
-                      <Text
-                        dangerouslySetInnerHTML={{ __html: page.excerpt }}
+export default ({ data, pageContext }) => (
+  <Layout>
+    <Stack spacing={5}>
+      {data.allWpAlot.nodes.map(page => (
+        <Box key={page.link}>
+          <Link to={normalizePath(page.uri)}>
+            <Box p={5} shadow="md" borderWidth="1px">
+              <Grid templateColumns="1fr 2fr" gap={6}>
+                <Box>
+                  {!!page.featuredImage &&
+                    !!page.featuredImage.remoteFile &&
+                    !!page.featuredImage.remoteFile.childImageSharp && (
+                      <Img
+                        fluid={
+                          page.featuredImage.remoteFile.childImageSharp.fluid
+                        }
                       />
-                    </Box>
-                  </Box>
-                </Grid>
-              </Box>
-            </Link>
-          </Box>
-        ))}
-      </Stack>
+                    )}
+                </Box>
+                <Box>
+                  <Heading as="h2" size="md">
+                    {page.title}
+                  </Heading>
+                  {!!page.author && !!page.author.name && (
+                    <Heading as="h3" size="sm">
+                      Author: {page.author.name}
+                    </Heading>
+                  )}
 
-      {pageContext && pageContext.totalPages > 3 && (
-        <Box mt={10}>
-          <ReactPaginate
-            previousLabel={
-              pageContext &&
-              pageContext.page !== 1 && (
-                <Button>
-                  <Link to={pageContext.page - 1}>Previous page</Link>
-                </Button>
-              )
-            }
-            nextLabel={
-              pageContext &&
-              pageContext.totalPages !== pageContext.page && (
-                <Button>
-                  <Link to={pageContext.page + 1}>Next page</Link>
-                </Button>
-              )
-            }
-            onPageChange={({ selected }) => {
-              const page = selected + 1
-              const path = page === 1 ? `/` : `/${page}`
-              console.log(path)
-              navigate(path)
-            }}
-            breakLabel={"..."}
-            breakClassName={"break-me"}
-            pageCount={pageContext.totalPages}
-            marginPagesDisplayed={2}
-            pageRangeDisplayed={5}
-            containerClassName={"pagination"}
-            subContainerClassName={"pages pagination"}
-            activeClassName={"active"}
-          />
+                  <Box>
+                    <Text dangerouslySetInnerHTML={{ __html: page.excerpt }} />
+                  </Box>
+                </Box>
+              </Grid>
+            </Box>
+          </Link>
         </Box>
-      )}
-    </Layout>
-  )
-}
+      ))}
+    </Stack>
+
+    {pageContext && pageContext.totalPages > 3 && (
+      <Box mt={10}>
+        <ReactPaginate
+          previousLabel={
+            pageContext &&
+            pageContext.page !== 1 && (
+              <Button>
+                <Link to={pageContext.page - 1}>Previous page</Link>
+              </Button>
+            )
+          }
+          nextLabel={
+            pageContext &&
+            pageContext.totalPages !== pageContext.page && (
+              <Button>
+                <Link to={pageContext.page + 1}>Next page</Link>
+              </Button>
+            )
+          }
+          onPageChange={({ selected }) => {
+            const page = selected + 1
+            const path = page === 1 ? `/` : `/${page}`
+            navigate(path)
+          }}
+          breakLabel={"..."}
+          breakClassName={"break-me"}
+          pageCount={pageContext.totalPages}
+          marginPagesDisplayed={2}
+          pageRangeDisplayed={5}
+          containerClassName={"pagination"}
+          subContainerClassName={"pages pagination"}
+          activeClassName={"active"}
+        />
+      </Box>
+    )}
+  </Layout>
+)
 
 export const query = graphql`
   fragment Thumbnail on File {
@@ -103,25 +96,7 @@ export const query = graphql`
   }
 
   query HomePage($offset: Int!, $perPage: Int!) {
-    # @todo there's a bug with @nodeInterface that causes this query to not re-run if the individual node list queries aren't also added here. even though they aren't being used.
-    allWpPost {
-      nodes {
-        id
-      }
-    }
-    allWpPage {
-      nodes {
-        id
-      }
-    }
-    allWpAlot {
-      nodes {
-        id
-      }
-    }
-
-    # this query is actually being used
-    allWpContentNode(
+    allWpAlot(
       limit: $perPage
       skip: $offset
       filter: { nodeType: { in: ["Post", "Page", "Alot"] } }
@@ -129,22 +104,10 @@ export const query = graphql`
     ) {
       nodes {
         uri
-        ... on WpNodeWithAuthor {
-          author {
-            name
-          }
-        }
-        ... on WpNodeWithTitle {
-          title
-        }
-        ... on WpNodeWithExcerpt {
-          excerpt
-        }
-        ... on WpNodeWithFeaturedImage {
-          featuredImage {
-            remoteFile {
-              ...Thumbnail
-            }
+        title
+        featuredImage {
+          remoteFile {
+            ...Thumbnail
           }
         }
       }
