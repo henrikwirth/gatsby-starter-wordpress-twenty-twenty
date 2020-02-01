@@ -1,4 +1,4 @@
-# gatsby-source-wordpress V4 starter
+# gatsby-source-wordpress V4 (alpha) starter
 
 **WARNING:** this is a work in progress. There will be bugs. Features and api's may dramatically change in this starter and the new source plugin it's using. Don't use this in production. Do try this if you know what you're doing and are experienced with Gatsby and WPGraphQL.
 
