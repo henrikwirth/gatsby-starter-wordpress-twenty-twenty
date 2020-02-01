@@ -39,7 +39,7 @@ module.exports = {
               }
             : {
                 Alot: {
-                  limit: 800,
+                  limit: 5000,
                 },
               },
       },
