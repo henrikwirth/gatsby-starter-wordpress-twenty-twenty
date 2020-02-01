@@ -30,7 +30,7 @@ module.exports = {
         type:
           // our "alot" post type has 30k posts.
           // Lets just pull 50 in development to make it easy on ourselves.
-          // and we don't actually need more than 5000 in production!
+          // and we don't actually need more than 10000 in production!
           process.env.NODE_ENV === `development`
             ? {
                 Alot: {
@@ -39,7 +39,7 @@ module.exports = {
               }
             : {
                 Alot: {
-                  limit: 800,
+                  limit: 10000,
                 },
               },
       },
