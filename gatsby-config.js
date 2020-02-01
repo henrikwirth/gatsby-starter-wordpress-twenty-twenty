@@ -15,15 +15,10 @@ module.exports = {
     {
       resolve: `gatsby-source-wordpress-experimental`,
       options: {
-        // url: `http://gatsbysourcewordpressv4.local/graphql`,
         url: `https://dev-gatsby-source-wordpress-v4.pantheonsite.io/graphql`,
         verbose: true,
-        debug: {
-          graphql: {
-            showQueryOnError: false,
-            copyQueryOnError: true,
-          },
-        },
+        // for wp-graphql-gutenberg, attributes currently breaks due
+        // to the origin schema. It works if we exclude attributes
         excludeFields: [`attributes`],
         schema: {
           queryDepth: 15,
@@ -32,41 +27,25 @@ module.exports = {
         develop: {
           nodeUpdateInterval: 5000,
         },
-        type: {
-          // NodeWithAuthor: {
-          //   exclude: true,
-          // },
-          MediaItem: {
-            lazyNodes: false,
-          },
-          Alot: {
-            limit: 5000
-          },
-          // example of afterRemoteNodeProcessed API
-          // Page: {
-          //   limit: 10,
-          //   afterRemoteNodeProcessed: async ({
-          //     remoteNode,
-          //     actionType,
-          //     wpStore,
-          //     fetchGraphql,
-          //     helpers,
-          //     actions,
-          //     buildTypeName,
-          //   }) => {
-          //     console.log(actionType)
-
-          //     return null
-          //   },
-          // },
-          // Post: {
-          //   exclude: true,
-          // },
-        },
+        type:
+          // our "alot" post type has 30k posts.
+          // Lets just pull 50 in development to make it easy on ourselves.
+          // and we don't actually need more than 5000 in production!
+          process.env.NODE_ENV === `development`
+            ? {
+                Alot: {
+                  limit: 50,
+                },
+              }
+            : {
+                Alot: {
+                  limit: 5000,
+                },
+              },
       },
     },
     `gatsby-plugin-chakra-ui`,
     `gatsby-transformer-sharp`,
-    `gatsby-plugin-netlify-cache`
+    `gatsby-plugin-netlify-cache`,
   ],
 }
