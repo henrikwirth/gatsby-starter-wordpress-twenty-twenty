@@ -2,6 +2,10 @@
 
 **WARNING:** this is a work in progress. There will be bugs. Features and api's may dramatically change in this starter and the new source plugin it's using. Don't use this in production. Do try this if you know what you're doing and are experienced with Gatsby and WPGraphQL.
 
+## Intro
+
+This starter uses an early alpha version of the upcoming `gatsby-source-wordpress@v4`. For now, the only documentation that exists is here in this starter. That will soon change - better docs will be written and moved to the Gatsby repo as features solidify and things become more stable.
+
 ## Installation
 
 - Install Gatsby and gatsby-cli
@@ -19,11 +23,11 @@
 
 ## Cool features
 
-- Pulls as much of the remote WPGQL schema as possible and creates Gatsby nodes from that data. Data is never fetched twice. If we may already have data, for example on a connection field between an Author and a Post, we only pull the id of the Post and link them in Gatsby.
+- Automatically pulls as much of the remote WPGQL schema as possible and creates Gatsby nodes from that data. Data is never fetched twice. If we will already have data, for example on a connection field between an Author and a Post, we only pull the id of the Post and link the field to the Post node in Gatsby.
 - After the first build or run of develop only changed data is pulled.
-- Only pulls referenced media items and files. If you have a site where an admin has uploaded 10k images but there are only 1k pages, we don't want to have to pull all those images, just the ones that are used. That's the default behaviour of the source plugin.
-- Potentially works with all (or most) WPGQL plugins. So ACF, polylang, etc will work.
-- Have a site with 50k posts and you want to do some quick development on it? You can limit the amount of nodes that will be pulled by type in the plugin options so you can get working quickly by setting it to only pull 10 posts and start working immediately.
+- Only referenced media items and files are downloaded. If you have a site where an admin has uploaded 10k images but there are only 1k pages, we don't want to have to pull all those images, just the ones that are used. That's the default behaviour of the source plugin.
+- Potentially works with all (or most) WPGQL plugins. So ACF, polylang, etc will work. See "known issues" below if a plugin doesn't work.
+- Do you have a site with 50k posts and you want to do some quick development on it? You can limit the amount of nodes that will be pulled by setting an option to limit the amount of posts that will be pulled (by typename) in the plugin options. For example, you can get working quickly by setting the plugin to only pull 10 posts.
 - If the remote schema changes between builds, the entire cache will be invalidated and the plugin will start a fresh pull/build.
 - Lot's of other things :p will write more/actual documentation as features solidify
 
