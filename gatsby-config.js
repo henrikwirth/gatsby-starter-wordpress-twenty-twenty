@@ -28,17 +28,16 @@ module.exports = {
           nodeUpdateInterval: 5000,
         },
         type:
-          // our "alot" post type has 30k posts.
-          // Lets just pull 50 in development to make it easy on ourselves.
+          // Lets just pull 50 posts in development to make it easy on ourselves.
           // and we don't actually need more than 5000 in production!
           process.env.NODE_ENV === `development`
             ? {
-                Alot: {
+                Post: {
                   limit: 50,
                 },
               }
             : {
-                Alot: {
+                Post: {
                   limit: 5000,
                 },
               },

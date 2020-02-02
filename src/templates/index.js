@@ -11,7 +11,7 @@ import { normalizePath } from "../utils/get-url-path"
 export default ({ data, pageContext }) => (
   <Layout>
     <Stack spacing={5}>
-      {data.allWpAlot.nodes.map(page => (
+      {data.allWpPost.nodes.map(page => (
         <Box key={page.link}>
           <Link to={normalizePath(page.uri)}>
             <Box p={5} shadow="md" borderWidth="1px">
@@ -96,7 +96,7 @@ export const query = graphql`
   }
 
   query HomePage($offset: Int!, $perPage: Int!) {
-    allWpAlot(
+    allWpPost(
       limit: $perPage
       skip: $offset
       filter: { nodeType: { in: ["Post", "Page", "Alot"] } }
