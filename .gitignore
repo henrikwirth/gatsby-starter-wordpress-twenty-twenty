@@ -58,3 +58,5 @@ typings/
 public
 yarn-error.log
 .DS_Store
+.env.*
+!.env.GATSBY_CONCURRENT_DOWNLOAD

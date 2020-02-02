@@ -1,5 +1,10 @@
 require("dotenv").config({
-  path: `.env.concurrent_download`,
+  path: `.env.GATSBY_CONCURRENT_DOWNLOAD`,
+})
+
+// require .env.development or .env.production
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
 })
 
 module.exports = {
@@ -15,7 +20,9 @@ module.exports = {
     {
       resolve: `gatsby-source-wordpress-experimental`,
       options: {
-        url: `https://dev-gatsby-source-wordpress-v4.pantheonsite.io/graphql`,
+        url:
+          process.env.WPGRAPHQL_URL ||
+          `https://dev-gatsby-source-wordpress-v4.pantheonsite.io/graphql`,
         verbose: true,
         // for wp-graphql-gutenberg, attributes currently breaks due
         // to the origin schema. It works if we exclude attributes
