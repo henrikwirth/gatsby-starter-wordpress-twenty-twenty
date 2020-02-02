@@ -55,7 +55,7 @@ export default ({ data, pageContext }) => (
             pageContext &&
             pageContext.page !== 1 && (
               <Button>
-                <Link to={pageContext.page - 1}>Previous page</Link>
+                <Link to={`/blog/${pageContext.page - 1}`}>Previous page</Link>
               </Button>
             )
           }
@@ -63,13 +63,13 @@ export default ({ data, pageContext }) => (
             pageContext &&
             pageContext.totalPages !== pageContext.page && (
               <Button>
-                <Link to={pageContext.page + 1}>Next page</Link>
+                <Link to={`/blog/${pageContext.page + 1}`}>Next page</Link>
               </Button>
             )
           }
           onPageChange={({ selected }) => {
             const page = selected + 1
-            const path = page === 1 ? `/` : `/${page}`
+            const path = page === 1 ? `/blog` : `/blog/${page}`
             navigate(path)
           }}
           breakLabel={"..."}
