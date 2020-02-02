@@ -36,6 +36,26 @@ This starter uses an early alpha version of the upcoming `gatsby-source-wordpres
 - For now I recommend hosting on pantheon (or another high-performance WP host) for your remote WP server, and using Local by Flywheel (upgrade to the latest version for ultra-speed) to do local development. You can use this with other setups, but it may be less enjoyable if your server is slower than the recommended setup. More work will be done in the future to ensure this works well on all types of hosts. If you use a slower setup, change GATSBY_CONCURRENT_DOWNLOADS to a lower number to prevent your server from getting overloaded.
 - Stick to WPGraphQL v0.6.x for now, as previous or future versions may not yet work with the new source plugin (untested)
 
+## Debugging
+
+If you're getting errors while the nodes are being sourced, you can see which query had the error with the following options:
+
+```js
+{
+  resolve: `gatsby-source-wordpress-experimental`,
+  options: {
+    debug: {
+      graphql: {
+        showQueryOnError: true,
+        showQueryVarsOnError: true,
+        copyQueryOnError: true,
+        panicOnError: true,
+      },
+    },
+  }
+}
+```
+
 ## Super rough and unscientific benchmarks using pantheon as a host
 
 - With a 6k page site that has 5k images and 12k image transforms - Gatsby cloud built this in 20 minutes. A second rebuild with some changed content took 2 minutes.
