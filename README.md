@@ -19,7 +19,7 @@ This starter uses an early alpha version of the upcoming `gatsby-source-wordpres
 - In `gatsby-config.js`, update the plugin options for `gatsby-source-wordpress-experimental`
   - Change `url` to point to your WordPress install. This should be the full url of your graphql endpoint. Eg `https://yoursite.com/graphql`
   - The `nodeUpdateInterval` option specifies in milliseconds how often Gatsby will ask WP what data has changed during development. If you want to see data update in near-realtime while you're developing, set this low. Your server may have trouble responding to too many requests over a long period of time and in that case, set this high. Setting it higher saves electricity too ⚡️🌲
-- in .env.concurrent_download, set how many concurrent connections your server can handle. If this plugin knocks your server over and it stops responding, lower the concurrent connections.
+- in .env.GATSBY_CONCURRENT_DOWNLOAD, set how many concurrent connections your server can handle. If this plugin knocks your server over and it stops responding, lower the concurrent connections.
 
 ## Cool features
 
