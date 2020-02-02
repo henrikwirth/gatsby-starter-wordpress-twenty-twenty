@@ -50,3 +50,8 @@ This starter uses an early alpha version of the upcoming `gatsby-source-wordpres
 - Changing the homepage doesn't invalidate the cache
 - If you use any additional plugins that modify the WPGQL schema, and those plugins API's haven't been designed to have all their fields fetched at once, you may get errors. The reason this happens is that `gatsby-source-wordpress-experimental` looks at the remote schema, constructs a GraphQL query for every possible field we could fetch, and then attempts to fetch that data. This only happens on the first build or first run of develop, and then on subsequent builds/develops it only pulls changed data since the last time. This has the effect of validating the remote schema in ways that are normally tedious or difficult to do for plugin authors, so you may see errors related to this. If you do, you can get around it by omitting certain fields from the remote schema in plugin options. For example, to support wp-graphql-gutenberg, I've excluded the `attributes` field here, as it's problematic to fetch all attributes at once. The api for working around this will be changed and future work to prevent these kinds of errors will be done to `gatsby-source-wordpress-experimental` to mitigate this.
 - Probably other things :p
+
+
+## gatsby-source-wordpress-experimental
+
+Currently the source plugin code is living here -> https://github.com/TylerBarnes/gatsby/tree/feat/source-wordpress-v4 in `src/packages/gatsby-source-wordpress-experimental`
