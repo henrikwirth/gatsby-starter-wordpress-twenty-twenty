@@ -32,7 +32,7 @@ module.exports = {
           typePrefix: `Wp`,
         },
         develop: {
-          nodeUpdateInterval: 500,
+          nodeUpdateInterval: 3000,
         },
         debug: {
           graphql: {
