@@ -32,7 +32,15 @@ module.exports = {
           typePrefix: `Wp`,
         },
         develop: {
-          nodeUpdateInterval: 5000,
+          nodeUpdateInterval: 500,
+        },
+        debug: {
+          graphql: {
+            showQueryOnError: false,
+            showQueryVarsOnError: false,
+            copyQueryOnError: false,
+            panicOnError: false,
+          },
         },
         type:
           // Lets just pull 50 posts in development to make it easy on ourselves.
