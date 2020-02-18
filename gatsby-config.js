@@ -21,8 +21,7 @@ module.exports = {
       resolve: `gatsby-source-wordpress-experimental`,
       options: {
         url:
-          // process.env.WPGRAPHQL_URL ||
-          // `http://cookie.local/graphql`,
+          process.env.WPGRAPHQL_URL ||
           `https://dev-gatsby-source-wordpress-v4.pantheonsite.io/graphql`,
         verbose: true,
         // for wp-graphql-gutenberg, attributes currently breaks due
@@ -43,16 +42,20 @@ module.exports = {
             panicOnError: false,
           },
         },
-        type: {
-          Post: {
-            limit:
-              process.env.NODE_ENV === `development`
-                ? // Lets just pull 50 posts in development to make it easy on ourselves.
-                  50
-                : // and we don't actually need more than 5000 in production
-                  5000,
-          },
-        },
+        type:
+          // Lets just pull 50 posts in development to make it easy on ourselves.
+          // and we don't actually need more than 5000 in production!
+          process.env.NODE_ENV === `development`
+            ? {
+                Post: {
+                  limit: 50,
+                },
+              }
+            : {
+                Post: {
+                  limit: 5000,
+                },
+              },
       },
     },
     `gatsby-plugin-chakra-ui`,
