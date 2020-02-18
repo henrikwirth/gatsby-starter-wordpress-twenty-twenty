@@ -28,7 +28,7 @@ module.exports = {
         // to the origin schema. It works if we exclude attributes
         excludeFields: [`attributes`],
         schema: {
-          queryDepth: 15,
+          queryDepth: 5,
           typePrefix: `Wp`,
         },
         develop: {
