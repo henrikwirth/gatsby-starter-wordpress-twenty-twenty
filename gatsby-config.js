@@ -42,20 +42,16 @@ module.exports = {
             panicOnError: false,
           },
         },
-        type:
-          // Lets just pull 50 posts in development to make it easy on ourselves.
-          // and we don't actually need more than 5000 in production!
-          process.env.NODE_ENV === `development`
-            ? {
-                Post: {
-                  limit: 50,
-                },
-              }
-            : {
-                Post: {
-                  limit: 5000,
-                },
-              },
+        type: {
+          Post: {
+            limit:
+              process.env.NODE_ENV === `development`
+                ? // Lets just pull 50 posts in development to make it easy on ourselves.
+                  50
+                : // and we don't actually need more than 5000 in production
+                  5000,
+          },
+        },
       },
     },
     `gatsby-plugin-chakra-ui`,
