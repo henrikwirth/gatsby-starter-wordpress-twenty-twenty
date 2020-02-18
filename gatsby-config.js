@@ -40,6 +40,8 @@ module.exports = {
             showQueryVarsOnError: false,
             copyQueryOnError: false,
             panicOnError: false,
+            // a critical error is a WPGraphQL query that returns an error and response data. Currently WPGQL will error if we try to access private posts so if this is false it returns a lot of irrelevant errors.
+            onlyReportCriticalErrors: true,
           },
         },
         type: {
