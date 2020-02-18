@@ -99,7 +99,7 @@ exports.createPages = async ({ actions, graphql }) => {
 
       await actions.createPage({
         component: resolve(`./src/templates/index.js`),
-        path: page === 1 ? `/blog` : `/blog/${page}`,
+        path: page === 1 ? `/blog/` : `/blog/${page}/`,
         context: {
           firstId: firstNode.id,
           page: page,
