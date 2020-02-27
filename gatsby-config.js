@@ -51,7 +51,7 @@ module.exports = {
                 ? // Lets just pull 50 posts in development to make it easy on ourselves.
                   50
                 : // and we don't actually need more than 1000 in production
-                  1000,
+                  10000,
           },
         },
       },
