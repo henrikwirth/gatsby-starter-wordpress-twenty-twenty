@@ -24,6 +24,7 @@ This starter uses an early alpha version of the upcoming `gatsby-source-wordpres
 
 ## Cool features
 
+- Supports Gatsby cloud preview (see below)
 - Automatically pulls as much of the remote WPGQL schema as possible and creates Gatsby nodes from that data. Data is never fetched twice. If we will already have data, for example on a connection field between an Author and a Post, we only pull the id of the Post and link the field to the Post node in Gatsby.
 - After the first build or run of develop only changed data is pulled.
 - Only referenced media items and files are downloaded. If you have a site where an admin has uploaded 10k images but there are only 1k pages, we don't want to have to pull all those images, just the ones that are used. That's the default behaviour of the source plugin. There is also an option to lazily download files as they're queried for, but it's currently problematic for some CI providers, it messes up cli output, and Gatsby currently only runs 4 gql queries concurrently which slows down file fetching. This will work in the future though!
@@ -31,6 +32,15 @@ This starter uses an early alpha version of the upcoming `gatsby-source-wordpres
 - Do you have a site with 50k posts and you want to do some quick development on it? You can limit the amount of nodes that will be pulled by setting an option to limit the amount of posts that will be pulled (by typename) in the plugin options. For example, you can get working quickly by setting the plugin to only pull 10 posts.
 - If the remote schema changes between builds, the entire cache will be invalidated and the plugin will start a fresh pull/build.
 - Lot's of other things :p will write more/actual documentation as features solidify
+
+## Gatsby Cloud Preview
+
+Preview is supported! For now with a couple caveats:
+
+- [wp-graphql-jwt-auth](https://github.com/wp-graphql/wp-graphql-jwt-authentication) is a required plugin until jwt auth is added directly to WPGatsby
+- WPGraphQL currently only revisions titles and post content. Soon ACF revision support will be added and any unrevisioned data/meta will be pulled from the main post (for ex for featured images)
+
+To get started, setup a Preview instance on Gatsby cloud, then take your preview URL and add it to your WP instance under wp-admin->Settings->GatsbyJS->"Preview Webhook"
 
 ## Recommendations
 
@@ -71,7 +81,6 @@ If you're getting errors while the nodes are being sourced, you can see which qu
 - Changing the homepage doesn't invalidate the cache
 - If you use any additional plugins that modify the WPGQL schema, and those plugins API's haven't been designed to have all their fields fetched at once, you may get errors. The reason this happens is that `gatsby-source-wordpress-experimental` looks at the remote schema, constructs a GraphQL query for every possible field we could fetch, and then attempts to fetch that data. This only happens on the first build or first run of develop, and then on subsequent builds/develops it only pulls changed data since the last time. This has the effect of validating the remote schema in ways that are normally tedious or difficult to do for plugin authors, so you may see errors related to this. If you do, you can get around it by omitting certain fields from the remote schema in plugin options. For example, to support wp-graphql-gutenberg, I've excluded the `attributes` field here, as it's problematic to fetch all attributes at once. The api for working around this will be changed and future work to prevent these kinds of errors will be done to `gatsby-source-wordpress-experimental` to mitigate this.
 - Probably other things :p
-
 
 ## gatsby-source-wordpress-experimental
 
