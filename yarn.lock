@@ -6760,10 +6760,10 @@ gatsby-source-filesystem@^2.2.2:
     valid-url "^1.0.9"
     xstate "^4.8.0"
 
-gatsby-source-wordpress-experimental@0.0.17:
-  version "0.0.17"
-  resolved "https://registry.yarnpkg.com/gatsby-source-wordpress-experimental/-/gatsby-source-wordpress-experimental-0.0.17.tgz#39d64e257240ca1c882efc2b2a6316f9a5f5b6a9"
-  integrity sha512-UnyHK/hmOEKJt5Hk1a5eKXZBV8dYAg7vbrjIj1sIEo4sCM1raGJmUyfD82RHdJ/B2Flbriws1HSRKgg+vn/DQw==
+gatsby-source-wordpress-experimental@0.0.19:
+  version "0.0.19"
+  resolved "https://registry.yarnpkg.com/gatsby-source-wordpress-experimental/-/gatsby-source-wordpress-experimental-0.0.19.tgz#5327a9a11c22535a0d46dae5b1449b79a5190581"
+  integrity sha512-8Y4YADLgAGT4udy15+dt79anAI/KUdrW3Je6oShoIQ1ST5IUY+9x7LlvyB0wsV6BVVuLg/1fT75fuOEmCNde+Q==
   dependencies:
     "@babel/runtime" "^7.6.3"
     "@rematch/core" "^1.3.0"
@@ -6816,10 +6816,10 @@ gatsby-transformer-sharp@2.4.2:
     semver "^5.7.1"
     sharp "^0.25.1"
 
-gatsby@2.20.6:
-  version "2.20.6"
-  resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-2.20.6.tgz#3a5859d618bedd44198449f2b67291187746037d"
-  integrity sha512-fuu30hEMGQA4iZd1WBdW0A+rIvwCpy5IbnOhPiIpw/EVusDGxMgim5ei1KWdiJ6DolHZ3zTnHlBi9U4Io7zIoQ==
+gatsby@2.20.7:
+  version "2.20.7"
+  resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-2.20.7.tgz#0c7cec8855529a7579c622659815ea57d37cd4b0"
+  integrity sha512-QNUzfzudFaoXbxqTXykW8epSArxEhzBBgUfJOs7LVZpE2I39xX81lsgd9X2UEfrvv8RLTd/qvS6zYGh68/+zAA==
   dependencies:
     "@babel/code-frame" "^7.8.3"
     "@babel/core" "^7.8.7"
