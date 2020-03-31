@@ -30,9 +30,13 @@ module.exports = {
         schema: {
           queryDepth: 5,
           typePrefix: `Wp`,
+          timeout: 30000,
         },
         develop: {
           nodeUpdateInterval: 3000,
+          hardCacheMediaFiles: false,
+        },
+        production: {
           hardCacheMediaFiles: false,
         },
         debug: {
