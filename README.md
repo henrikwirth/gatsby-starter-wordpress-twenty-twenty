@@ -1,6 +1,6 @@
 # gatsby-source-wordpress V4 (alpha) starter
 
-**WARNING:** this is a work in progress. There will be bugs. Features and api's may dramatically change in this starter and the new source plugin it's using. Don't use this in production. Do try this if you know what you're doing and are experienced with Gatsby and WPGraphQL. This starter is also not thoroughly considered and was written quickly to show how to set-up the new plugin.
+**WARNING:** this is a work in progress. There will be bugs. Features and api's may change in this starter and the new source plugin it's using. This starter is also not thoroughly considered and was written quickly to show how to set-up the new plugin.
 
 ## Intro
 
@@ -32,17 +32,6 @@ This starter uses an early alpha version of the upcoming `gatsby-source-wordpres
 - Do you have a site with 50k posts and you want to do some quick development on it? You can limit the amount of nodes that will be pulled by setting an option to limit the amount of posts that will be pulled (by typename) in the plugin options. For example, you can get working quickly by setting the plugin to only pull 10 posts.
 - If the remote schema changes between builds, the entire cache will be invalidated and the plugin will start a fresh pull/build.
 - Lot's of other things :p will write more/actual documentation as features solidify
-
-## WP Preview
-
-Preview is supported! For now with a couple caveats:
-
-- [wp-graphql-jwt-auth](https://github.com/wp-graphql/wp-graphql-jwt-authentication) is a required plugin until jwt auth is added directly to WPGatsby
-- Since WP currently only revisions titles and post content the same is true for WPGraphQL. Soon ACF revision support will be added and any unrevisioned data/meta will be pulled from the main post of the revision (for ex for featured images)
-
-To get started, setup a Preview instance on Gatsby cloud, then take your preview URL and add it to your WP instance under wp-admin->Settings->GatsbyJS->"Preview Webhook"
-
-You can also host your own preview server or test it out locally by running `ENABLE_GATSBY_REFRESH_ENDPOINT=true gatsby develop` and pointing your Preview webhook setting at `http://localhost:8000` or at the url for your self-hosted preview instance.
 
 ## Recommendations
 
