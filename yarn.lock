@@ -6760,10 +6760,10 @@ gatsby-source-filesystem@^2.2.2:
     valid-url "^1.0.9"
     xstate "^4.8.0"
 
-gatsby-source-wordpress-experimental@0.0.23:
-  version "0.0.23"
-  resolved "https://registry.yarnpkg.com/gatsby-source-wordpress-experimental/-/gatsby-source-wordpress-experimental-0.0.23.tgz#5b5e2ac10760d29b54082b5eb2174059c6233fba"
-  integrity sha512-GD0gA9vnWWUEhPV/Lt8J5U9XBtIJcYKNcXlkhJg87fZhJISQWFwzI4+eejOIZXwx30MzyrWG9/3duPUbMUETiw==
+gatsby-source-wordpress-experimental@0.0.24:
+  version "0.0.24"
+  resolved "https://registry.yarnpkg.com/gatsby-source-wordpress-experimental/-/gatsby-source-wordpress-experimental-0.0.24.tgz#a442891a3e86d5a136f8d5e0311a562f68d3e77c"
+  integrity sha512-PZcw7FWqNkdWs6OFYaIpE+1SHrjMJpfOb/NQe+KvGtxUYZ9V23brVghBQ0OCRCUywFY6Ai3Pb6VAcGqfhbSB1A==
   dependencies:
     "@babel/runtime" "^7.6.3"
     "@rematch/core" "^1.3.0"
