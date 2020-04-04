@@ -33,6 +33,17 @@ This starter uses an early alpha version of the upcoming `gatsby-source-wordpres
 - If the remote schema changes between builds, the entire cache will be invalidated and the plugin will start a fresh pull/build.
 - Lot's of other things :p will write more/actual documentation as features solidify
 
+## WP Preview
+
+Preview is supported! For now with a couple caveats:
+
+- [wp-graphql-jwt-auth](https://github.com/wp-graphql/wp-graphql-jwt-authentication) is a required plugin until jwt auth is added directly to WPGatsby
+- Since WP currently only revisions titles and post content the same is true for WPGraphQL. Soon ACF revision support will be added and any unrevisioned data/meta will be pulled from the main post of the revision (for ex for featured images)
+
+To get started, setup a Preview instance on Gatsby cloud, then take your preview URL and add it to your WP instance under wp-admin->Settings->GatsbyJS->"Preview Webhook"
+
+You can also host your own preview server or test it out locally by running `ENABLE_GATSBY_REFRESH_ENDPOINT=true gatsby develop` and pointing your Preview webhook setting at `http://localhost:8000` or at the url for your self-hosted preview instance.
+
 ## Recommendations
 
 - For now I recommend hosting on pantheon (or another high-performance WP host) for your remote WP server, and using Local by Flywheel (upgrade to the latest version for ultra-speed) to do local development. You can use this with other setups, but it may be less enjoyable if your server is slower than the recommended setup. More work will be done in the future to ensure this works well on all types of hosts. If you use a slower setup, change GATSBY_CONCURRENT_DOWNLOADS to a lower number to prevent your server from getting overloaded.
