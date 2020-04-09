@@ -24,9 +24,6 @@ module.exports = {
           process.env.WPGRAPHQL_URL ||
           `https://dev-gatsby-source-wordpress-v4.pantheonsite.io/graphql`,
         verbose: true,
-        // for wp-graphql-gutenberg, attributes currently breaks due
-        // to the origin schema. It works if we exclude attributes
-        excludeFields: [`attributes`],
         schema: {
           queryDepth: 5,
           typePrefix: `Wp`,
@@ -40,15 +37,22 @@ module.exports = {
           hardCacheMediaFiles: false,
         },
         debug: {
+          // these settings are all the defaults,
+          // remove them if you'd like
           graphql: {
             showQueryOnError: false,
-            showQueryVarsOnError: false,
-            copyQueryOnError: false,
-            panicOnError: false,
-            // a critical error is a WPGraphQL query that returns an error and response data. Currently WPGQL will error if we try to access private posts so if this is false it returns a lot of irrelevant errors.
+            showQueryVarsOnError: true,
+            copyQueryOnError: true,
+            panicOnError: true,
+            // a critical error is a WPGraphQL query that returns an error and no response data. Currently WPGQL will error if we try to access private posts so if this is false it returns a lot of irrelevant errors.
             onlyReportCriticalErrors: true,
           },
         },
+        // fields can be excluded globally.
+        // this example is for wp-graphql-gutenberg.
+        // since we can get block data on the `block` field
+        // we don't need these fields
+        excludeFields: [`blocksJSON`, `saveContent`],
         type: {
           Post: {
             limit:
@@ -57,6 +61,17 @@ module.exports = {
                   50
                 : // and we don't actually need more than 5000 in production
                   5000,
+          },
+          // this shows how to exclude entire types from the schema
+          // these examples are for wp-graphql-gutenberg
+          CoreParagraphBlockAttributes: {
+            exclude: true,
+          },
+          CoreParagraphBlockAttributesV2: {
+            exclude: true,
+          },
+          CorePullquoteBlockAttributes: {
+            exclude: true,
           },
         },
       },
