@@ -35,10 +35,7 @@ This starter uses an early alpha version of the upcoming `gatsby-source-wordpres
 
 ## WP Preview
 
-Preview is supported! For now with a couple caveats:
-
-- [wp-graphql-jwt-auth](https://github.com/wp-graphql/wp-graphql-jwt-authentication) is a required plugin until jwt auth is added directly to WPGatsby
-- Since WP currently only revisions titles and post content the same is true for WPGraphQL. Soon ACF revision support will be added and any unrevisioned data/meta will be pulled from the main post of the revision (for ex for featured images)
+Since WP currently only revisions titles and post content the same is true for WPGraphQL. Soon ACF revision support will be added and any unrevisioned data/meta will be pulled from the main post of the revision (for ex for featured images)
 
 To get started, setup a Preview instance on Gatsby cloud, then take your preview URL and add it to your WP instance under wp-admin->Settings->GatsbyJS->"Preview Webhook"
 
