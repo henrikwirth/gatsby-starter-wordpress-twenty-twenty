@@ -74,7 +74,6 @@ If you're getting errors while the nodes are being sourced, you can see which qu
 ## Known issues
 
 - This starter doesn't build it's Styled components properly
-- WPGatsby doesn't use the build webhook in settings
 - The cache isn't selectively invalidated for every possible user interaction. For now this only works for creating/updating/deleting/reattributing users and adding or removing them based on if their profile is public or not, creating/deleting/drafting/updating posts/pages/CPT's, editing/creating/deleting media items, and adding/editing/deleting categories/terms/tags.
 - Changing the homepage doesn't invalidate the cache
 - Probably other things :p
