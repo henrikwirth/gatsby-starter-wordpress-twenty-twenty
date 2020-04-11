@@ -12,8 +12,7 @@ This starter uses an early alpha version of the upcoming `gatsby-source-wordpres
 - Set up this starter locally `gatsby new wordpress-v4 https://github.com/TylerBarnes/using-gatsby-source-wordpress-experimental`
 - In the `WordPress/plugins/` directory of this starter there are two plugins which both need to be installed into a live WordPress installation
   - WPGraphQL v0.6.1 - this adds GraphQL to our WordPress server
-  - WPGatsby v0.0.1 - this modifies the WPGQL schema and records when user actions have happened to allow us to do selective cache invalidation in Gatsby (to speed up builds).
-  - For now, ignore the update notification for WPGatsby on the plugins page in wp-admin https://github.com/TylerBarnes/using-gatsby-source-wordpress-experimental/issues/1.
+  - WPGatsby v0.2.0 - this modifies the WPGQL schema and records when user actions have happened to allow us to do selective cache invalidation in Gatsby (to speed up builds).
 
 ## Getting started
 
