@@ -8,9 +8,7 @@ This starter uses an early alpha version of the upcoming `gatsby-source-wordpres
 - The paginated blog on the homepage isn't offsetting posts properly
 - Probably other things :p
 
-## gatsby-source-wordpress-experimental
+## Links
 
-- [source plugin code](https://github.com/TylerBarnes/gatsby/tree/feat/source-wordpress-v4/packages/gatsby-source-wordpress-experimental)
-- [WPGatsby code](https://github.com/TylerBarnes/gatsby/tree/feat/source-wordpress-v4/packages/wp-gatsby)
-- [Change Log](https://github.com/TylerBarnes/gatsby/blob/feat/source-wordpress-v4/packages/gatsby-source-wordpress-experimental/CHANGELOG.md)
-- [Readme](https://github.com/TylerBarnes/gatsby/blob/feat/source-wordpress-v4/packages/gatsby-source-wordpress-experimental/README.md)
+- [gatsby-source-wordpress-experimental](https://github.com/TylerBarnes/gatsby/tree/feat/source-wordpress-v4/packages/gatsby-source-wordpress-experimental)
+- [wpgatsby](https://github.com/TylerBarnes/gatsby/tree/feat/source-wordpress-v4/packages/wp-gatsby)
