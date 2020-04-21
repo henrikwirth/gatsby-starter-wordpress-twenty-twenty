@@ -32,7 +32,6 @@
     "gatsby-source-filesystem": "^2.2.2",
     "gatsby-source-wordpress-experimental": "0.0.31",
     "gatsby-transformer-sharp": "2.4.4",
-    "parse-path": "^4.0.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-paginate": "^6.3.2"
