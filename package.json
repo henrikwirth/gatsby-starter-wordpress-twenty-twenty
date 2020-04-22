@@ -1,5 +1,5 @@
 {
-  "name": "using-gatsby-source-wordpress-experimental",
+  "name": "gatsby-source-wordpress-experimental",
   "description": "Gatsby example site using gatsby-source-wordpress@next",
   "license": "MIT",
   "version": "0.0.1",
@@ -11,17 +11,13 @@
     "develop": "gatsby develop",
     "clean": "gatsby clean",
     "build": "gatsby build",
-    "clean-develop": "gatsby clean && gatsby develop",
-    "clean-build": "gatsby clean && gatsby build",
+    "cdev": "gatsby clean && gatsby develop",
+    "cbuild": "gatsby clean && gatsby build",
     "start": "npm run develop",
     "serve": "gatsby serve"
   },
   "dependencies": {
-    "@chakra-ui/core": "^0.7.0",
-    "@emotion/core": "^10.0.28",
-    "@emotion/styled": "^10.0.27",
     "dotenv": "^8.2.0",
-    "emotion-theming": "^10.0.27",
     "gatsby": "2.20.18",
     "gatsby-image": "^2.3.2",
     "gatsby-plugin-chakra-ui": "^0.1.4",
@@ -32,8 +28,12 @@
     "gatsby-source-filesystem": "^2.2.2",
     "gatsby-source-wordpress-experimental": "0.0.31",
     "gatsby-transformer-sharp": "2.4.4",
+    "gatsby-wordpress-experimental-inline-images": "^0.0.3",
+    "moment": "^2.24.0",
+    "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-helmet": "^6.0.0",
     "react-paginate": "^6.3.2"
   },
   "devDependencies": {

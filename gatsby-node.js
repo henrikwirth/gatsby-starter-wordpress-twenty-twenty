@@ -53,6 +53,8 @@ exports.createPages = async ({ actions, graphql }) => {
           nodes {
             uri
             id
+            date
+            ${singularName === "page" ? "isFrontPage" : ""}
           }
         }
       }
@@ -64,9 +66,10 @@ exports.createPages = async ({ actions, graphql }) => {
       nodes.map(async (node, i) => {
         // @todo: determine why pages using allWpContentNode queries
         // don't get automatically updated with incremental data fetching
+
         await actions.createPage({
           component: resolve(contentTypeTemplate),
-          path: node.uri,
+          path: node.isFrontPage ? "/" : node.uri,
           context: {
             id: node.id,
             nextPage: (nodes[i + 1] || {}).id,
@@ -77,34 +80,44 @@ exports.createPages = async ({ actions, graphql }) => {
     )
   }
 
-  // create the homepage
+  // create blog overview page
+
+  // If you use another page as frontPage, you should define a URI like '/blog/' here.
+  const blogURI = "/"
+
   const { data } = await graphql(`
     {
       allWpPost(sort: { fields: date, order: DESC }) {
         nodes {
           uri
           id
+          date
+        }
+      }
+      
+      wp {
+        readingSettings {
+          postsPerPage
         }
       }
     }
   `)
 
-  const perPage = 10
+  const perPage = data.wp.readingSettings.postsPerPage || 10
   const chunkedContentNodes = chunk(data.allWpPost.nodes, perPage)
 
   await Promise.all(
-    chunkedContentNodes.map(async (nodesChunk, i) => {
+    chunkedContentNodes.map(async (nodesChunk, index) => {
       const firstNode = nodesChunk[0]
-      const page = i + 1
 
       await actions.createPage({
-        component: resolve(`./src/templates/index.js`),
-        path: page === 1 ? `/blog/` : `/blog/${page}/`,
+        component: resolve(`./src/templates/archive.js`),
+        path: index === 0 ? blogURI : `${blogURI}${index + 1}/`,
         context: {
           firstId: firstNode.id,
-          page: page,
-          offset: perPage * page,
-          totalPages: chunkedContentNodes.length - 1,
+          offset: perPage * index,
+          pageNumber: index + 1,
+          totalPages: chunkedContentNodes.length,
           perPage,
         },
       })
