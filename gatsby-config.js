@@ -1,5 +1,5 @@
 require("dotenv").config({
-  path: `.env.GATSBY_CONCURRENT_DOWNLOAD`,
+  path: `.env`,
 })
 
 // require .env.development or .env.production
@@ -8,6 +8,11 @@ require("dotenv").config({
 })
 
 module.exports = {
+  siteMetadata: {
+    title: `Gatsby WordPress Twenty Twenty`,
+    description: `Gatsby starter site for Twenty Twenty Gatsby Theme.`,
+    author: `@henrikwirth`,
+  },
   plugins: [
     `gatsby-plugin-notifications`,
     `gatsby-plugin-sharp`,
@@ -18,12 +23,11 @@ module.exports = {
         path: `${__dirname}/src/assets/images`,
       },
     },
+    `gatsby-plugin-netlify-cache`,
     {
       resolve: `gatsby-source-wordpress-experimental`,
       options: {
-        url:
-          process.env.WPGRAPHQL_URL ||
-          `https://dev-gatsby-source-wordpress-v4.pantheonsite.io/graphql`,
+        url: process.env.WPGRAPHQL_URL,
         verbose: true,
         schema: {
           queryDepth: 5,
@@ -49,6 +53,15 @@ module.exports = {
             onlyReportCriticalErrors: true,
           },
         },
+        // plugins: [
+        //   {
+        //     resolve: `gatsby-wordpress-experimental-inline-images`,
+        //     options: {
+        //       baseUrl: process.env.WP_BASE_URL,
+        //       protocol: `https`,
+        //     }
+        //   }
+        // ],
         // fields can be excluded globally.
         // this example is for wp-graphql-gutenberg.
         // since we can get block data on the `block` field
@@ -76,8 +89,8 @@ module.exports = {
           },
         },
       },
+
     },
-    `gatsby-plugin-chakra-ui`,
     `gatsby-transformer-sharp`,
     {
       resolve: "gatsby-plugin-react-svg",
@@ -87,6 +100,5 @@ module.exports = {
         },
       },
     },
-    `gatsby-plugin-netlify-cache`,
   ],
 }

@@ -1,0 +1,31 @@
+.pagination {
+  width: 100%;
+  display: grid;
+  grid-auto-flow: column;
+  justify-items: center;
+  align-items: center;
+}
+.pagination li {
+  list-style: none;
+  display: inline-block;
+}
+
+.pagination li:not(.next):not(.previous) a {
+  padding: 15px;
+  display: block;
+}
+
+.pagination .next {
+  justify-self: end;
+}
+
+.pagination .previous {
+  justify-self: start;
+}
+
+
+/* ---- WordPress fixes for styling that comes from php ---- */
+
+#GatsbyBody:not(.overlay-header) .primary-menu > li > a, body:not(.overlay-header) .primary-menu > li > .icon, .modal-menu a, .footer-menu a, .footer-widgets a, #site-footer .wp-block-button.is-style-outline, .wp-block-pullquote:before, .singular:not(.overlay-header) .entry-header a, .archive-header a, .header-footer-group .color-accent, .header-footer-group .color-accent-hover:hover {
+  color: #cd2653;
+}
