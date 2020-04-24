@@ -25,46 +25,51 @@ module.exports = async ({actions, graphql}, options) => {
     await Promise.all(
         categoryData.allWpTermNode.nodes.map(async (category, index) => {
 
-            const {data} = await graphql(`
-            {
-                allWpPost(filter: {categories: {nodes: {elemMatch: {databaseId: {eq: ${category.databaseId} }}}}}, sort: { fields: date, order: DESC }) {
-                    nodes {
-                        uri
-                        id
-                        date
+            // making sure if the union objects are empty, that this doesn't go further (... on WpCategory can produce empty {} objects)
+            if (Object.keys(category).length) {
+                const {data} = await graphql(`
+                    {
+                        allWpPost(filter: {categories: {nodes: {elemMatch: {databaseId: {eq: ${category.databaseId} }}}}}, sort: { fields: date, order: DESC }) {
+                            nodes {
+                                uri
+                                id
+                                date
+                            }
+                        }
                     }
-                }
-            }
-          `)
+                `)
 
-            if (!data.allWpPost.nodes || data.allWpPost.nodes.length === 0) return
+                if (!data.allWpPost.nodes || data.allWpPost.nodes.length === 0) return
 
 
-            const chunkedContentNodes = chunk(data.allWpPost.nodes, perPage)
+                const chunkedContentNodes = chunk(data.allWpPost.nodes, perPage)
 
-            const categoryPath = normalizePath(category.uri)
+                const categoryPath = normalizePath(category.uri)
 
-            await Promise.all(
-                chunkedContentNodes.map(async (nodesChunk, index) => {
-                    const firstNode = nodesChunk[0]
+                await Promise.all(
+                    chunkedContentNodes.map(async (nodesChunk, index) => {
+                        const firstNode = nodesChunk[0]
 
 
-                    await actions.createPage({
-                        component: resolve(`./src/templates/archive.js`),
-                        path: index === 0 ? categoryPath : `${categoryPath}page/${index + 1}/`,
-                        context: {
-                            firstId: firstNode.id,
-                            archiveType: 'category',
-                            archivePath: categoryPath,
-                            categoryDatabaseId: category.databaseId,
-                            offset: perPage * index,
-                            pageNumber: index + 1,
-                            totalPages: chunkedContentNodes.length,
-                            perPage,
-                        },
+                        await actions.createPage({
+                            component: resolve(`./src/templates/archive.js`),
+                            path: index === 0 ? categoryPath : `${categoryPath}page/${index + 1}/`,
+                            context: {
+                                firstId: firstNode.id,
+                                archiveType: 'category',
+                                archivePath: categoryPath,
+                                categoryDatabaseId: category.databaseId,
+                                offset: perPage * index,
+                                pageNumber: index + 1,
+                                totalPages: chunkedContentNodes.length,
+                                perPage,
+                            },
+                        })
                     })
-                })
-            )
+                )
+            }
+
+
         })
     )
 }
