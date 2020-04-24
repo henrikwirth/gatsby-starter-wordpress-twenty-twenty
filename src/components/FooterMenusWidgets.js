@@ -27,7 +27,7 @@ const FooterMenusWidgets = ({}) => {
                                     <div className="textwidget">
                                         <p>
                                             This is a port from the php-based WordPress Twenty Twenty theme to a Gatsby theme.
-                                            It works already uses the new <a href="https://github.com/TylerBarnes/using-gatsby-source-wordpress-experimental" target="_blank" rel="noreferrer noopener">gatsby-wordpress-source plugin</a> that has been developed by <a href={"https://github.com/TylerBarnes"} target={"_blank"}>@TylorBarnes</a>
+                                            It works already uses the new <a href="https://github.com/TylerBarnes/using-gatsby-source-wordpress-experimental" target="_blank" rel="noreferrer noopener">gatsby-wordpress-source plugin</a> that has been developed by <a href={"https://github.com/TylerBarnes"} target={"_blank"}>@TylerBarnes</a>
                                         </p>
 
                                         <p>
