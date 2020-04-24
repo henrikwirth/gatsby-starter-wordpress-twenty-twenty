@@ -3,7 +3,6 @@ import React from "react";
 
 const NonStretchedImage = props => {
     let normalizedProps = props
-    console.log(props.fluid)
     if (props.fluid && props.fluid.presentationWidth) {
         normalizedProps = {
             ...props,
