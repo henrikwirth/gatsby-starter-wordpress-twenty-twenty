@@ -31,7 +31,8 @@ const FooterMenusWidgets = ({}) => {
                       that has been developed by{" "}
                       <a
                         href={"https://github.com/TylerBarnes"}
-                        target={"_blank"}
+                        target="_blank"
+                        rel="noreferrer noopener"
                       >
                         @TylerBarnes
                       </a>
@@ -67,7 +68,13 @@ const FooterMenusWidgets = ({}) => {
                     <p>
                       <strong>NeverNull GmbH</strong>
                       <br />
-                      <a href="https://www.nevernull.io">www.nevernull.io</a>
+                      <a
+                        href="https://www.nevernull.io"
+                        target="_blank"
+                        rel="noreferrer noopener"
+                      >
+                        www.nevernull.io
+                      </a>
                     </p>
                     <p>
                       <strong>We do a lot of things</strong>
@@ -75,7 +82,13 @@ const FooterMenusWidgets = ({}) => {
                       Besides web-development, we also develop
                       <br />
                       the cross platform app framework{" "}
-                      <a href="https://www.mobileui.dev">www.mobileui.dev</a>
+                      <a
+                        href="https://www.mobileui.dev"
+                        target="_blank"
+                        rel="noreferrer noopener"
+                      >
+                        www.mobileui.dev
+                      </a>
                     </p>
                   </div>
                 </div>
