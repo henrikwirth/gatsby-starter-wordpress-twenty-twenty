@@ -63,7 +63,7 @@ const MenuModal = ({ isActive, toggleBackdrop }) => {
                   const path = normalizePath(
                     menuItem?.connectedObject?.uri ?? menuItem.url
                   )
-                  const itemId = "menu-item-" + menuItem.menuItemId
+                  const itemId = "modal-menu-item-" + menuItem.menuItemId
 
                   return (
                     <li
@@ -95,7 +95,7 @@ const MenuModal = ({ isActive, toggleBackdrop }) => {
                   const path = normalizePath(
                     menuItem?.connectedObject?.uri ?? menuItem.url
                   )
-                  const itemId = "menu-item-" + menuItem.menuItemId
+                  const itemId = "modal-mobile-menu-item-" + menuItem.menuItemId
 
                   return (
                     <li
