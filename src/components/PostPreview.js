@@ -1,11 +1,11 @@
 import React from 'react'
-import Img from "gatsby-image"
 import {Link} from "gatsby"
 import {getFormattedDate} from "../utils/get-date";
 import {normalizePath} from "../utils/normalize-path";
 import AuthorIcon from "../assets/svg/author.inline.svg"
 import DateIcon from "../assets/svg/date.inline.svg";
 import CommentIcon from "../assets/svg/comment.inline.svg";
+import NonStretchedImage from "../utils/non-stretched-img";
 
 const PostPreview = ({post, isLast}) => {
     return (
@@ -98,7 +98,7 @@ const PostPreview = ({post, isLast}) => {
                         <div className="featured-media-inner section-inner medium">
 
 
-                            <Img fluid={post.featuredImage.remoteFile.childImageSharp.fluid}/>
+                            <NonStretchedImage fluid={post.featuredImage.remoteFile.childImageSharp.fluid}/>
 
                         </div>
                         {/* .featured-media-inner */}

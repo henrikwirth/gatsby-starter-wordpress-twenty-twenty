@@ -11,12 +11,13 @@ import CommentIcon from "../../assets/svg/comment.inline.svg"
 import {normalizePath} from "../../utils/normalize-path";
 import {getFormattedDate} from "../../utils/get-date";
 import GatsbyImageWithIEPolyfill from "gatsby-image/withIEPolyfill";
+import NonStretchedImage from "../../utils/non-stretched-img";
 
 export default ({data}) => {
     const {nextPage, previousPage, page} = data
     const {title, content, featuredImage, excerpt, databaseId, author} = page
 
-    const description = author.description.replace(/(\r\n|\n|\r)/gm,"<br/>")
+    const description = author.description.replace(/(\r\n|\n|\r)/gm, "<br/>")
 
     return (
         <Layout
@@ -113,8 +114,10 @@ export default ({data}) => {
 
                         {
                             featuredImage?.remoteFile?.childImageSharp && (
-                                <Img className="attachment-post-thumbnail size-post-thumbnail wp-post-image"
-                                     fluid={featuredImage.remoteFile.childImageSharp.fluid}/>
+                                <NonStretchedImage
+                                    className="attachment-post-thumbnail size-post-thumbnail wp-post-image"
+                                    fluid={featuredImage.remoteFile.childImageSharp.fluid}/>
+
                             )
                         }
                     </div>
@@ -152,7 +155,6 @@ export default ({data}) => {
                                                 objectPosition="50% 50%"
                                                 alt=""
                                                 className="avatar"
-
                                             />
                                         )
                                     }
@@ -168,9 +170,9 @@ export default ({data}) => {
                             </h2>
                         </div>
                         {/*  .author-name */}
-                        <div className="author-description" >
+                        <div className="author-description">
 
-                            <div dangerouslySetInnerHTML={{__html: description}} />
+                            <div dangerouslySetInnerHTML={{__html: description}}/>
 
                             <Link className="author-link" to="/author/henrik/"
                                   rel="author">
