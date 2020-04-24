@@ -1,6 +1,7 @@
 import React from "react"
 import {Link, useStaticQuery, graphql} from "gatsby"
 import {normalizePath} from "../utils/normalize-path"
+import UniversalLink from "./UniversalLink";
 
 const Menu = () => {
     const {wpMenu} = useStaticQuery(graphql`
@@ -36,9 +37,9 @@ const Menu = () => {
                             <li id={itemId}
                                 key={i + menuItem.url}
                                 className={"menu-item menu-item-type-custom menu-item-object-custom menu-item-home" + itemId}>
-                                <Link style={{display: `block`}} to={normalizePath(path)} activeClassName={"current-menu-item current_page_item"}>
+                                <UniversalLink style={{display: `block`}} to={path} activeClassName={"current-menu-item current_page_item"}>
                                     {menuItem.label}
-                                </Link>
+                                </UniversalLink>
                             </li>
 
                         )

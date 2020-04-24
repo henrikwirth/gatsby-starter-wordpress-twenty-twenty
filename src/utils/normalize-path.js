@@ -4,7 +4,7 @@ exports.normalizePath = path => {
     path = `${path}/`
   }
 
-  if (!path.startsWith(`/`)) {
+  if (!path.startsWith(`http`) && !path.startsWith(`/`)) {
     path = `/${path}`
   }
 
