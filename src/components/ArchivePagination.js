@@ -10,7 +10,7 @@ const renderPreviousLink = ({hasPreviousPage, currentPage, archivePath}) => {
         previousLink = `${archivePath}page/${currentPage - 1}`
     }
 
-    if(hasPreviousPage) {
+    if (hasPreviousPage) {
         return (
             <Link className={"prev page-numbers"} to={previousLink}>
                 <span aria-hidden="true">←</span>
@@ -30,9 +30,9 @@ const renderPreviousLink = ({hasPreviousPage, currentPage, archivePath}) => {
 }
 
 const renderNextLink = ({hasNextPage, currentPage, archivePath}) => {
-    if(hasNextPage) {
+    if (hasNextPage) {
         return (
-            <Link className={"next page-numbers"} to={`${archivePath}page/${currentPage + 1}`} >
+            <Link className={"next page-numbers"} to={`${archivePath}page/${currentPage + 1}`}>
                 <span className="nav-next-text">Older posts</span>
                 {"->"}
             </Link>
@@ -116,6 +116,10 @@ const renderPagesInBetween = ({hasPreviousPage, hasNextPage, currentPage, pageCo
 }
 
 const ArchivePagination = ({hasPreviousPage, hasNextPage, currentPage, pageCount, archivePath}) => {
+
+    if (pageCount <= 1) {
+        return null
+    }
 
     return (
         <div className="pagination-wrapper section-inner">

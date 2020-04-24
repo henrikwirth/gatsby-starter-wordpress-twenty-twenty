@@ -6,6 +6,7 @@ import AuthorIcon from "../assets/svg/author.inline.svg"
 import DateIcon from "../assets/svg/date.inline.svg";
 import CommentIcon from "../assets/svg/comment.inline.svg";
 import NonStretchedImage from "../utils/non-stretched-img";
+import PostMeta from "./PostMeta";
 
 const PostPreview = ({post, isLast}) => {
     return (
@@ -42,48 +43,8 @@ const PostPreview = ({post, isLast}) => {
                                 {post.title}
                             </Link>
                         </h2>
-                        <div className="post-meta-wrapper post-meta-single post-meta-single-top">
+                        <PostMeta title={post.title} author={post.author} date={post.date} />
 
-                            <ul className="post-meta">
-
-                                <li className="post-author meta-wrapper">
-						        <span className="meta-icon">
-							        <span className="screen-reader-text">Post author</span>
-                                    <AuthorIcon/>
-                                </span>
-                                    <span className="meta-text">
-                                    By <Link to={"/" + post.author.uri}>
-                                        {
-                                            (post.author.firstName ? (post.author.lastName ? post.author.firstName + " " + post.author.lastName : post.author.firstName) : post.author.name)
-                                        }
-                                    </Link>
-                                </span>
-                                </li>
-                                <li className="post-date meta-wrapper">
-                                    <span className="meta-icon">
-                                        <span className="screen-reader-text">Post date</span>
-                                        <DateIcon/>
-                                    </span>
-                                    <span className="meta-text">
-                                        {getFormattedDate(post.date)}
-                                    </span>
-                                </li>
-                                <li className="post-comment-link meta-wrapper">
-                                    <span className="meta-icon">
-                                        <CommentIcon/>
-                                    </span>
-                                    <span className="meta-text">
-							            <a href="#respond">
-                                            No Comments<span className="screen-reader-text"> on Page 1</span>
-							            </a>
-                                    </span>
-                                </li>
-
-                            </ul>
-                            {/* .post-meta */}
-
-                        </div>
-                        {/* .post-meta-wrapper */}
 
 
                     </div>
