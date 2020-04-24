@@ -15,10 +15,8 @@ import GatsbyImageWithIEPolyfill from "gatsby-image/withIEPolyfill";
 export default ({data}) => {
     const {nextPage, previousPage, page} = data
     const {title, content, featuredImage, excerpt, databaseId, author} = page
-    console.log(author.description)
 
-    const description = author.description.replace("\\r\\n", "<br/>")
-    console.log(description)
+    const description = author.description.replace(/(\r\n|\n|\r)/gm,"<br/>")
 
     return (
         <Layout
@@ -173,6 +171,7 @@ export default ({data}) => {
                         <div className="author-description" >
 
                             <div dangerouslySetInnerHTML={{__html: description}} />
+
                             <Link className="author-link" to="/author/henrik/"
                                   rel="author">
                                 View Archive <span aria-hidden="true">→</span> </Link>
