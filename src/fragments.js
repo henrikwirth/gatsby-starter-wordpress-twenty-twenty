@@ -48,6 +48,7 @@ export const fragments = graphql`
         title
         content
         date
+        excerpt
         featuredImage {
             remoteFile {
                 ...HeroImage
@@ -58,6 +59,11 @@ export const fragments = graphql`
             firstName
             lastName
             uri
+            avatar {
+                url
+                width
+                height
+            }
         }
         categories {
             nodes {

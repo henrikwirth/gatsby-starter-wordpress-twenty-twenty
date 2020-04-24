@@ -9,14 +9,15 @@ import AuthorIcon from "../../assets/svg/author.inline.svg"
 import DateIcon from "../../assets/svg/date.inline.svg"
 import CommentIcon from "../../assets/svg/comment.inline.svg"
 import {normalizePath} from "../../utils/normalize-path";
+import {getFormattedDate} from "../../utils/get-date";
 
 export default ({data}) => {
     const {nextPage, previousPage, page} = data
-    const {title, content, featuredImage, excerpt, databaseId} = page
+    const {title, content, featuredImage, excerpt, databaseId, author} = page
 
     return (
         <Layout
-            bodyClass={`post-template-default single single-post postid-${databaseId} single-format-standard wp-embed-responsive singular has-post-thumbnail has-single-pagination showing-comments hide-avatars footer-top-visible customize-support`}>
+            bodyClass={`post-template-default single single-post postid-${databaseId} single-format-standard wp-embed-responsive singular has-post-thumbnail has-single-pagination showing-comments footer-top-visible customize-support`}>
             <Seo title={title} description={excerpt}/>
 
             <article
@@ -46,6 +47,10 @@ export default ({data}) => {
                         {/* .entry-categories */}
 
                         <h1 className="entry-title">{title}</h1>
+
+                        <div className="intro-text section-inner max-percentage small"
+                             dangerouslySetInnerHTML={{__html: excerpt}}/>
+
                         <div className="post-meta-wrapper post-meta-single post-meta-single-top">
 
                             <ul className="post-meta">
@@ -64,13 +69,14 @@ export default ({data}) => {
                                         </Link>
                                     </span>
                                 </li>
+
                                 <li className="post-date meta-wrapper">
                                     <span className="meta-icon">
                                         <span className="screen-reader-text">Post date</span>
                                         <DateIcon/>
                                     </span>
                                     <span className="meta-text">
-                                        <a href="/page-1/">April 22, 2020</a>
+                                         {getFormattedDate(page.date)}
                                     </span>
                                 </li>
                                 <li className="post-comment-link meta-wrapper">
@@ -79,6 +85,7 @@ export default ({data}) => {
                                     </span>
                                     <span className="meta-text">
                                         <a href="#respond">
+                                            {/*TODO: Dynamic comments*/}
                                             No Comments<span className="screen-reader-text"> on {title}</span>
                                         </a>
                                     </span>
@@ -123,14 +130,36 @@ export default ({data}) => {
                 {/* .post-inner */}
 
                 <div className="section-inner">
-                    <div className="post-meta-wrapper post-meta-edit-link-wrapper">
-                        <ul className="post-meta">
-                        </ul>
-                        {/* .post-meta --></d*/}
-                        {/* .post-meta-wrapper */}
-                    </div>
-                    {/* .section-inner */}
+                    {/*<div className="post-meta-wrapper post-meta-edit-link-wrapper">*/}
+                    {/*    <ul className="post-meta">*/}
+                    {/*    </ul>*/}
+                    {/*    /!* .post-meta --></d*!/*/}
+                    {/*    /!* .post-meta-wrapper *!/*/}
+                    {/*</div>*/}
 
+                    <div className="author-bio">
+                        <div className="author-title-wrapper">
+                            <div className="author-avatar vcard">
+                                <img
+                                    src="https://gatsby-wp.mobileui.dev/wp-content/uploads/2020/04/henrik_nevernull-e1587733888638.png"
+                                    width="160" height="152" alt="Henrik Wirth"
+                                    className="avatar avatar-160 wp-user-avatar wp-user-avatar-160 alignnone photo"/>
+                            </div>
+                            <h2 className="author-title heading-size-4">
+                                By {author.name}
+                            </h2>
+                        </div>
+                        {/*  .author-name */}
+                        <div className="author-description">
+                            <p>Hi, I am a Developer and sometimes a little bit of everything doing Web, App, Software,
+                                AR, Design ... at <a href="https://www.nevernull.io">nevernull.io</a></p>
+                            <p>Check me out here: <a href="https://www.henrikwirth.com">henrikwirth.com</a></p>
+                            <a className="author-link" href="https://gatsby-wp.mobileui.dev/author/henrik/"
+                               rel="author">
+                                View Archive <span aria-hidden="true">→</span> </a>
+                        </div>
+                        {/*  .author-description */}
+                    </div>
 
                     <ContentTypePagination previousPage={previousPage} nextPage={nextPage} contentType={"Post"}/>
 
@@ -138,6 +167,7 @@ export default ({data}) => {
                     <Comments/>
 
                 </div>
+                {/* .section-inner */}
             </article>
 
             {/*<p dangerouslySetInnerHTML={{__html: content}}/>*/}
