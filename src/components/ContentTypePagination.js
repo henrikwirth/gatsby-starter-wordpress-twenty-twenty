@@ -4,7 +4,6 @@ import {normalizePath} from "../utils/normalize-path";
 
 
 const ContentTypePagination = ({previousPage, nextPage, contentType}) => {
-    console.log({previousPage, nextPage})
     return (
         <nav className="pagination-single section-inner" aria-label={contentType} role="navigation">
 
