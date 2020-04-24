@@ -39,7 +39,7 @@ const PostMeta = ({ author, title, date }) => {
           <span className="meta-text">
             <a href="#respond">
               {/*TODO: Dynamic comments*/}
-              No Comments<span className="screen-reader-text"> on {title}</span>
+              No Comments<span className="screen-reader-text"> on <span dangerouslySetInnerHTML={{__html: title}}/></span>
             </a>
           </span>
         </li>

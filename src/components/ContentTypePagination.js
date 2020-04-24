@@ -18,7 +18,10 @@ const ContentTypePagination = ({ previousPage, nextPage, contentType }) => {
               ←
             </span>
             <span className="title">
-              <span className="title-inner">{previousPage.title}</span>
+              <span
+                className="title-inner"
+                dangerouslySetInnerHTML={{ __html: previousPage.title }}
+              />
             </span>
           </Link>
         )}
@@ -29,7 +32,10 @@ const ContentTypePagination = ({ previousPage, nextPage, contentType }) => {
               →
             </span>
             <span className="title">
-              <span className="title-inner">{nextPage.title}</span>
+              <span
+                className="title-inner"
+                dangerouslySetInnerHTML={{ __html: nextPage.title }}
+              />
             </span>
           </Link>
         )}
