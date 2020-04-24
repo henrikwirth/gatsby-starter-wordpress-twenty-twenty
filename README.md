@@ -34,6 +34,6 @@ Checkout some options of the source plugin: [defaultPluginOptions](https://githu
 
 ## Acknowledgements
 
-- [NeverNull](https://nevernull.io) - The team I'm working with. Checkout what we are building here: [mobileui.dev](https://mobileui.dev)
+- [NeverNull GmbH](https://nevernull.io) - The team I'm working with. Checkout what we are building here: [mobileui.dev](https://mobileui.dev)
 - [@TylerBarnes](https://github.com/TylerBarnes/) - Head developer of gatsby-source-wordpress@v4
 - [@JasonBahl](https://github.com/jasonbahl) - Head developer of WPGraphQL
