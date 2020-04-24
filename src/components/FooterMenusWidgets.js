@@ -45,7 +45,7 @@ const FooterMenusWidgets = ({}) => {
                                     <h2 className="widget-title subheading heading-size-3">Find Us</h2>
                                     <div className="textwidget">
                                         <p><strong>NeverNull GmbH</strong><br/>
-                                            <a>www.nevernull.io</a></p>
+                                            <a href="https://www.nevernull.io">www.nevernull.io</a></p>
                                         <p><strong>We do a lot of things</strong><br/>
                                             Besides web-development, we also develop<br/>the cross platform app framework <a href="https://www.mobileui.dev">www.mobileui.dev</a>
                                         </p>
