@@ -33,21 +33,21 @@ const renderNextLink = ({hasNextPage, currentPage, archivePath}) => {
     if (hasNextPage) {
         return (
             <Link className={"next page-numbers"} to={`${archivePath}page/${currentPage + 1}`}>
-                <span className="nav-next-text">Older posts</span>
+                <span className="nav-next-text">Older <span className="nav-short">Posts</span></span>
                 {"->"}
             </Link>
         )
     } else {
         return (
             <span className={"next page-numbers placeholder"} aria-hidden="true">
-                <span className="nav-next-text">Older posts</span>
+                <span className="nav-next-text">Older <span className="nav-short">Posts</span></span>
                 {"->"}
             </span>
         )
     }
 }
 
-const renderPagesInBetween = ({hasPreviousPage, hasNextPage, currentPage, pageCount, archivePath}) => {
+const renderPagesInBetween = ({currentPage, pageCount, archivePath}) => {
 
     const pageNumber = (page, isCurrent, isFirst) => {
         if (isCurrent) {
@@ -139,7 +139,7 @@ const ArchivePagination = ({hasPreviousPage, hasNextPage, currentPage, pageCount
                     {/*<span className="page-numbers dots">…</span>*/}
                     {/*<a className="page-numbers" href="/page/60/">60</a>*/}
 
-                    {renderPagesInBetween({hasPreviousPage, hasNextPage, currentPage, pageCount, archivePath})}
+                    {renderPagesInBetween({currentPage, pageCount, archivePath})}
 
 
                     {renderNextLink({hasNextPage, currentPage, archivePath})}
