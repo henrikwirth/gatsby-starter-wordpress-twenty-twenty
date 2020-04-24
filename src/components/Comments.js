@@ -3,6 +3,7 @@ import React from 'react';
 const Comments = ({}) => {
     return (
         <div className="comments-wrapper section-inner">
+            {/* TODO */}
 
             {/*<div id="respond" className="comment-respond">*/}
             {/*    <h2 id="reply-title" className="comment-reply-title">Leave a Reply <small><a rel="nofollow"*/}

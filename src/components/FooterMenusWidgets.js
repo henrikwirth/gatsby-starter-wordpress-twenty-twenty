@@ -9,7 +9,7 @@ const FooterMenusWidgets = ({}) => {
 
                 <div className="footer-top has-social-menu">
 
-                    <SocialMenu />
+                    <SocialMenu/>
 
                 </div>
                 {/* .footer-top */}
@@ -26,12 +26,21 @@ const FooterMenusWidgets = ({}) => {
                                     className="widget-title subheading heading-size-3">About This Site</h2>
                                     <div className="textwidget">
                                         <p>
-                                            This is a port from the php-based WordPress Twenty Twenty theme to a Gatsby theme.
-                                            It works already uses the new <a href="https://github.com/TylerBarnes/using-gatsby-source-wordpress-experimental" target="_blank" rel="noreferrer noopener">gatsby-wordpress-source plugin</a> that has been developed by <a href={"https://github.com/TylerBarnes"} target={"_blank"}>@TylerBarnes</a>
+                                            This is a port from the php-based WordPress Twenty Twenty theme to a Gatsby
+                                            theme.
+                                            It works already uses the new <a
+                                            href="https://github.com/TylerBarnes/using-gatsby-source-wordpress-experimental"
+                                            target="_blank" rel="noreferrer noopener">gatsby-wordpress-source
+                                            plugin</a> that has been developed by <a
+                                            href={"https://github.com/TylerBarnes"} target={"_blank"}>@TylerBarnes</a>
                                         </p>
 
                                         <p>
-                                            Furthermore, I used this site for a thesis, which compares overall performance between a php-based WordPress theme and a static Gatsby site. Check it out <a href="https://www.henrikwirth.com" target="_blank" rel="noreferrer noopener">here</a>.
+                                            Furthermore, I am using this site for a thesis, which compares overall
+                                            performance between a php-based WordPress theme and a static Gatsby site.
+                                            I'll publish it on my site once it is done: <a
+                                            href="https://www.henrikwirth.com" target="_blank"
+                                            rel="noreferrer noopener">here</a>.
                                         </p>
                                     </div>
                                 </div>
@@ -47,7 +56,8 @@ const FooterMenusWidgets = ({}) => {
                                         <p><strong>NeverNull GmbH</strong><br/>
                                             <a href="https://www.nevernull.io">www.nevernull.io</a></p>
                                         <p><strong>We do a lot of things</strong><br/>
-                                            Besides web-development, we also develop<br/>the cross platform app framework <a href="https://www.mobileui.dev">www.mobileui.dev</a>
+                                            Besides web-development, we also develop<br/>the cross platform app
+                                            framework <a href="https://www.mobileui.dev">www.mobileui.dev</a>
                                         </p>
                                     </div>
                                 </div>
