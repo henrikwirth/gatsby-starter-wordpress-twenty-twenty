@@ -10,10 +10,15 @@ import DateIcon from "../../assets/svg/date.inline.svg"
 import CommentIcon from "../../assets/svg/comment.inline.svg"
 import {normalizePath} from "../../utils/normalize-path";
 import {getFormattedDate} from "../../utils/get-date";
+import GatsbyImageWithIEPolyfill from "gatsby-image/withIEPolyfill";
 
 export default ({data}) => {
     const {nextPage, previousPage, page} = data
     const {title, content, featuredImage, excerpt, databaseId, author} = page
+    console.log(author.description)
+
+    const description = author.description.replace("\\r\\n", "<br/>")
+    console.log(description)
 
     return (
         <Layout
@@ -140,23 +145,37 @@ export default ({data}) => {
                     <div className="author-bio">
                         <div className="author-title-wrapper">
                             <div className="author-avatar vcard">
-                                <img
-                                    src="https://gatsby-wp.mobileui.dev/wp-content/uploads/2020/04/henrik_nevernull-e1587733888638.png"
-                                    width="160" height="152" alt="Henrik Wirth"
-                                    className="avatar avatar-160 wp-user-avatar wp-user-avatar-160 alignnone photo"/>
+                                <div className="avatar avatar-160 wp-user-avatar wp-user-avatar-160 alignnone photo">
+                                    {
+                                        author?.avatar?.imageFile?.childImageSharp && (
+                                            <GatsbyImageWithIEPolyfill
+                                                fixed={author.avatar.imageFile.childImageSharp.fixed}
+                                                objectFit="cover"
+                                                objectPosition="50% 50%"
+                                                alt=""
+                                                className="avatar"
+
+                                            />
+                                        )
+                                    }
+                                </div>
+
+                                {/*<img*/}
+                                {/*    src="https://gatsby-wp.mobileui.dev/wp-content/uploads/2020/04/henrik_nevernull-e1587733888638.png"*/}
+                                {/*    width="160" height="152" alt="Henrik Wirth"*/}
+                                {/*    className="avatar avatar-160 wp-user-avatar wp-user-avatar-160 alignnone photo"/>*/}
                             </div>
                             <h2 className="author-title heading-size-4">
                                 By {author.name}
                             </h2>
                         </div>
                         {/*  .author-name */}
-                        <div className="author-description">
-                            <p>Hi, I am a Developer and sometimes a little bit of everything doing Web, App, Software,
-                                AR, Design ... at <a href="https://www.nevernull.io">nevernull.io</a></p>
-                            <p>Check me out here: <a href="https://www.henrikwirth.com">henrikwirth.com</a></p>
-                            <a className="author-link" href="https://gatsby-wp.mobileui.dev/author/henrik/"
-                               rel="author">
-                                View Archive <span aria-hidden="true">→</span> </a>
+                        <div className="author-description" >
+
+                            <div dangerouslySetInnerHTML={{__html: description}} />
+                            <Link className="author-link" to="/author/henrik/"
+                                  rel="author">
+                                View Archive <span aria-hidden="true">→</span> </Link>
                         </div>
                         {/*  .author-description */}
                     </div>

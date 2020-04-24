@@ -76,6 +76,14 @@ module.exports = {
                 : // and we don't actually need more than 5000 in production
                   5000,
           },
+          User: {
+            excludeFieldNames: [
+              `extraCapabilities`,
+              `capKey`,
+              `email`,
+              `registeredDate`,
+            ],
+          },
           // this shows how to exclude entire types from the schema
           // these examples are for wp-graphql-gutenberg
           CoreParagraphBlockAttributes: {

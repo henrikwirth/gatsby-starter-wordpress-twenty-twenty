@@ -110,8 +110,9 @@ const PostPreview = ({post, isLast}) => {
                 <div className="post-inner thin ">
 
                     <div className="entry-content">
+                        {post.excerpt}
 
-                        <p dangerouslySetInnerHTML={{__html: post.excerpt}}/>
+                        <div dangerouslySetInnerHTML={{__html: post.excerpt}}/>
 
                     </div>
                     {/* .entry-content */}

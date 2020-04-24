@@ -9,6 +9,14 @@ export const fragments = graphql`
         }
     }
 
+    fragment AvatarImage on File {
+        childImageSharp {
+            fixed(width: 80, height: 80) {
+                ...GatsbyImageSharpFixed_tracedSVG
+            }
+        }
+    }
+
     fragment Thumbnail on File {
         childImageSharp {
             fluid(maxWidth: 1200) {
@@ -59,10 +67,14 @@ export const fragments = graphql`
             firstName
             lastName
             uri
+            description
             avatar {
                 url
                 width
                 height
+                imageFile {
+                    ...AvatarImage
+                }
             }
         }
         categories {
