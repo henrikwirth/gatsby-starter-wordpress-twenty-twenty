@@ -59,8 +59,8 @@ module.exports = {
             options: {
               baseUrl: process.env.WP_BASE_URL,
               protocol: `https`,
-            }
-          }
+            },
+          },
         ],
         // fields can be excluded globally.
         // this example is for wp-graphql-gutenberg.
@@ -97,7 +97,6 @@ module.exports = {
           },
         },
       },
-
     },
     `gatsby-transformer-sharp`,
     {
