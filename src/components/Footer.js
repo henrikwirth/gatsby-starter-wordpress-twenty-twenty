@@ -11,8 +11,6 @@ const Footer = ({}) => {
             © {moment().format("YYYY")}{" "}
             <Link to={"/"}>Gatsby Starter WordPress Twenty Twenty</Link>
           </p>
-          {/* .footer-copyright -->*/}
-
           <p>
             <a
               className="powered-by-wordpress"
@@ -22,9 +20,7 @@ const Footer = ({}) => {
               Proudly presented by Henrik Wirth
             </a>
           </p>
-          {/* .powered-by-wordpress -->*/}
         </div>
-        {/* .footer-credits -->*/}
 
         <a className="to-the-top" href="#site-header">
           <span className="to-the-top-long">
@@ -33,18 +29,14 @@ const Footer = ({}) => {
               ↑
             </span>
           </span>
-          {/* .to-the-top-long -->*/}
           <span className="to-the-top-short">
             Up{" "}
             <span className="arrow" aria-hidden="true">
               ↑
             </span>
           </span>
-          {/* .to-the-top-short -->*/}
         </a>
-        {/* .to-the-top -->*/}
       </div>
-      {/* .section-inner -->*/}
     </footer>
   )
 }

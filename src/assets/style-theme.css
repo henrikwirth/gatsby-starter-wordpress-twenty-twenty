@@ -1,26 +1,10 @@
-.pagination {
+
+#GatsbyBody.backdrop {
+  position: fixed;
   width: 100%;
-  display: grid;
-  grid-auto-flow: column;
-  justify-items: center;
-  align-items: center;
-}
-.pagination li {
-  list-style: none;
-  display: inline-block;
-}
-
-.pagination li:not(.next):not(.previous) a {
-  padding: 15px;
-  display: block;
-}
-
-.pagination .next {
-  justify-self: end;
-}
-
-.pagination .previous {
-  justify-self: start;
+  top: 0;
+  left: 0;
+  overflow-y: scroll;
 }
 
 /* ---- WordPress fixes for styling that comes from php ---- */

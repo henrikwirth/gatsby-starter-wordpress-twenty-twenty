@@ -59,7 +59,7 @@ const SocialIcon = ({ label, ...props }) => {
   }
 }
 
-const SocialMenu = ({}) => {
+const SocialMenu = ({ isExpanded }) => {
   const { wpMenu } = useStaticQuery(graphql`
     {
       wpMenu(slug: { eq: "social-links-menu" }) {
@@ -81,9 +81,20 @@ const SocialMenu = ({}) => {
     }
   `)
 
-  return wpMenu?.menuItems?.nodes ? (
-    <nav aria-label="Social links" className="footer-social-wrapper">
-      <ul className="social-menu footer-social reset-list-style social-icons fill-children-current-color">
+  if (wpMenu?.menuItems?.nodes) return null
+
+  return (
+    <nav
+      aria-label={(isExpanded ? "Expanded " : "") + "Social links"}
+      className={!isExpanded ? "footer-social-wrapper" : ""}
+    >
+      <ul
+        className={
+          "social-menu" +
+          (!isExpanded ? " footer-social" : "") +
+          " reset-list-style social-icons fill-children-current-color"
+        }
+      >
         {wpMenu.menuItems.nodes.map((menuItem, index) => {
           const path = menuItem?.connectedObject?.uri ?? menuItem.url
           const itemId = "menu-item-" + menuItem.menuItemId
@@ -114,9 +125,8 @@ const SocialMenu = ({}) => {
           )
         })}
       </ul>
-      {/* .footer-social */}
     </nav>
-  ) : null
+  )
 }
 
 export default SocialMenu

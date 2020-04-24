@@ -44,12 +44,11 @@ const Menu = () => {
               id={itemId}
               key={i + menuItem.url}
               className={
-                "menu-item menu-item-type-custom menu-item-object-custom menu-item-home" +
+                "menu-item menu-item-type-custom menu-item-object-custom menu-item-home " +
                 itemId
               }
             >
               <UniversalLink
-                style={{ display: `block` }}
                 to={path}
                 activeClassName={"current-menu-item current_page_item"}
               >

@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import Header from "./Header"
 import Footer from "./Footer"
 
@@ -8,19 +8,34 @@ import "../assets/print.css"
 import "../assets/style-theme.css"
 
 import FooterMenusWidgets from "./FooterMenusWidgets"
+import MenuModal from "./MenuModal"
 
-const Layout = ({ children, bodyClass }) => (
-  <div id={"GatsbyBody"} className={bodyClass}>
-    <Header />
+const backdropClasses = " backdrop"
 
-    <main id="site-content" role="main">
-      {children}
-    </main>
+const Layout = ({ children, bodyClass }) => {
+  const [backdropActive, setBackdropActive] = useState(false)
 
-    <FooterMenusWidgets />
+  const toggleBackdrop = (e, active) => {
+    e.preventDefault()
+    setBackdropActive(active)
+  }
 
-    <Footer />
-  </div>
-)
+  return (
+    <div id={"GatsbyBody"} className={bodyClass + " showing-menu-modal showing-modal" + (backdropActive ? backdropClasses : "")}>
+      <Header toggleBackdrop={toggleBackdrop} />
+
+      <MenuModal isActive={backdropActive} toggleBackdrop={toggleBackdrop}/>
+
+
+      <main id="site-content" role="main">
+        {children}
+      </main>
+
+      <FooterMenusWidgets />
+
+      <Footer />
+    </div>
+  )
+}
 
 export default Layout
