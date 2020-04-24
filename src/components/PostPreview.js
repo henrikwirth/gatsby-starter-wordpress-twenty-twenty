@@ -24,7 +24,7 @@ const PostPreview = ({post, isLast}) => {
                                     {
                                         post.categories.nodes.map((category, index) => (
                                             <Link to={normalizePath(category.uri)}
-                                                  key={category}
+                                                  key={index}
                                                   rel="category tag">
                                                 {category.name}
                                             </Link>

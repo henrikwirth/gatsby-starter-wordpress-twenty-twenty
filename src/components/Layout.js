@@ -9,7 +9,7 @@ import "../assets/print.css"
 import "../assets/style-theme.css"
 
 
-import FooterMenusWidgets from "./Footer-Menus-Widgets";
+import FooterMenusWidgets from "./FooterMenusWidgets";
 
 
 const Layout = ({children, bodyClass}) => (

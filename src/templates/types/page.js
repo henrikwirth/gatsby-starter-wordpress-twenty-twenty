@@ -7,15 +7,16 @@ import urlToPath from "gatsby-source-wordpress-experimental/utils/url-to-path";
 import AuthorIcon from "../../assets/svg/author.inline.svg";
 import DateIcon from "../../assets/svg/date.inline.svg";
 import CommentIcon from "../../assets/svg/comment.inline.svg";
-import ContentTypePagination from "../../components/Content-Type-Pagination";
+import ContentTypePagination from "../../components/ContentTypePagination";
 import Comments from "../../components/Comments";
 
-export default ({ data }) => {
+export default ({data}) => {
     const {page} = data
     const {title, content, featuredImage, excerpt, databaseId} = page
 
     return (
-        <Layout bodyClass={`page-template-default page page-id-${databaseId} wp-embed-responsive singular missing-post-thumbnail has-no-pagination not-showing-comments hide-avatars footer-top-visible customize-support`}>
+        <Layout
+            bodyClass={`page-template-default page page-id-${databaseId} wp-embed-responsive singular missing-post-thumbnail has-no-pagination not-showing-comments hide-avatars footer-top-visible customize-support`}>
             <Seo title={title} description={excerpt}/>
 
             <article
@@ -92,26 +93,17 @@ export default ({ data }) => {
 }
 
 export const query = graphql`
-  query page($id: String!, $nextPage: String, $previousPage: String) {
-    page: wpPage(id: { eq: $id }) {
-      title
-      content
-      databaseId
-      featuredImage {
-        remoteFile {
-          ...HeroImage
+    query page($id: String!, $nextPage: String, $previousPage: String) {
+        page: wpPage(id: {eq: $id}) {
+            ...PageContent
         }
-      }
+        nextPage: wpPage(id: {eq: $nextPage}) {
+            title
+            uri
+        }
+        previousPage: wpPage(id: {eq: $previousPage}) {
+            title
+            uri
+        }
     }
-
-    nextPage: wpPage(id: { eq: $nextPage }) {
-      title
-      uri
-    }
-
-    previousPage: wpPage(id: { eq: $previousPage }) {
-      title
-      uri
-    }
-  }
 `

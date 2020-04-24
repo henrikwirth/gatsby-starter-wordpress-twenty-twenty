@@ -53,15 +53,15 @@ module.exports = {
             onlyReportCriticalErrors: true,
           },
         },
-        // plugins: [
-        //   {
-        //     resolve: `gatsby-wordpress-experimental-inline-images`,
-        //     options: {
-        //       baseUrl: process.env.WP_BASE_URL,
-        //       protocol: `https`,
-        //     }
-        //   }
-        // ],
+        plugins: [
+          {
+            resolve: `gatsby-wordpress-experimental-inline-images`,
+            options: {
+              baseUrl: process.env.WP_BASE_URL,
+              protocol: `https`,
+            }
+          }
+        ],
         // fields can be excluded globally.
         // this example is for wp-graphql-gutenberg.
         // since we can get block data on the `block` field
@@ -72,7 +72,7 @@ module.exports = {
             limit:
               process.env.NODE_ENV === `development`
                 ? // Lets just pull 50 posts in development to make it easy on ourselves.
-                  50
+                  35
                 : // and we don't actually need more than 5000 in production
                   5000,
           },

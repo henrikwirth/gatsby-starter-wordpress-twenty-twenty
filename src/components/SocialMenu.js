@@ -59,12 +59,12 @@ const SocialMenu = ({}) => {
 
             <ul className="social-menu footer-social reset-list-style social-icons fill-children-current-color">
                 {
-                    wpMenu.menuItems.nodes.map((menuItem, i) => {
+                    wpMenu.menuItems.nodes.map((menuItem, index) => {
                         const path = menuItem?.connectedObject?.uri ?? menuItem.url
                         const itemId = "menu-item-" + menuItem.menuItemId
 
                         return (
-                            <li className={"menu-item menu-item-type-custom menu-item-object-custom" + itemId}>
+                            <li key={itemId} className={"menu-item menu-item-type-custom menu-item-object-custom" + itemId}>
                                 <a href={path} target={menuItem.target ?? "_self"} rel="noreferrer noopener">
                                     <span className="screen-reader-text">{menuItem.label}</span>
                                     <SocialIcon className={"svg-icon"} label={menuItem.label} aria-hidden="true" role="img" focusable="false"/>

@@ -1,20 +1,22 @@
 import React from "react"
-import {graphql} from "gatsby"
+import {graphql, Link} from "gatsby"
 import Layout from "../../components/Layout"
 import Seo from "../../components/Seo"
 import Img from "gatsby-image"
 import Comments from "../../components/Comments"
-import ContentTypePagination from "../../components/Content-Type-Pagination"
+import ContentTypePagination from "../../components/ContentTypePagination"
 import AuthorIcon from "../../assets/svg/author.inline.svg"
 import DateIcon from "../../assets/svg/date.inline.svg"
 import CommentIcon from "../../assets/svg/comment.inline.svg"
+import {normalizePath} from "../../utils/normalize-path";
 
 export default ({data}) => {
     const {nextPage, previousPage, page} = data
     const {title, content, featuredImage, excerpt, databaseId} = page
 
     return (
-        <Layout bodyClass={`post-template-default single single-post postid-${databaseId} single-format-standard wp-embed-responsive singular has-post-thumbnail has-single-pagination showing-comments hide-avatars footer-top-visible customize-support`}>
+        <Layout
+            bodyClass={`post-template-default single single-post postid-${databaseId} single-format-standard wp-embed-responsive singular has-post-thumbnail has-single-pagination showing-comments hide-avatars footer-top-visible customize-support`}>
             <Seo title={title} description={excerpt}/>
 
             <article
@@ -29,8 +31,15 @@ export default ({data}) => {
                         <div className="entry-categories">
                             <span className="screen-reader-text">Categories</span>
                             <div className="entry-categories-inner">
-                                <a href="https://henrik-thesis-10.local/category/uncategorized/"
-                                   rel="category tag">Uncategorized</a>
+                                {
+                                    page.categories.nodes.map((category, index) => (
+                                        <Link to={normalizePath(category.uri)}
+                                              key={category}
+                                              rel="category tag">
+                                            {category.name}
+                                        </Link>
+                                    ))
+                                }
                             </div>
                             {/* .entry-categories-inner */}
                         </div>
@@ -48,7 +57,11 @@ export default ({data}) => {
 
                                     </span>
                                     <span className="meta-text">
-							            By <a href="https://henrik-thesis-10.local/author/admin/">Henrik Wirth</a>
+							            By <Link to={"/" + page.author.uri}>
+                                        {
+                                            (page.author.firstName ? (page.author.lastName ? page.author.firstName + " " + page.author.lastName : page.author.firstName) : page.author.name)
+                                        }
+                                        </Link>
                                     </span>
                                 </li>
                                 <li className="post-date meta-wrapper">
@@ -57,12 +70,12 @@ export default ({data}) => {
                                         <DateIcon/>
                                     </span>
                                     <span className="meta-text">
-                                        <a href="https://henrik-thesis-10.local/page-1/">April 22, 2020</a>
+                                        <a href="/page-1/">April 22, 2020</a>
                                     </span>
                                 </li>
                                 <li className="post-comment-link meta-wrapper">
                                     <span className="meta-icon">
-                                        <CommentIcon />
+                                        <CommentIcon/>
                                     </span>
                                     <span className="meta-text">
                                         <a href="#respond">
@@ -146,21 +159,12 @@ export default ({data}) => {
 export const query = graphql`
     query post($id: String!, $nextPage: String, $previousPage: String) {
         page: wpPost(id: {eq: $id}) {
-            title
-            content
-            excerpt
-            featuredImage {
-                remoteFile {
-                    ...HeroImage
-                }
-            }
+            ...PostContent
         }
-
         nextPage: wpPost(id: {eq: $nextPage}) {
             title
             uri
         }
-
         previousPage: wpPost(id: {eq: $previousPage}) {
             title
             uri

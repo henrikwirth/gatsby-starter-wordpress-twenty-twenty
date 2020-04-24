@@ -1,5 +1,5 @@
 import React from 'react';
-import SocialMenu from "./Social-Menu";
+import SocialMenu from "./SocialMenu";
 
 const FooterMenusWidgets = ({}) => {
     return (

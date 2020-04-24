@@ -2,6 +2,11 @@
 
 .idea
 
+# Custom
+
+WordPress/web/
+
+fakerpress.zip
 
 # Logs
 logs

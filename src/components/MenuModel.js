@@ -29,23 +29,23 @@ const MenuModal = ({}) => {
                             <ul className="modal-menu reset-list-style">
                                 <li id="menu-item-65"
                                     className="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-65">
-                                    <div className="ancestor-wrapper"><a href="https://henrik-thesis-10.local/"
+                                    <div className="ancestor-wrapper"><a href="/"
                                                                          aria-current="page">Home</a></div>
                                     <!-- .ancestor-wrapper --></li>
                                 <li id="menu-item-66"
                                     className="menu-item menu-item-type-post_type menu-item-object-page menu-item-66">
                                     <div className="ancestor-wrapper"><a
-                                        href="https://henrik-thesis-10.local/about/">About</a></div>
+                                        href="/about/">About</a></div>
                                     <!-- .ancestor-wrapper --></li>
                                 <li id="menu-item-67"
                                     className="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current_page_parent menu-item-67">
                                     <div className="ancestor-wrapper"><a
-                                        href="https://henrik-thesis-10.local/blog/">Blog</a></div>
+                                        href="/blog/">Blog</a></div>
                                     <!-- .ancestor-wrapper --></li>
                                 <li id="menu-item-68"
                                     className="menu-item menu-item-type-post_type menu-item-object-page menu-item-68">
                                     <div className="ancestor-wrapper"><a
-                                        href="https://henrik-thesis-10.local/contact/">Contact</a></div>
+                                        href="/contact/">Contact</a></div>
                                     <!-- .ancestor-wrapper --></li>
                             </ul>
 
@@ -57,20 +57,20 @@ const MenuModal = ({}) => {
                             <ul className="modal-menu reset-list-style">
 
                                 <li className="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-61">
-                                    <div className="ancestor-wrapper"><a href="https://henrik-thesis-10.local/"
+                                    <div className="ancestor-wrapper"><a href="/"
                                                                          aria-current="page">Home</a></div>
                                     <!-- .ancestor-wrapper --></li>
                                 <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-62">
                                     <div className="ancestor-wrapper"><a
-                                        href="https://henrik-thesis-10.local/about/">About</a></div>
+                                        href="/about/">About</a></div>
                                     <!-- .ancestor-wrapper --></li>
                                 <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current_page_parent menu-item-63">
                                     <div className="ancestor-wrapper"><a
-                                        href="https://henrik-thesis-10.local/blog/">Blog</a></div>
+                                        href="/blog/">Blog</a></div>
                                     <!-- .ancestor-wrapper --></li>
                                 <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-64">
                                     <div className="ancestor-wrapper"><a
-                                        href="https://henrik-thesis-10.local/contact/">Contact</a></div>
+                                        href="/contact/">Contact</a></div>
                                     <!-- .ancestor-wrapper --></li>
 
                             </ul>
