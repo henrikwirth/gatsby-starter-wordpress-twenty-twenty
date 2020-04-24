@@ -20,7 +20,7 @@ const FooterMenusWidgets = ({}) => {
                   <div className="textwidget">
                     <p>
                       This is a port from the php-based WordPress Twenty Twenty
-                      theme to a Gatsby theme. It works already uses the new{" "}
+                      theme to a Gatsby theme. It works uses the new{" "}
                       <a
                         href="https://github.com/TylerBarnes/using-gatsby-source-wordpress-experimental"
                         target="_blank"
@@ -46,8 +46,9 @@ const FooterMenusWidgets = ({}) => {
                         href="https://www.henrikwirth.com"
                         target="_blank"
                         rel="noreferrer noopener"
+                        title="www.henrikwirth.com"
                       >
-                        here
+                        henrikwirth.com
                       </a>
                       .
                     </p>
