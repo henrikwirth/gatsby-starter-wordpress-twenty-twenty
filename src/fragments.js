@@ -4,7 +4,7 @@ export const fragments = graphql`
   fragment HeroImage on File {
     childImageSharp {
       fluid(maxWidth: 1440) {
-        ...GatsbyImageSharpFluid_tracedSVG
+        ...GatsbyImageSharpFluid_withWebp_tracedSVG
         presentationWidth
       }
     }
@@ -13,7 +13,7 @@ export const fragments = graphql`
   fragment AvatarImage on File {
     childImageSharp {
       fixed(width: 80, height: 80) {
-        ...GatsbyImageSharpFixed_tracedSVG
+        ...GatsbyImageSharpFixed_withWebp_tracedSVG
       }
     }
   }
@@ -21,7 +21,7 @@ export const fragments = graphql`
   fragment Thumbnail on File {
     childImageSharp {
       fluid(maxWidth: 1200) {
-        ...GatsbyImageSharpFluid_tracedSVG
+        ...GatsbyImageSharpFluid_withWebp_tracedSVG
         presentationWidth
       }
     }
