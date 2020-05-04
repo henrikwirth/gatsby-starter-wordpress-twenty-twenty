@@ -81,7 +81,7 @@ const SocialMenu = ({ isExpanded }) => {
     }
   `)
 
-  if (wpMenu?.menuItems?.nodes) return null
+  if (!wpMenu?.menuItems?.nodes || wpMenu.menuItems.nodes === 0) return null
 
   return (
     <nav
