@@ -17,7 +17,7 @@ Checkout some options of the source plugin: [defaultPluginOptions](https://githu
    -  `extended` - That is the menu that opens on the right side as drawer
    -  `social-links-menu` - For the Social menu in the footer and in the expanded drawer
       -  For the social Icons you need to adjust `SocialMenu.js`. There is a `SocialIcon` function that parses svgs depending on the Link label
-      
+4. Rename `.env.example` file to `.env` and edit it with your domain variables.
       
 ## Limitations
 
