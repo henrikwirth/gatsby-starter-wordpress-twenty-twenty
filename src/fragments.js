@@ -3,7 +3,7 @@ import { graphql } from "gatsby"
 export const fragments = graphql`
   fragment HeroImage on File {
     childImageSharp {
-      fluid(maxWidth: 1440) {
+      fluid(maxWidth: 1440, quality: 82) {
         ...GatsbyImageSharpFluid
         presentationWidth
       }
@@ -12,7 +12,7 @@ export const fragments = graphql`
 
   fragment AvatarImage on File {
     childImageSharp {
-      fixed(width: 80, height: 80) {
+      fixed(width: 80, height: 80, quality: 82) {
         ...GatsbyImageSharpFixed
       }
     }
@@ -20,7 +20,7 @@ export const fragments = graphql`
 
   fragment Thumbnail on File {
     childImageSharp {
-      fluid(maxWidth: 1200) {
+      fluid(maxWidth: 1200, quality: 82) {
         ...GatsbyImageSharpFluid
         presentationWidth
       }
