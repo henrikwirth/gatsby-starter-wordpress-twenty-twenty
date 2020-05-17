@@ -1,5 +1,10 @@
 const { resolve } = require(`path`)
 
+const capitalize = (s) => {
+  if (typeof s !== 'string') return ''
+  return s.charAt(0).toUpperCase() + s.slice(1)
+}
+
 module.exports = async ({ actions, graphql }, options) => {
   const { templates } = options
 
@@ -7,11 +12,9 @@ module.exports = async ({ actions, graphql }, options) => {
     data: { allWpContentType },
   } = await graphql(`
     query ALL_CONTENT_TYPES {
-      allWpContentType {
+      allWpContentType(filter: {graphqlPluralName: {ne: "mediaItems"}}) {
         nodes {
-          singularName
-          pluralName
-          nodesTypeName
+          graphqlSingleName
         }
       }
     }
@@ -22,20 +25,20 @@ module.exports = async ({ actions, graphql }, options) => {
   )
 
   for (const contentType of allWpContentType.nodes) {
-    const { nodesTypeName, singularName } = contentType
+    const { graphqlSingleName } = contentType
 
     // this is a super super basic template hierarchy
     // this doesn't reflect what our hierarchy will look like.
     // this is for testing/demo purposes
     const contentTypeTemplate = contentTypeTemplates.find(
-      (path) => path === `./src/templates/types/${singularName}.js`
+      (path) => path === `./src/templates/types/${graphqlSingleName}.js`
     )
 
     if (!contentTypeTemplate) {
       continue
     }
 
-    const gatsbyNodeListFieldName = `allWp${nodesTypeName}`
+    const gatsbyNodeListFieldName = `allWp${capitalize(graphqlSingleName)}`
 
     const { data } = await graphql(`
           query ALL_CONTENT_NODES {
@@ -44,7 +47,7 @@ module.exports = async ({ actions, graphql }, options) => {
                 uri
                 id
                 date
-                ${singularName === "page" ? "isFrontPage" : ""}
+                ${graphqlSingleName === "page" ? "isFrontPage" : ""}
               }
             }
           }

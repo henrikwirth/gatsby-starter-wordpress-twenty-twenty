@@ -11,8 +11,8 @@ const getTemplates = () => {
   return glob.sync(`./src/templates/**/*.js`, { cwd: sitePath })
 }
 
-exports.createPages = async ({ actions, graphql }) => {
-  const { data: wpSettings } = await graphql(`
+exports.createPages = async (props) => {
+  const { data: wpSettings } = await props.graphql(`
     {
       wp {
         readingSettings {
@@ -26,10 +26,10 @@ exports.createPages = async ({ actions, graphql }) => {
   const blogURI = "/"
   const templates = getTemplates()
 
-  await createContentTypes({ actions, graphql }, { templates })
-  await createBlog({ actions, graphql }, { perPage, blogURI })
-  await createCategories({ actions, graphql }, { perPage })
-  await createAuthors({ actions, graphql }, { perPage })
+  await createContentTypes(props , { templates })
+  await createBlog(props, { perPage, blogURI })
+  await createCategories(props, { perPage })
+  await createAuthors(props, { perPage })
 }
 
 const { createRemoteFileNode } = require(`gatsby-source-filesystem`)
