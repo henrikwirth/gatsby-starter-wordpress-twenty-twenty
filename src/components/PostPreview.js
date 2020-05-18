@@ -31,7 +31,7 @@ const PostPreview = ({ post, isLast }) => {
           </div>
         </header>
 
-        <FeaturedMedia image={post.featuredImage} />
+        <FeaturedMedia image={post.featuredImage} size={"medium"} />
 
         <div className="post-inner thin ">
           <div className="entry-content">
