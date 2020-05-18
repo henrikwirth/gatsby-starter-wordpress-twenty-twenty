@@ -65,8 +65,8 @@ module.exports = async ({ actions, graphql }, options) => {
           path: node.isFrontPage ? "/" : node.uri,
           context: {
             id: node.id,
-            nextPage: (nodes[i + 1] || {}).id,
-            previousPage: (nodes[i - 1] || {}).id,
+            nextPage: (nodes[i - 1] || {}).id,
+            previousPage: (nodes[i + 1] || {}).id,
           },
         })
       })
