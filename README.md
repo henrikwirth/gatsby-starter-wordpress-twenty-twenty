@@ -10,7 +10,8 @@ Checkout some options of the source plugin: [defaultPluginOptions](https://githu
 
 ## WordPress Setup
 
-1. Make sure to install the two WP plugins in the plugin folder *wp-gatsby-0.2.2.zip* and *wp-graphql-0.6.1.zip*
+1. Make sure to install the two WP plugins *wp-gatsby-0.2.5.zip* and *wp-graphql-0.8.3.zip*
+   - You can find the version, that are compativble with this version here: https://github.com/TylerBarnes/using-gatsby-source-wordpress-experimental/tree/3e58b27ac22da9a35e2deaa37d1b35d4e4bcdda8/WordPress/plugins
 2. Best you install and activate the default WordPress Twenty Twenty theme
 3. Make sure you have Menus with the following slugs: 
    -  `primary` - Thats the top menu

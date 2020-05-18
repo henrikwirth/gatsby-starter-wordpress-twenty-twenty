@@ -6,11 +6,10 @@ module.exports = async ({ actions, graphql }, options) => {
 
   const { data } = await graphql(`
     {
-      allWpPost(sort: { fields: date, order: DESC }) {
+      allWpPost(sort: { fields: modifiedGmt, order: DESC }) {
         nodes {
           uri
           id
-          date
         }
       }
     }

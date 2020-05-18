@@ -4,7 +4,9 @@ import { Link } from "gatsby"
 import { normalizePath } from "../utils/normalize-path"
 
 const AuthorBio = ({ author }) => {
-  const description = author?.description ? author.description.replace(/(\r\n|\n|\r)/gm, "<br/>") : ""
+  if (!author.description) return null
+
+  const description = author.description.replace(/(\r\n|\n|\r)/gm, "<br/>")
 
   return (
     <div className="author-bio">

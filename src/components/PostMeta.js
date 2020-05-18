@@ -4,6 +4,7 @@ import { Link } from "gatsby"
 import DateIcon from "../assets/svg/date.inline.svg"
 import { getFormattedDate } from "../utils/get-date"
 import CommentIcon from "../assets/svg/comment.inline.svg"
+import { normalizePath } from "../utils/normalize-path"
 
 const PostMeta = ({ author, title, date }) => {
   return (
@@ -16,7 +17,7 @@ const PostMeta = ({ author, title, date }) => {
           </span>
           <span className="meta-text">
             By{" "}
-            <Link to={"/" + author.uri}>
+            <Link to={normalizePath(author.uri)}>
               {author.firstName
                 ? author.lastName
                   ? author.firstName + " " + author.lastName
