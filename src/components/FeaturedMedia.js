@@ -6,7 +6,7 @@ const FeaturedMedia = ({ image }) => {
 
   return (
     <div className="featured-media">
-      <div className="featured-media-inner section-inner">
+      <div className="featured-media-inner section-inner medium">
         <NonStretchedImage
           className="attachment-post-thumbnail size-post-thumbnail wp-post-image"
           fluid={image.remoteFile.childImageSharp.fluid}
