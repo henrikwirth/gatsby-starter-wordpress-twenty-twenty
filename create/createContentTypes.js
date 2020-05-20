@@ -82,7 +82,7 @@ module.exports = async ({ actions, graphql }, options) => {
       })
     )
 
-    fileOne.end();
-    fileTwo.end();
+    // fileOne.end();
+    // fileTwo.end();
   }
 }
