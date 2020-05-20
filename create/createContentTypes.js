@@ -1,3 +1,5 @@
+const { normalizePath } = require("../src/utils/normalize-path")
+
 const { resolve } = require(`path`)
 
 const capitalize = (s) => {
@@ -55,10 +57,18 @@ module.exports = async ({ actions, graphql }, options) => {
 
     const { nodes } = data[gatsbyNodeListFieldName]
 
+    // const fs = require('fs')
+    // const fileOne = fs.createWriteStream('./fileWordPress.txt')
+    // const fileTwo = fs.createWriteStream('./fileGatsby.txt')
+
     await Promise.all(
       nodes.map(async (node, i) => {
+        // await fileOne.write("https://thesis.local" + normalizePath(node.uri) + '\r\n')
+        // await fileTwo.write("https://thesis-gatsby.local" + normalizePath(node.uri) + '\r\n')
         // @todo: determine why pages using allWpContentNode queries
         // don't get automatically updated with incremental data fetching
+
+
 
         await actions.createPage({
           component: resolve(contentTypeTemplate),
@@ -71,5 +81,8 @@ module.exports = async ({ actions, graphql }, options) => {
         })
       })
     )
+
+    fileOne.end();
+    fileTwo.end();
   }
 }
