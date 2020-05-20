@@ -11,7 +11,7 @@
     "develop": "gatsby develop",
     "clean": "gatsby clean",
     "build": "gatsby build",
-    "build:time": "/usr/bin/time -f 'real %e | stime %S | utime %U\n' -a -o tests/build-time.txt gatsby build && cat tests/build-time.txt",
+    "build:time": "/usr/bin/time -f 'real %e | stime %S | utime %U' -a -o tests/build-time.txt gatsby build && cat tests/build-time.txt",
     "calc": "node calculate.js",
     "cdev": "gatsby clean && gatsby develop",
     "cbuild": "gatsby clean && gatsby build",
