@@ -10,7 +10,7 @@
   "scripts": {
     "develop": "gatsby develop",
     "clean": "gatsby clean",
-    "build": "NODE_OPTIONS='--require \"./tests/profiling.js\"' gatsby build",
+    "build": "gatsby build",
     "build:time": "/usr/bin/time -f '%e;%U;%S' -a -o /home/kamalogic/test/results/gatsby_build_times.csv gatsby build && cat /home/kamalogic/test/results/gatsby_build_times.csv",
     "calc": "node calculate.js",
     "cdev": "gatsby clean && gatsby develop",
