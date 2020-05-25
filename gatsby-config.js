@@ -29,16 +29,8 @@ module.exports = {
       options: {
         url: process.env.WPGRAPHQL_URL,
         verbose: true,
-        schema: {
-          queryDepth: 5,
-          typePrefix: `Wp`,
-          timeout: 30000,
-        },
         develop: {
           nodeUpdateInterval: 3000,
-          hardCacheMediaFiles: false,
-        },
-        production: {
           hardCacheMediaFiles: false,
         },
         debug: {
@@ -64,26 +56,12 @@ module.exports = {
               process.env.NODE_ENV === `development`
                 ? // Lets just pull 50 posts in development to make it easy on ourselves.
                   35
-                : // and we don't actually need more than 5000 in production
-                  5000,
-          },
-          User: {
-            excludeFieldNames: [
-              `extraCapabilities`,
-              `capKey`,
-              `email`,
-              `registeredDate`,
-            ],
+                : // And then we can pull all posts in production
+                  null,
           },
           // this shows how to exclude entire types from the schema
-          // these examples are for wp-graphql-gutenberg
-          CoreParagraphBlockAttributes: {
-            exclude: true,
-          },
+          // this example is for wp-graphql-gutenberg
           CoreParagraphBlockAttributesV2: {
-            exclude: true,
-          },
-          CorePullquoteBlockAttributes: {
             exclude: true,
           },
         },
