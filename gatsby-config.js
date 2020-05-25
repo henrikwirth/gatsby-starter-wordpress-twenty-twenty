@@ -53,15 +53,6 @@ module.exports = {
             onlyReportCriticalErrors: true,
           },
         },
-        plugins: [
-          {
-            resolve: `gatsby-wordpress-experimental-inline-images`,
-            options: {
-              baseUrl: process.env.WP_BASE_URL,
-              protocol: `https`,
-            },
-          },
-        ],
         // fields can be excluded globally.
         // this example is for wp-graphql-gutenberg.
         // since we can get block data on the `block` field
