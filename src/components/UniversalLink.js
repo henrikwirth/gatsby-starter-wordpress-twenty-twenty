@@ -1,6 +1,6 @@
 import { Link as GatsbyLink } from "gatsby"
 import React from "react"
-import { normalizePath } from "../utils/normalize-path"
+
 // Since DOM elements <a> cannot receive activeClassName
 // and partiallyActive, destructure the prop here and
 // pass it only to GatsbyLink

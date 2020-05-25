@@ -1,4 +1,3 @@
-const { normalizePath } = require("../src/utils/normalize-path")
 const { resolve } = require(`path`)
 const chunk = require(`lodash/chunk`)
 
@@ -45,7 +44,7 @@ module.exports = async ({ actions, graphql }, options) => {
 
         const chunkedContentNodes = chunk(data.allWpPost.nodes, perPage)
 
-        const categoryPath = normalizePath(category.uri)
+        const categoryPath = category.uri
 
         await Promise.all(
           chunkedContentNodes.map(async (nodesChunk, index) => {

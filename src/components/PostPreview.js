@@ -1,6 +1,5 @@
 import React from "react"
 import { Link } from "gatsby"
-import { normalizePath } from "../utils/normalize-path"
 import PostMeta from "./PostMeta"
 import PostCategories from "./PostCategories"
 import FeaturedMedia from "./FeaturedMedia"
@@ -18,7 +17,7 @@ const PostPreview = ({ post, isLast }) => {
 
             <h2 className="entry-title heading-size-1">
               <Link
-                to={normalizePath(post.uri)}
+                to={post.uri}
                 dangerouslySetInnerHTML={{ __html: post.title }}
               />
             </h2>

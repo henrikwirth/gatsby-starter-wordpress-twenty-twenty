@@ -1,6 +1,5 @@
 import React from "react"
 import { Link } from "gatsby"
-import { normalizePath } from "../utils/normalize-path"
 
 const ContentTypePagination = ({ previousPage, nextPage, contentType }) => {
   return (
@@ -13,7 +12,7 @@ const ContentTypePagination = ({ previousPage, nextPage, contentType }) => {
 
       <div className="pagination-single-inner">
         {previousPage && (
-          <Link className="previous-post" to={normalizePath(previousPage.uri)}>
+          <Link className="previous-post" to={previousPage.uri}>
             <span className="arrow" aria-hidden="true">
               ←
             </span>
@@ -27,7 +26,7 @@ const ContentTypePagination = ({ previousPage, nextPage, contentType }) => {
         )}
 
         {nextPage && (
-          <Link className="next-post" to={normalizePath(nextPage.uri)}>
+          <Link className="next-post" to={nextPage.uri}>
             <span className="arrow" aria-hidden="true">
               →
             </span>

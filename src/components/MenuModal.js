@@ -2,7 +2,6 @@ import React from "react"
 import CloseIcon from "../assets/svg/close.inline.svg"
 import { graphql, useStaticQuery } from "gatsby"
 import stopPropagation from "../utils/stop-propagation"
-import { normalizePath } from "../utils/normalize-path"
 import UniversalLink from "./UniversalLink"
 import SocialMenu from "./SocialMenu"
 
@@ -60,9 +59,8 @@ const MenuModal = ({ isActive, toggleBackdrop }) => {
             >
               <ul className="modal-menu reset-list-style">
                 {wpMenu.menuItems.nodes.map((menuItem, i) => {
-                  const path = normalizePath(
-                    menuItem?.connectedObject?.uri ?? menuItem.url
-                  )
+                  const path = menuItem?.connectedObject?.uri ?? menuItem.url
+
                   const itemId = "modal-menu-item-" + menuItem.menuItemId
 
                   return (
@@ -92,9 +90,8 @@ const MenuModal = ({ isActive, toggleBackdrop }) => {
             <nav className="mobile-menu" aria-label="Mobile" role="navigation">
               <ul className="modal-menu reset-list-style">
                 {wpMenu.menuItems.nodes.map((menuItem, i) => {
-                  const path = normalizePath(
-                    menuItem?.connectedObject?.uri ?? menuItem.url
-                  )
+                  const path = menuItem?.connectedObject?.uri ?? menuItem.url
+
                   const itemId = "modal-mobile-menu-item-" + menuItem.menuItemId
 
                   return (
