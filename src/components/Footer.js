@@ -1,6 +1,5 @@
 import React from "react"
 import { Link } from "gatsby"
-import moment from "moment"
 
 const Footer = ({}) => {
   return (
@@ -8,7 +7,7 @@ const Footer = ({}) => {
       <div className="section-inner">
         <div className="footer-credits">
           <p className="footer-copyright">
-            © {moment().format("YYYY")}{" "}
+            © {new Date().getFullYear()}{" "}
             <Link to={"/"}>Gatsby Starter WordPress Twenty Twenty</Link>
           </p>
           <p>
