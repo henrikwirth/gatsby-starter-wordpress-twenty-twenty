@@ -27,9 +27,6 @@ module.exports = async ({ actions, graphql }, options) => {
   for (const contentType of allWpContentType.nodes) {
     const { graphqlSingleName } = contentType
 
-    // this is a super super basic template hierarchy
-    // this doesn't reflect what our hierarchy will look like.
-    // this is for testing/demo purposes
     const contentTypeTemplate = contentTypeTemplates.find(
       (path) => path === `./src/templates/types/${graphqlSingleName}.js`
     )
