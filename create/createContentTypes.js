@@ -57,9 +57,6 @@ module.exports = async ({ actions, graphql }, options) => {
 
     await Promise.all(
       nodes.map(async (node, i) => {
-        // @todo: determine why pages using allWpContentNode queries
-        // don't get automatically updated with incremental data fetching
-
         await actions.createPage({
           component: resolve(contentTypeTemplate),
           path: node.isFrontPage ? "/" : node.uri,
