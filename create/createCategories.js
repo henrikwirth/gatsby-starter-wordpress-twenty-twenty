@@ -29,16 +29,25 @@ module.exports = async ({ actions, graphql }, options) => {
       // making sure if the union objects are empty, that this doesn't go further (... on WpCategory can produce empty {} objects)
       if (Object.keys(category).length) {
         const { data } = await graphql(/* GraphQL */ `
-                    {
-                        allWpPost(filter: {categories: {nodes: {elemMatch: {databaseId: {eq: ${category.databaseId} }}}}}, sort: { fields: date, order: DESC }) {
-                            nodes {
-                                uri
-                                id
-                                date
-                            }
-                        }
-                    }
-                `)
+          {
+            allWpPost(
+              filter: {
+                categories: {
+                  nodes: {
+                    elemMatch: { databaseId: { eq: ${category.databaseId} } }
+                  }
+                }
+              }
+              sort: { fields: date, order: DESC }
+            ) {
+              nodes {
+                uri
+                id
+                date
+              }
+            }
+          }
+        `)
 
         if (!data.allWpPost.nodes || data.allWpPost.nodes.length === 0) return
 
