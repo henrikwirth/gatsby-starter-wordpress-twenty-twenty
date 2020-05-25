@@ -1,7 +1,7 @@
 const { resolve } = require(`path`)
 
 const capitalize = (s) => {
-  if (typeof s !== 'string') return ''
+  if (typeof s !== "string") return ""
   return s.charAt(0).toUpperCase() + s.slice(1)
 }
 
@@ -10,9 +10,9 @@ module.exports = async ({ actions, graphql }, options) => {
 
   const {
     data: { allWpContentType },
-  } = await graphql(`
+  } = await graphql(/* GraphQL */ `
     query ALL_CONTENT_TYPES {
-      allWpContentType(filter: {graphqlPluralName: {ne: "mediaItems"}}) {
+      allWpContentType(filter: { graphqlPluralName: { ne: "mediaItems" } }) {
         nodes {
           graphqlSingleName
         }
@@ -40,7 +40,7 @@ module.exports = async ({ actions, graphql }, options) => {
 
     const gatsbyNodeListFieldName = `allWp${capitalize(graphqlSingleName)}`
 
-    const { data } = await graphql(`
+    const { data } = await graphql(/* GraphQL */ `
           query ALL_CONTENT_NODES {
             ${gatsbyNodeListFieldName} {
               nodes {

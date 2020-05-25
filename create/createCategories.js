@@ -4,7 +4,7 @@ const chunk = require(`lodash/chunk`)
 module.exports = async ({ actions, graphql }, options) => {
   const { perPage } = options
 
-  const { data: categoryData } = await graphql(`
+  const { data: categoryData } = await graphql(/* GraphQL */ `
     {
       allWpTermNode {
         nodes {
@@ -28,7 +28,7 @@ module.exports = async ({ actions, graphql }, options) => {
     categoryData.allWpTermNode.nodes.map(async (category, index) => {
       // making sure if the union objects are empty, that this doesn't go further (... on WpCategory can produce empty {} objects)
       if (Object.keys(category).length) {
-        const { data } = await graphql(`
+        const { data } = await graphql(/* GraphQL */ `
                     {
                         allWpPost(filter: {categories: {nodes: {elemMatch: {databaseId: {eq: ${category.databaseId} }}}}}, sort: { fields: date, order: DESC }) {
                             nodes {

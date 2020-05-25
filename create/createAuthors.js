@@ -4,7 +4,7 @@ const chunk = require(`lodash/chunk`)
 module.exports = async ({ actions, graphql }, options) => {
   const { perPage } = options
 
-  const { data } = await graphql(`
+  const { data } = await graphql(/* GraphQL */ `
     {
       allWpUser {
         nodes {
@@ -22,7 +22,7 @@ module.exports = async ({ actions, graphql }, options) => {
 
   await Promise.all(
     data.allWpUser.nodes.map(async (user, index) => {
-      const { data } = await graphql(`
+      const { data } = await graphql(/* GraphQL */ `
             {
                 allWpPost(filter: {author: {databaseId: {eq: ${user.databaseId} }}}, sort: { fields: date, order: DESC }) {
                     nodes {
