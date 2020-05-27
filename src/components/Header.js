@@ -16,7 +16,6 @@ const Header = ({ pageContext, toggleBackdrop, ...props }) => {
   `)
   return (
     <header id="site-header" className="header-footer-group" role="banner">
-
       <div className="header-inner section-inner">
         <div className="header-titles-wrapper">
           <div className="header-titles">
@@ -52,12 +51,10 @@ const Header = ({ pageContext, toggleBackdrop, ...props }) => {
         </div>
 
         <div className="header-navigation-wrapper">
-
           <Menu />
 
           <div className="header-toggles hide-no-js">
             <div className="toggle-wrapper nav-toggle-wrapper has-expanded-menu">
-
               <button
                 className="toggle nav-toggle desktop-nav-toggle"
                 data-toggle-target=".menu-modal"
@@ -73,12 +70,9 @@ const Header = ({ pageContext, toggleBackdrop, ...props }) => {
                   </span>
                 </span>
               </button>
-
             </div>
           </div>
-
         </div>
-
       </div>
     </header>
   )

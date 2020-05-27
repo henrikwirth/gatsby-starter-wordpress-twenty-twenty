@@ -1,11 +1,10 @@
-const { normalizePath } = require("../src/utils/normalize-path")
 const { resolve } = require(`path`)
 const chunk = require(`lodash/chunk`)
 
 module.exports = async ({ actions, graphql }, options) => {
   const { perPage } = options
 
-  const { data: categoryData } = await graphql(`
+  const { data: categoryData } = await graphql(/* GraphQL */ `
     {
       allWpTermNode {
         nodes {
@@ -29,23 +28,32 @@ module.exports = async ({ actions, graphql }, options) => {
     categoryData.allWpTermNode.nodes.map(async (category, index) => {
       // making sure if the union objects are empty, that this doesn't go further (... on WpCategory can produce empty {} objects)
       if (Object.keys(category).length) {
-        const { data } = await graphql(`
-                    {
-                        allWpPost(filter: {categories: {nodes: {elemMatch: {databaseId: {eq: ${category.databaseId} }}}}}, sort: { fields: date, order: DESC }) {
-                            nodes {
-                                uri
-                                id
-                                date
-                            }
-                        }
-                    }
-                `)
+        const { data } = await graphql(/* GraphQL */ `
+          {
+            allWpPost(
+              filter: {
+                categories: {
+                  nodes: {
+                    elemMatch: { databaseId: { eq: ${category.databaseId} } }
+                  }
+                }
+              }
+              sort: { fields: date, order: DESC }
+            ) {
+              nodes {
+                uri
+                id
+                date
+              }
+            }
+          }
+        `)
 
         if (!data.allWpPost.nodes || data.allWpPost.nodes.length === 0) return
 
         const chunkedContentNodes = chunk(data.allWpPost.nodes, perPage)
 
-        const categoryPath = normalizePath(category.uri)
+        const categoryPath = category.uri
 
         await Promise.all(
           chunkedContentNodes.map(async (nodesChunk, index) => {

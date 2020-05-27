@@ -4,7 +4,7 @@ const chunk = require(`lodash/chunk`)
 module.exports = async ({ actions, graphql }, options) => {
   const { perPage, blogURI } = options
 
-  const { data } = await graphql(`
+  const { data } = await graphql(/* GraphQL */ `
     {
       allWpPost(sort: { fields: modifiedGmt, order: DESC }) {
         nodes {

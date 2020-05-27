@@ -6,12 +6,12 @@ A port of the WordPress Twenty Twenty theme to Gatsby.
 
 This starter uses an early alpha version of the upcoming `gatsby-source-wordpress@v4`. You can find rough documentation for that package [here](https://github.com/TylerBarnes/gatsby/blob/feat/source-wordpress-v4/packages/gatsby-source-wordpress-experimental/README.md).
 
-Checkout some options of the source plugin: [defaultPluginOptions](https://github.com/TylerBarnes/gatsby/blob/feat/source-wordpress-v4/packages/gatsby-source-wordpress-experimental/src/models/gatsby-api.js)
+Checkout some options of the source plugin: [defaultPluginOptions](https://github.com/gatsbyjs/gatsby-source-wordpress-experimental/blob/master/src/models/gatsby-api.js#L6)
 
 ## WordPress Setup
 
-1. Make sure to install the two WP plugins *wp-gatsby-0.2.5.zip* and *wp-graphql-0.8.3.zip*
-   - You can find the version, that are compativble with this version here: https://github.com/TylerBarnes/using-gatsby-source-wordpress-experimental/tree/3e58b27ac22da9a35e2deaa37d1b35d4e4bcdda8/WordPress/plugins
+1. Make sure to install the two required WP plugins *wp-gatsby* and *wp-graphql*
+   - You can find the version, that are compativble with this version here: https://github.com/TylerBarnes/using-gatsby-source-wordpress-experimental/tree/4de73ca5478194ea312551eea11482c0ecd1e344/WordPress/plugins
 2. Best you install and activate the default WordPress Twenty Twenty theme
 3. Make sure you have Menus with the following slugs: 
    -  `primary` - Thats the top menu
@@ -29,13 +29,13 @@ Checkout some options of the source plugin: [defaultPluginOptions](https://githu
 
 ## Links
 
-- [gatsby-source-wordpress-experimental](https://github.com/TylerBarnes/gatsby/tree/feat/source-wordpress-v4/packages/gatsby-source-wordpress-experimental)
-- [WPGatsby - WordPress Plugin](https://github.com/TylerBarnes/gatsby/tree/feat/source-wordpress-v4/packages/wp-gatsby)
+- [gatsby-source-wordpress-experimental](https://github.com/gatsbyjs/gatsby-source-wordpress-experimental)
+- [WPGatsby - WordPress Plugin](https://github.com/gatsbyjs/wp-gatsby)
 - [Twenty Twenty - WordPress Theme](https://de.wordpress.org/themes/twentytwenty/)
 
 ## Acknowledgements
 
 - [NeverNull GmbH](https://nevernull.io) - The team I'm working with. Checkout what we are building here: [mobileui.dev](https://mobileui.dev)
-- [@TylerBarnes](https://github.com/TylerBarnes/) - Head developer of gatsby-source-wordpress@v4
+- [@TylerBarnes](https://github.com/TylerBarnes) - Head developer of gatsby-source-wordpress@v4
 - [@JasonBahl](https://github.com/jasonbahl) - Head developer of WPGraphQL
 - [@LouieChristie](https://github.com/louiechristie) - Open source contributor

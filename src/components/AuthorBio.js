@@ -1,7 +1,6 @@
 import React from "react"
 import GatsbyImageWithIEPolyfill from "gatsby-image/withIEPolyfill"
 import { Link } from "gatsby"
-import { normalizePath } from "../utils/normalize-path"
 
 const AuthorBio = ({ author }) => {
   if (!author.description) return null
@@ -28,11 +27,7 @@ const AuthorBio = ({ author }) => {
       <div className="author-description">
         <div dangerouslySetInnerHTML={{ __html: description }} />
 
-        <Link
-          className="author-link"
-          to={normalizePath(author.uri)}
-          rel="author"
-        >
+        <Link className="author-link" to={author.uri} rel="author">
           View Archive <span aria-hidden="true">→</span>{" "}
         </Link>
       </div>

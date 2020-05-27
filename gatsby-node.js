@@ -12,7 +12,7 @@ const getTemplates = () => {
 }
 
 exports.createPages = async (props) => {
-  const { data: wpSettings } = await props.graphql(`
+  const { data: wpSettings } = await props.graphql(/* GraphQL */ `
     {
       wp {
         readingSettings {
@@ -26,7 +26,7 @@ exports.createPages = async (props) => {
   const blogURI = "/"
   const templates = getTemplates()
 
-  await createContentTypes(props , { templates })
+  await createContentTypes(props, { templates })
   await createBlog(props, { perPage, blogURI })
   await createCategories(props, { perPage })
   await createAuthors(props, { perPage })

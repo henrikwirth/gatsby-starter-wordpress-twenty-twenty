@@ -2,9 +2,7 @@ import React from "react"
 import AuthorIcon from "../assets/svg/author.inline.svg"
 import { Link } from "gatsby"
 import DateIcon from "../assets/svg/date.inline.svg"
-import { getFormattedDate } from "../utils/get-date"
 import CommentIcon from "../assets/svg/comment.inline.svg"
-import { normalizePath } from "../utils/normalize-path"
 
 const PostMeta = ({ author, title, date }) => {
   return (
@@ -17,7 +15,7 @@ const PostMeta = ({ author, title, date }) => {
           </span>
           <span className="meta-text">
             By{" "}
-            <Link to={normalizePath(author.uri)}>
+            <Link to={author.uri}>
               {author.firstName
                 ? author.lastName
                   ? author.firstName + " " + author.lastName
@@ -31,7 +29,7 @@ const PostMeta = ({ author, title, date }) => {
             <span className="screen-reader-text">Post date</span>
             <DateIcon />
           </span>
-          <span className="meta-text">{getFormattedDate(date)}</span>
+          <span className="meta-text">{date}</span>
         </li>
         <li className="post-comment-link meta-wrapper">
           <span className="meta-icon">
@@ -40,7 +38,11 @@ const PostMeta = ({ author, title, date }) => {
           <span className="meta-text">
             <a href="#respond">
               {/*TODO: Dynamic comments*/}
-              No Comments<span className="screen-reader-text"> on <span dangerouslySetInnerHTML={{__html: title}}/></span>
+              No Comments
+              <span className="screen-reader-text">
+                {" "}
+                on <span dangerouslySetInnerHTML={{ __html: title }} />
+              </span>
             </a>
           </span>
         </li>

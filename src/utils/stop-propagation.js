@@ -1,4 +1,3 @@
-
 /**
  * Helps to stop click event propagation from child to parent element.
  */

@@ -32,7 +32,7 @@ export const fragments = graphql`
     title
     databaseId
     excerpt
-    date
+    date(formatString: "LL")
     featuredImage {
       remoteFile {
         ...Thumbnail
@@ -56,7 +56,7 @@ export const fragments = graphql`
   fragment PostContent on WpPost {
     title
     content
-    date
+    date(formatString: "LL")
     excerpt
     featuredImage {
       remoteFile {
