@@ -31,7 +31,7 @@ export const fragments = graphql`
     uri
     title
     databaseId
-    excerpt
+    content
     date
     featuredImage {
       remoteFile {
@@ -52,7 +52,7 @@ export const fragments = graphql`
       }
     }
   }
-
+  
   fragment PostContent on WpPost {
     title
     content

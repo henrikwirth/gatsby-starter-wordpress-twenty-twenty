@@ -39,10 +39,11 @@ export default ({ data }) => {
               className="entry-title"
               dangerouslySetInnerHTML={{ __html: title }}
             />
-            <div
-              className="intro-text section-inner max-percentage small"
-              dangerouslySetInnerHTML={{ __html: excerpt }}
-            />
+            {/*<div*/}
+            {/*  className="intro-text section-inner max-percentage small"*/}
+            {/*  dangerouslySetInnerHTML={{ __html: excerpt }}*/}
+            {/*/>*/}
+
             <PostMeta title={title} author={author} date={date} />
           </div>
         </header>
