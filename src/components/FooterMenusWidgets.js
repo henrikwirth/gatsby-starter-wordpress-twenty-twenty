@@ -5,9 +5,7 @@ const FooterMenusWidgets = ({}) => {
   return (
     <div className="footer-nav-widgets-wrapper header-footer-group">
       <div className="footer-inner section-inner">
-        <div className="footer-top has-social-menu">
-          <SocialMenu />
-        </div>
+        <SocialMenu />
 
         <aside className="footer-widgets-outer-wrapper" role="complementary">
           <div className="footer-widgets-wrapper">

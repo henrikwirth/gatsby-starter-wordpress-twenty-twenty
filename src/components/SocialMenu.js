@@ -84,48 +84,50 @@ const SocialMenu = ({ isExpanded }) => {
   if (!wpMenu?.menuItems?.nodes || wpMenu.menuItems.nodes === 0) return null
 
   return (
-    <nav
-      aria-label={(isExpanded ? "Expanded " : "") + "Social links"}
-      className={!isExpanded ? "footer-social-wrapper" : ""}
-    >
-      <ul
-        className={
-          "social-menu" +
-          (!isExpanded ? " footer-social" : "") +
-          " reset-list-style social-icons fill-children-current-color"
-        }
+    <div className="footer-top has-social-menu">
+      <nav
+        aria-label={(isExpanded ? "Expanded " : "") + "Social links"}
+        className={!isExpanded ? "footer-social-wrapper" : ""}
       >
-        {wpMenu.menuItems.nodes.map((menuItem, index) => {
-          const path = menuItem?.connectedObject?.uri ?? menuItem.url
-          const itemId = "menu-item-" + menuItem.menuItemId
+        <ul
+          className={
+            "social-menu" +
+            (!isExpanded ? " footer-social" : "") +
+            " reset-list-style social-icons fill-children-current-color"
+          }
+        >
+          {wpMenu.menuItems.nodes.map((menuItem, index) => {
+            const path = menuItem?.connectedObject?.uri ?? menuItem.url
+            const itemId = "menu-item-" + menuItem.menuItemId
 
-          return (
-            <li
-              key={itemId}
-              className={
-                "menu-item menu-item-type-custom menu-item-object-custom" +
-                itemId
-              }
-            >
-              <a
-                href={path}
-                target={menuItem.target ?? "_self"}
-                rel="noreferrer noopener"
+            return (
+              <li
+                key={itemId}
+                className={
+                  "menu-item menu-item-type-custom menu-item-object-custom" +
+                  itemId
+                }
               >
-                <span className="screen-reader-text">{menuItem.label}</span>
-                <SocialIcon
-                  className={"svg-icon"}
-                  label={menuItem.label}
-                  aria-hidden="true"
-                  role="img"
-                  focusable="false"
-                />
-              </a>
-            </li>
-          )
-        })}
-      </ul>
-    </nav>
+                <a
+                  href={path}
+                  target={menuItem.target ?? "_self"}
+                  rel="noreferrer noopener"
+                >
+                  <span className="screen-reader-text">{menuItem.label}</span>
+                  <SocialIcon
+                    className={"svg-icon"}
+                    label={menuItem.label}
+                    aria-hidden="true"
+                    role="img"
+                    focusable="false"
+                  />
+                </a>
+              </li>
+            )
+          })}
+        </ul>
+      </nav>
+    </div>
   )
 }
 
