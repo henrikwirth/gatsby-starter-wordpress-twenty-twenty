@@ -131,9 +131,7 @@ const ArchivePagination = ({
   pageCount,
   archivePath,
 }) => {
-  console.log({pageCount})
   if (pageCount <= 1) {
-    console.log("return nothing")
     return null
   }
 
