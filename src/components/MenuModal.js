@@ -14,10 +14,12 @@ const MenuModal = ({ isActive, toggleBackdrop }) => {
           nodes {
             label
             url
-            menuItemId
-            connectedObject {
-              ... on WpContentNode {
-                uri
+            databaseId
+            connectedNode {
+              node {
+                ... on WpContentNode {
+                  uri
+                } 
               }
             }
           }
@@ -59,13 +61,14 @@ const MenuModal = ({ isActive, toggleBackdrop }) => {
             >
               <ul className="modal-menu reset-list-style">
                 {wpMenu.menuItems.nodes.map((menuItem, i) => {
-                  const path = menuItem?.connectedObject?.uri ?? menuItem.url
+                  const path = menuItem?.connectedNode?.node?.uri ?? menuItem.url
 
-                  const itemId = "modal-menu-item-" + menuItem.menuItemId
+                  const itemId = "modal-menu-item-" + menuItem.databaseId
 
                   return (
                     <li
                       id={itemId}
+                      key={itemId}
                       className={
                         "menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home " +
                         itemId
@@ -90,13 +93,14 @@ const MenuModal = ({ isActive, toggleBackdrop }) => {
             <nav className="mobile-menu" aria-label="Mobile" role="navigation">
               <ul className="modal-menu reset-list-style">
                 {wpMenu.menuItems.nodes.map((menuItem, i) => {
-                  const path = menuItem?.connectedObject?.uri ?? menuItem.url
+                  const path = menuItem?.connectedNode?.node?.uri ?? menuItem.url
 
-                  const itemId = "modal-mobile-menu-item-" + menuItem.menuItemId
+                  const itemId = "modal-mobile-menu-item-" + menuItem.databaseId
 
                   return (
                     <li
                       id={itemId}
+                      key={itemId}
                       className={
                         "menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home " +
                         itemId

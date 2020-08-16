@@ -24,7 +24,7 @@ module.exports = async ({ actions, graphql }, options) => {
     data.allWpUser.nodes.map(async (user, index) => {
       const { data } = await graphql(/* GraphQL */ `
             {
-                allWpPost(filter: {author: {databaseId: {eq: ${user.databaseId} }}}, sort: { fields: date, order: DESC }) {
+                allWpPost(filter: {author: {node: {databaseId: {eq: ${user.databaseId} }}}}, sort: { fields: date, order: DESC }) {
                     nodes {
                         uri
                         databaseId

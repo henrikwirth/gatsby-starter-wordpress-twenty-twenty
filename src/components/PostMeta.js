@@ -5,6 +5,7 @@ import DateIcon from "../assets/svg/date.inline.svg"
 import CommentIcon from "../assets/svg/comment.inline.svg"
 
 const PostMeta = ({ author, title, date }) => {
+  author = author?.node
   return (
     <div className="post-meta-wrapper post-meta-single post-meta-single-top">
       <ul className="post-meta">

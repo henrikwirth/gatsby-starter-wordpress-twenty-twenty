@@ -3,6 +3,7 @@ import GatsbyImageWithIEPolyfill from "gatsby-image/withIEPolyfill"
 import { Link } from "gatsby"
 
 const AuthorBio = ({ author }) => {
+  author = author?.node
   if (!author.description) return null
 
   const description = author.description.replace(/(\r\n|\n|\r)/gm, "<br/>")

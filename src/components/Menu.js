@@ -11,10 +11,12 @@ const Menu = () => {
           nodes {
             label
             url
-            menuItemId
-            connectedObject {
-              ... on WpContentNode {
-                uri
+            databaseId
+            connectedNode {
+              node {
+                ... on WpContentNode {
+                  uri
+                }
               }
             }
           }
@@ -33,9 +35,9 @@ const Menu = () => {
     >
       <ul className="primary-menu reset-list-style">
         {wpMenu.menuItems.nodes.map((menuItem, i) => {
-          const path = menuItem?.connectedObject?.uri ?? menuItem.url
+          const path = menuItem?.connectedNode?.node?.uri ?? menuItem.url
 
-          const itemId = "menu-item-" + menuItem.menuItemId
+          const itemId = "menu-item-" + menuItem.databaseId
 
           return (
             <li
