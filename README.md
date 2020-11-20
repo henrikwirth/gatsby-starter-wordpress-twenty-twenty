@@ -1,48 +1,53 @@
 # Gatsby Starter - WordPress Twenty Twenty
 
-A port of the WordPress Twenty Twenty theme to Gatsby. 
+## Setup and Usage
 
-**Works pretty well but still a work in progress**
+-  Follow upstream repo instructions here: [@henrikwirth/gatsby-starter-wordpress-twenty-twenty](https://github.com/henrikwirth/gatsby-starter-wordpress-twenty-twenty)
+-  To add additional footer widget menus, update the WordPress Twenty Twenty theme `functions.php`:
 
-This starter uses an early alpha version of the upcoming `gatsby-source-wordpress@v4`. You can find rough documentation for that package [here](https://github.com/TylerBarnes/gatsby/blob/feat/source-wordpress-v4/packages/gatsby-source-wordpress-experimental/README.md).
+```
+/**
+ * Register navigation menus uses wp_nav_menu in five places.
+ */
+function twentytwenty_menus() {
 
-Checkout some options of the source plugin: [defaultPluginOptions](https://github.com/gatsbyjs/gatsby-source-wordpress-experimental/blob/master/src/models/gatsby-api.js#L6)
+	$locations = array(
+		'primary'  => __( 'Desktop Horizontal Menu', 'twentytwenty' ),
+		'expanded' => __( 'Desktop Expanded Menu', 'twentytwenty' ),
+		'mobile'   => __( 'Mobile Menu', 'twentytwenty' ),
+		'footer-1'   => __( 'Footer Menu 1', 'twentytwenty' ),
+		'footer-2'   => __( 'Footer Menu 2', 'twentytwenty' ),
+		'footer-3'   => __( 'Footer Menu 3', 'twentytwenty' ),
+		'footer-4'   => __( 'Footer Menu 4', 'twentytwenty' ),
+		'footer-5'   => __( 'Footer Menu 5', 'twentytwenty' ),
+		'social'   => __( 'Social Menu', 'twentytwenty' ),
+	);
 
-## Plugin Versions
+	register_nav_menus( $locations );
+}
 
-Last tested with the following plugin versions.
+add_action( 'init', 'twentytwenty_menus' );
+```
 
-- WPGraphQL: 1.1.3
-- WPGatsby: 1.0.3
-- gatsby-source-wordpress: 4.0.1
+## Additional Features
 
-## WordPress Setup
+-  Netlify contact form
+-  Landing page
+-  Footer widget menus
 
-1. Make sure to install the two required WP plugins [wp-gatsby](https://github.com/gatsbyjs/wp-gatsby) and [wp-graphql](https://github.com/wp-graphql/wp-graphql)
-2. Best you install and activate the default WordPress Twenty Twenty theme
-3. Make sure you have Menus with the following slugs: 
-   -  `primary` - Thats the top menu
-   -  `extended` - That is the menu that opens on the right side as drawer
-   -  `social-links-menu` - For the Social menu in the footer and in the expanded drawer
-      -  For the social Icons you need to adjust `SocialMenu.js`. There is a `SocialIcon` function that parses svgs depending on the Link label
-4. Rename `.env.example` file to `.env` and edit it with your domain variables.
-      
 ## Limitations
 
--  Comments are not implemented yet.
+-  Comments are not implemented.
 -  The monthly archive pages are not implemented.
 -  Tags are not implemented (only Categories).
--  Surely there is more. Feel free to suggest things as issues. 
 
-## Links
+## TODO
 
-- [gatsby-source-wordpress-experimental](https://github.com/gatsbyjs/gatsby-source-wordpress-experimental)
-- [WPGatsby - WordPress Plugin](https://github.com/gatsbyjs/wp-gatsby)
-- [Twenty Twenty - WordPress Theme](https://de.wordpress.org/themes/twentytwenty/)
+-  Featured images
+-  Google Analytics
+-  Google Maps
+-  Customizer
 
 ## Acknowledgements
 
-- [NeverNull GmbH](https://nevernull.io) - The team I'm working with. Checkout what we are building here: [mobileui.dev](https://mobileui.dev)
-- [@TylerBarnes](https://github.com/TylerBarnes) - Head developer of gatsby-source-wordpress@v4
-- [@JasonBahl](https://github.com/jasonbahl) - Head developer of WPGraphQL
-- [@LouieChristie](https://github.com/louiechristie) - Open source contributor
+- [@henrikwirth](https://github.com/henrikwirth/gatsby-starter-wordpress-twenty-twenty)
