@@ -1,5 +1,5 @@
 {
-  "name": "gatsby-starter-wordpress-twenty-twenty",
+  "name": "gatsby-wordpress",
   "description": "Gatsby port of the WordPress Twenty Twenty theme.",
   "license": "SEE LICENSE IN <LICENSE>",
   "version": "0.0.1",
@@ -17,6 +17,7 @@
     "serve": "gatsby serve"
   },
   "dependencies": {
+    "cache-manager-fs-hash": "^0.0.9",
     "dotenv": "^8.2.0",
 <<<<<<< HEAD
     "gatsby": "^2.32.3",
@@ -43,6 +44,7 @@
     "gatsby-plugin-react-svg": "^3.0.0",
     "gatsby-plugin-sharp": "^2.6.27",
     "gatsby-source-filesystem": "^2.3.24",
+    "gatsby-source-wordpress": "^3.6.0",
     "gatsby-source-wordpress-experimental": "^1.3.6",
     "gatsby-transformer-sharp": "^2.5.13",
     "prop-types": "^15.7.2",
