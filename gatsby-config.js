@@ -1,21 +1,23 @@
+const config = require('./config/site');
+const activeEnv = process.env.GATSBY_ACTIVE_ENV || process.env.NODE_ENV || "production"
+
+console.log(`Using environment config: '${activeEnv}'`)
+
 require("dotenv").config({
-  path: `.env`,
+  path: `.env.${activeEnv}`,
 })
 
-// require .env.development or .env.production
-require("dotenv").config({
-  path: `.env.${process.env.NODE_ENV}`,
-})
+console.log(`WordPress GraphQL endpoint: '${process.env.WPGRAPHQL_URL}'`)
 
 module.exports = {
   siteMetadata: {
-    title: `Gatsby WordPress Twenty Twenty`,
-    description: `Gatsby starter site for Twenty Twenty Gatsby Theme.`,
-    author: `@henrikwirth`,
+    ...config,
   },
   plugins: [
     `gatsby-plugin-notifications`,
     `gatsby-plugin-sharp`,
+    `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-catch-links`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -67,9 +69,38 @@ module.exports = {
       resolve: "gatsby-plugin-react-svg",
       options: {
         rule: {
-          include: /\.inline\.svg$/, // See below to configure properly
+          include: /\.inline\.svg$/,
         },
       },
     },
+    {
+      resolve: 'gatsby-plugin-typography',
+      options: {
+        pathToConfigModule: 'config/typography.js',
+      },
+    },
+    {
+      resolve: `gatsby-plugin-emotion`,
+      options: {
+        autoLabel: process.env.NODE_ENV !== 'production',
+        // eslint-disable-next-line
+        labelFormat: `[filename]--[local]`,
+      },
+    },
+    `gatsby-plugin-sitemap`,
+    {
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        name: config.title,
+        short_name: config.shortName,
+        description: config.description,
+        start_url: config.pathPrefix,
+        background_color: config.backgroundColor,
+        theme_color: config.themeColor,
+        display: 'standalone',
+        icon: config.favicon,
+      },
+    },
+    'gatsby-plugin-offline',
   ],
 }
