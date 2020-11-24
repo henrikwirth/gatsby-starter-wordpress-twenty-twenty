@@ -13,7 +13,7 @@ const post = ({ data }) => {
   const { nextPage, previousPage, page } = data
   const {
     title,
-    content,
+    Blocks,
     featuredImage,
     categories,
     excerpt,
@@ -52,7 +52,7 @@ const post = ({ data }) => {
         <div className="post-inner thin">
           <div
             className="entry-content"
-            dangerouslySetInnerHTML={{ __html: content }}
+            dangerouslySetInnerHTML={{ __html: Blocks }}
           />
         </div>
 

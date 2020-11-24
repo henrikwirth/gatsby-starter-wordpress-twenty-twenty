@@ -6,6 +6,8 @@ const createContentTypes = require(`./create/createContentTypes`)
 const createCategories = require(`./create/createCategories`)
 const createAuthors = require(`./create/createAuthors`)
 
+const config = require('./config/site')
+
 const getTemplates = () => {
   const sitePath = path.resolve(`./`)
   return glob.sync(`./src/templates/**/*.js`, { cwd: sitePath })
@@ -23,7 +25,7 @@ exports.createPages = async (props) => {
   `)
 
   const perPage = wpSettings.wp.readingSettings.postsPerPage || 10
-  const blogURI = "/"
+  const blogURI = config.blogUri
   const templates = getTemplates()
 
   await createContentTypes(props, { templates })

@@ -1,6 +1,8 @@
 import React from "react"
 import { Link } from "gatsby"
 
+const config = require('../../config/site')
+
 const Footer = ({}) => {
   return (
     <footer id="site-footer" role="contentinfo" className="header-footer-group">
@@ -8,15 +10,16 @@ const Footer = ({}) => {
         <div className="footer-credits">
           <p className="footer-copyright">
             © {new Date().getFullYear()}{" "}
-            <Link to={"/"}>Gatsby Starter WordPress Twenty Twenty</Link>
+            <Link to={"/"}>{config.company}</Link>
           </p>
-          <p>
+          <p className="powered-by-wordpress">
+            Made with &hearts; and{" "}
             <a
-              className="powered-by-wordpress"
-              href="https://www.henrikwirth.com"
+              className=""
+              href="https://www.gatsbyjs.com/"
               rel="noreferrer noopener"
             >
-              Proudly presented by Henrik Wirth
+               Gatsby.js
             </a>
           </p>
         </div>

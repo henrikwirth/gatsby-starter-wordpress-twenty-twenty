@@ -1,4 +1,4 @@
-const config = require('./config/site');
+const config = require('./config/site')
 const activeEnv = process.env.GATSBY_ACTIVE_ENV || process.env.NODE_ENV || "production"
 
 console.log(`Using environment config: '${activeEnv}'`)
@@ -64,6 +64,7 @@ module.exports = {
         },
       },
     },
+    `gatsby-theme-wordpress-gutenberg`,
     `gatsby-transformer-sharp`,
     {
       resolve: "gatsby-plugin-react-svg",
