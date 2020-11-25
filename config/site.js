@@ -7,10 +7,10 @@ module.exports = {
   siteUrl: 'https://example.com', // url + pathPrefix
   blogUri: '/blog',
   siteLanguage: 'en', // Language Tag on <html> element
-  logo: 'static/logo/logo.png', // Used for SEO
-  banner: 'static/logo/banner.png',
+  logo: 'src/assets/images/logo.png', // Used for SEO
+  banner: 'src/assets/images/banner.png',
   // JSONLD / Manifest
-  favicon: 'static/logo/favicon.png', // Used for manifest favicon generation
+  favicon: 'src/assets/images/favicon.png', // Used for manifest favicon generation
   shortName: 'example', // shortname for manifest. MUST be shorter than 12 characters
   author: 'Example Author', // Author for schemaORGJSONLD
   themeColor: '#ff6363',
