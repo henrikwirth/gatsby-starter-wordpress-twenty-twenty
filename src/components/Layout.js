@@ -4,6 +4,7 @@ import Footer from "./Footer"
 
 import FooterMenusWidgets from "./FooterMenusWidgets"
 import MenuModal from "./MenuModal"
+import "@wordpress/block-library/build-style/style.css"
 
 const backdropClasses = " backdrop"
 
