@@ -25,20 +25,14 @@
     "gatsby-plugin-notifications": "^0.0.2",
     "gatsby-plugin-react-svg": "^3.0.0",
     "gatsby-plugin-sharp": "^2.14.1",
+    "gatsby-plugin-sitemap": "^2.7.0",
     "gatsby-source-filesystem": "^2.11.0",
     "gatsby-source-wordpress": "^4.0.1",
     "gatsby-transformer-sharp": "^2.12.0",
     "prop-types": "^15.7.2",
-<<<<<<< HEAD
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0"
-=======
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-helmet": "^6.1.0",
-    "react-typography": "^0.16.19"
->>>>>>> added typography
   },
   "devDependencies": {
     "prettier": "^2.2.1"

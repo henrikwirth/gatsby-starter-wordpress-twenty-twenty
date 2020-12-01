@@ -64,7 +64,7 @@ module.exports = {
         },
       },
     },
-    `gatsby-theme-wordpress-gutenberg`,
+    // `gatsby-theme-wordpress-gutenberg`,
     `gatsby-transformer-sharp`,
     {
       resolve: "gatsby-plugin-react-svg",
