@@ -74,12 +74,12 @@ module.exports = {
         },
       },
     },
-    {
-      resolve: 'gatsby-plugin-typography',
-      options: {
-        pathToConfigModule: `${__dirname}/config/typography.js`,
-      },
-    },
+    // {
+    //   resolve: 'gatsby-plugin-typography',
+    //   options: {
+    //     pathToConfigModule: `${__dirname}/config/typography.js`,
+    //   },
+    // },
     // {
     //   resolve: `gatsby-plugin-emotion`,
     //   options: {
