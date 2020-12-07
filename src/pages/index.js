@@ -11,6 +11,7 @@ export default () => (
     <div className="button">
       <UniversalLink
         to="/sample-page"
+        className="button special"
       >
         Enter
       </UniversalLink>

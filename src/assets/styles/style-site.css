@@ -46,6 +46,21 @@ p, blockquote, address, big, cite, code, em, font, img, small, strike, sub, sup,
 .widget-content .rssSummary {
   font-family: var(--bodyFontFace);
 }
+input[type="button"],
+input[type="reset"],
+input[type="submit"],
+.button.special {
+  background-color: var(--secondaryColor);
+}
+input[type="button"]:hover,
+input[type="reset"]:hover,
+input[type="submit"]:hover,
+.button.special:hover {
+  background-color: var(--primaryColor);
+}
+button, .button, .faux-button, .wp-block-button__link, .wp-block-file .wp-block-file__button, input[type="button"], input[type="reset"], input[type="submit"] {
+  background: unset;
+}
 
 /* HEADER NAV */
 #site-header {
