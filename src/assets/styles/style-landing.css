@@ -1,0 +1,10 @@
+.landing-page {
+  width: 80%;
+  padding: 4rem;
+  margin: 4rem auto;
+  text-align: center;
+  color: var(--whiteColor);
+}
+.landing-page a {
+  color: var(--whiteColor);
+}

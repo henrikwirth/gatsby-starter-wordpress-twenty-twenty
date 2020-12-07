@@ -37,9 +37,8 @@ add_action( 'init', 'twentytwenty_menus' );
 
 ## Setup and Usage
 
-Follow upstream repo instructions here: [@henrikwirth/gatsby-starter-wordpress-twenty-twenty](https://github.com/henrikwirth/gatsby-starter-wordpress-twenty-twenty)
-
-## Update WordPress Twenty Twenty theme `functions.php` menus
+-  Follow upstream repo instructions here: [@henrikwirth/gatsby-starter-wordpress-twenty-twenty](https://github.com/henrikwirth/gatsby-starter-wordpress-twenty-twenty)
+-  Update WordPress Twenty Twenty theme `functions.php` menus
 
 ```
 /**
@@ -65,6 +64,11 @@ function twentytwenty_menus() {
 add_action( 'init', 'twentytwenty_menus' );
 ```
 
+## Additions
+
+-  Contact form
+-  Landing page
+
 ## Limitations
 
 -  Comments are not implemented.
@@ -76,6 +80,7 @@ add_action( 'init', 'twentytwenty_menus' );
 -  Featured images
 -  Google Analytics
 -  Google Maps
+-  Netlify forms
 -  Customizer
 
 ## Acknowledgements
