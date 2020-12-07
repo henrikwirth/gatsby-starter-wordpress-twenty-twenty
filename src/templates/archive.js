@@ -22,6 +22,14 @@ const Archive = (props) => {
       bodyClass="home blog wp-embed-responsive has-no-pagination showing-comments hide-avatars footer-top-visible customize-support">
       <Seo title="Home" description="Welcome to the Twenty Nineteen Theme." />
 
+      <header className="blog-header has-text-align-center header-footer-group">
+        <div className="blog-header-inner section-inner medium">
+          <h1 className="entry-title">
+            Blog
+          </h1>
+        </div>
+      </header>
+
       {nodes &&
       nodes.map((post, index) => {
         return (

@@ -1,0 +1,27 @@
+:root {
+  /* COLORS */
+  --primaryColor: #B3210D;
+  --secondaryColor: #8A000D;
+  --tertiaryColor: #7C0A02;
+  --transparentColor: transparent;
+  --blackColor: black;
+  --whiteColor: #e7e7de;
+  --lightGrayColor: #c2c2be;
+  --borderColor: #008891;
+
+  /* BACKGROUNDS */
+  --backgroundUrl: center center repeat #000 url('https://cdn.weldingsmostwanted.com/uploads/weldingsmostwanted-background-diamond-plate-4.jpg');
+  --backgroundSize: 200px;
+
+  /* TYPOGRAPHY */
+  --headerFontFace: sans-serif;
+  --bodyFontFace: sans-serif;
+
+  /* RESPONSIVE BREAKPOINTS & FIXES */
+  --smallMaxWidth: 100%;
+  --largeMaxWidth: 90%;
+  --smallWidth: 90%;
+  --largeWidth: 80%;
+  --smallPostLeftMargin: 2%;
+  --largePostLeftMargin: 4%;
+}

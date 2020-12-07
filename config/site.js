@@ -17,9 +17,10 @@ module.exports = {
   backgroundColor: '#ff6363',
   twitter: '', // Twitter Username
   // EXTRA
-  company: 'Example Company LLC',
   hoursOfOperation: 'M-F: 9am - 5pm',
   address: '123 Example St, Exampletown, USA',
   phone: '123.123.1234',
   email: 'me@example.com',
+  // FOOTER
+  company: 'Example Company',
 };

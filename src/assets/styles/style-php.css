@@ -20,7 +20,7 @@ body:not(.overlay-header) .primary-menu > li > .icon,
 .archive-header a,
 .header-footer-group .color-accent,
 .header-footer-group .color-accent-hover:hover {
-  color: #cd2653;
+  color: var(--primaryColor);
 }
 
 .site-description,
@@ -33,9 +33,9 @@ body:not(.overlay-header) .primary-menu > li > .icon,
 .widget_pages li,
 .widget_meta li,
 .widget_nav_menu li,
-.powered-by-wordpress,
+.additional-text,
 .to-the-top,
 .singular .entry-header .post-meta,
 .singular:not(.overlay-header) .entry-header .post-meta a {
-  color: #6d6d6d;
+  color: var(--lightGrayColor);
 }

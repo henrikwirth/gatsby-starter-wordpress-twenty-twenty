@@ -1,0 +1,174 @@
+/* RESPONSIVE BREAKPOINTS & FIXES */
+@media (min-width: 700px) {
+  .header-inner,
+  .entry-content > *,
+  .entry-content,
+  .section-inner,
+  .entry-content > * {
+    max-width: var(--largeMaxWidth) !important;
+    width: var(--largeWidth) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+}
+@media (max-width: 700px) {
+  .header-inner,
+  .entry-content > *,
+  .entry-content,
+  .section-inner,
+  .entry-content > * {
+    max-width: var(--smallMaxWidth) !important;
+    width: var(--smallWidth) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+}
+
+/* GLOBALS */
+body {
+  background-color: var(--primaryColor);
+}
+#GatsbyBody {
+  background-color: var(--whiteColor);
+  color: var(--blackColor);
+}
+h1, h2, h3, h4, h5 {
+  font-family: var(--headerFontFace);
+}
+p, blockquote, address, big, cite, code, em, font, img, small, strike, sub, sup, li, ol, ul, fieldset, form, label, legend, button, table, caption, tr, th, td {
+  font-family: var(--bodyFontFace);
+}
+.widget_text p,
+.widget_text ol,
+.widget_text ul,
+.widget_text dl,
+.widget_text dt,
+.widget-content .rssSummary {
+  font-family: var(--bodyFontFace);
+}
+
+/* HEADER NAV */
+#site-header {
+  background-color: var(--transparentColor);
+  color: var(--blackColor);
+}
+.header-inner a {
+  color: var(--primaryColor) !important;
+}
+.header-inner .site-title a {
+  color: var(--blackColor) !important;
+}
+.header-inner .site-title {
+  display: inline-block;
+}
+/* HEADER IMAGES */
+.header-inner .gatsby-image-wrapper {
+  display: inline-block;
+  overflow: visible !important;
+}
+@media (max-width: 700px) {
+  .header-inner .gatsby-image-wrapper {
+    margin-top: -2rem;
+    margin-bottom: -0.5rem;
+    margin-right: 1rem;
+  }
+  .header-inner .gatsby-image-wrapper img {
+    margin-bottom: -0.25rem !important;
+  }
+}
+@media (min-width: 700px) and (max-width: 1000px) {
+  .header-inner .gatsby-image-wrapper {
+    margin-top: -2rem;
+    margin-bottom: 0rem;
+    margin-right: 1rem;
+    margin-left: 0rem;
+  }
+  .header-inner .gatsby-image-wrapper img {
+    margin-bottom: -0.5rem !important;
+  }
+}
+@media (min-width: 1000px) {
+  .header-inner .gatsby-image-wrapper {
+    margin-top: -2rem;
+    margin-bottom: 0rem;
+    margin-right: -1.5rem;
+    margin-left: 2rem;
+  }
+  .header-inner .gatsby-image-wrapper img {
+    margin-bottom: -0.5rem !important;
+  }
+}
+.header-inner .gatsby-image-wrapper div {
+  padding-bottom: 0px !important;
+}
+.header-inner .gatsby-image-wrapper img {
+  position: relative !important;
+  width: auto !important;
+}
+.header-inner .gatsby-image-wrapper > [aria-hidden="false"] {
+  display: none !important;
+}
+/* HEADER LOGO HOVER ANIMATION */
+/* .header-inner .gatsby-image-wrapper {
+  border-radius: 50%;
+  -webkit-transition: -webkit-transform .8s ease-in-out;
+          transition:         transform .8s ease-in-out;
+}
+.header-inner .gatsby-image-wrapper:hover,
+.header-inner .gatsby-image-wrapper:focus,
+.header-inner .gatsby-image-wrapper:active {
+  -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+} */
+
+/* ENTRY HEADER */
+.singular .entry-header,
+.blog-header {
+  background-color: var(--primaryColor);
+  color: var(--whiteColor);
+  padding: 8rem 0;
+}
+.entry-header .post-meta,
+.entry-header .post-meta a {
+  color: var(--whiteColor) !important;
+}
+
+/* FOOTER */
+.footer-nav-widgets-wrapper {
+  background-color: var(--secondaryColor);
+}
+#site-footer {
+  background-color: var(--tertiaryColor);
+  color: var(--whiteColor);
+  border-color: var(--borderColor);
+  border-style: solid;
+  border-width: 0;
+}
+.social-icons a {
+  background: var(--primaryColor);
+  color: var(--whiteColor) !important;
+}
+.footer-top,
+.footer-widgets-outer-wrapper {
+  /* border-bottom: 0.1rem solid var(--lightGrayColor); */
+  border-bottom: none;
+  color: var(--whiteColor);
+}
+.footer-top a,
+.footer-widgets-outer-wrapper a {
+  /* border-bottom: 0.1rem solid var(--lightGrayColor); */
+  border-bottom: none;
+  color: var(--lightGrayColor);
+}
+.additional-text,
+.to-the-top {
+  color: var(--lightGrayColor);
+}
+.footer-copyright a,
+.additional-text a {
+  color: inherit;
+}
+.additional-text {
+  /* display: none; */
+  margin: 0 0 0 2.4rem;
+}

@@ -12,7 +12,7 @@ const Footer = ({}) => {
             © {new Date().getFullYear()}{" "}
             <Link to={"/"}>{config.company}</Link>
           </p>
-          <p className="powered-by-wordpress">
+          <p className="additional-text">
             Made with &hearts; and{" "}
             <a
               className=""

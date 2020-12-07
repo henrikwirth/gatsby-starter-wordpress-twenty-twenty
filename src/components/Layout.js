@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import Header from "./Header"
 import Footer from "./Footer"
+import theme from '../../config/theme'
 
 import FooterMenusWidgets from "./FooterMenusWidgets"
 import MenuModal from "./MenuModal"

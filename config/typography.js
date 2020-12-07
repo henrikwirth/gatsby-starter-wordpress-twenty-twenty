@@ -1,7 +1,7 @@
 import Typography from 'typography';
 
 export const typography = new Typography({
-  title: 'CustomFont',
+  title: 'Open Sans',
   baseFontSize: '18px',
   baseLineHeight: 1.45,
   headerFontFamily: [

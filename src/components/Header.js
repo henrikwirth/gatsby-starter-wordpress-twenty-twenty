@@ -2,6 +2,10 @@ import React from "react"
 import { graphql, Link, useStaticQuery } from "gatsby"
 import Menu from "./Menu"
 import ToggleIcon from "../assets/svg/toggle.inline.svg"
+// import FluidImage from "./FluidImage"
+// import Img from 'gatsby-image'
+// import Image from "./Image"
+import Logo from "./Logo"
 
 const Header = ({ pageContext, toggleBackdrop, ...props }) => {
   const { wp } = useStaticQuery(graphql`
@@ -19,6 +23,7 @@ const Header = ({ pageContext, toggleBackdrop, ...props }) => {
       <div className="header-inner section-inner">
         <div className="header-titles-wrapper">
           <div className="header-titles">
+            <Logo />
             <h1 className="site-title">
               <Link
                 to="/"
