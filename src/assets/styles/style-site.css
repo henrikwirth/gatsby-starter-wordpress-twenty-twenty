@@ -121,6 +121,25 @@ p, blockquote, address, big, cite, code, em, font, img, small, strike, sub, sup,
           transform: rotate(360deg);
 } */
 
+/* MODAL MENU */
+.menu-modal li.menu-item,
+.modal-menu a:focus,
+.modal-menu a:hover,
+.modal-menu li.current-menu-item > .ancestor-wrapper > a,
+.modal-menu li.current_page_ancestor > .ancestor-wrapper > a {
+  text-decoration: none !important;
+}
+.menu-modal li.menu-item:hover,
+.modal-menu a:focus:hover,
+.modal-menu a:hover:hover,
+.modal-menu li.current-menu-item > .ancestor-wrapper > a:hover,
+.modal-menu li.current_page_ancestor > .ancestor-wrapper > a:hover {
+  text-decoration: underline !important;
+}
+.modal-menu ul.social-menu {
+  justify-content: center !important;
+}
+
 /* ENTRY HEADER */
 .singular .entry-header,
 .blog-header {
@@ -171,4 +190,47 @@ p, blockquote, address, big, cite, code, em, font, img, small, strike, sub, sup,
 .additional-text {
   /* display: none; */
   margin: 0 0 0 2.4rem;
+}
+
+/* FOOTER WIDGETS */
+.footer-widgets li.menu-item {
+  display: block;
+  width: 100%;
+}
+.footer-widgets li.menu-item a {
+  color: var(--whiteColor) !important;
+  text-decoration: none;
+}
+.footer-widgets li.menu-item a:hover {
+  text-decoration: underline;
+}
+.footer-widgets .primary-menu-wrapper {
+  display: block !important;
+}
+.footer-widgets-outer-wrapper {
+  margin-top: 0px;
+  padding-top: 2rem;
+}
+ul.social-icons {
+  justify-content: center !important;
+}
+@media (max-width: 700px) {
+  .footer-widgets-outer-wrapper {
+    padding-top: 0px;
+  }
+  .footer-widgets ul.primary-menu {
+    margin-left: 0px !important;
+  }
+  .footer-widgets.grid-item {
+    display: inline-block;
+    width: 50%;
+    margin-top: 0px;
+  }
+  .footer-widgets.grid-item li.menu-item {
+    margin-top: 0.75rem;
+  }
+  .footer-social a {
+    width: 5rem;
+    height: 5rem;
+  }
 }

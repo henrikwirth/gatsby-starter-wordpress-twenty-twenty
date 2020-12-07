@@ -3,7 +3,7 @@ import Header from "./Header"
 import Footer from "./Footer"
 import theme from '../../config/theme'
 
-import FooterMenusWidgets from "./FooterMenusWidgets"
+import FooterWidgets from "./FooterWidgets"
 import MenuModal from "./MenuModal"
 import "@wordpress/block-library/build-style/style.css"
 
@@ -34,7 +34,7 @@ const Layout = ({ children, bodyClass }) => {
         {children}
       </main>
 
-      <FooterMenusWidgets />
+      <FooterWidgets />
 
       <Footer />
     </div>
