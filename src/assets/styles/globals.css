@@ -16,6 +16,7 @@
   /* TYPOGRAPHY */
   --headerFontFace: sans-serif;
   --bodyFontFace: sans-serif;
+  --footerJustifyContent: center;
 
   /* RESPONSIVE BREAKPOINTS & FIXES */
   --smallMaxWidth: 100%;
@@ -24,4 +25,7 @@
   --largeWidth: 80%;
   --smallPostLeftMargin: 2%;
   --largePostLeftMargin: 4%;
+
+  /* MARGINS AND PADDINGS */
+  --marginBottom: 1rem;
 }

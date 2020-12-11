@@ -7,7 +7,7 @@ require("dotenv").config({
   path: `.env.${activeEnv}`,
 })
 
-console.log(`WordPress GraphQL endpoint: '${process.env.WPGRAPHQL_URL}'`)
+console.log(`WordPress GraphQL endpoint: '${process.env.WP_GRAPHQL_URL}'`)
 
 module.exports = {
   siteMetadata: {
@@ -29,7 +29,7 @@ module.exports = {
     {
       resolve: `gatsby-source-wordpress`,
       options: {
-        url: process.env.WPGRAPHQL_URL,
+        url: process.env.WP_GRAPHQL_URL,
         verbose: true,
         develop: {
           hardCacheMediaFiles: true,

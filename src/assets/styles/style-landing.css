@@ -1,9 +1,14 @@
 .landing-page {
   width: 80%;
-  padding: 4rem;
-  margin: 4rem auto;
+  padding: 6% 0px;
+  margin: 0 auto;
   text-align: center;
   color: var(--whiteColor);
+}
+@media (max-width: 700px) {
+  .landing-page {
+    padding: 20% 0px;
+  }
 }
 .landing-page a {
   color: var(--whiteColor);

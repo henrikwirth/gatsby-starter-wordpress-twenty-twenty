@@ -1,5 +1,6 @@
 /* RESPONSIVE BREAKPOINTS & FIXES */
 @media (min-width: 700px) {
+  #site-content,
   .header-inner,
   .entry-content > *,
   .entry-content,
@@ -12,6 +13,7 @@
   }
 }
 @media (max-width: 700px) {
+  #site-content,
   .header-inner,
   .entry-content > *,
   .entry-content,
@@ -27,6 +29,10 @@
 /* GLOBALS */
 body {
   background-color: var(--primaryColor);
+}
+#site-content,
+.entry-content {
+  margin-bottom: var(--marginBottom);
 }
 #GatsbyBody {
   background-color: var(--whiteColor);
@@ -205,6 +211,9 @@ button, .button, .faux-button, .wp-block-button__link, .wp-block-file .wp-block-
 .additional-text {
   /* display: none; */
   margin: 0 0 0 2.4rem;
+}
+#site-footer .section-inner {
+  justify-content: var(--footerJustifyContent);
 }
 
 /* FOOTER WIDGETS */

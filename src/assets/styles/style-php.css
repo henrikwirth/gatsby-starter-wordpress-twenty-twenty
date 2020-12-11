@@ -39,3 +39,79 @@ body:not(.overlay-header) .primary-menu > li > .icon,
 .singular:not(.overlay-header) .entry-header .post-meta a {
   color: var(--lightGrayColor);
 }
+
+/* ---- WordPress fixes for Gatsby ---- */
+/* HOVER OVERRIDE - REMOVE FROM MOBILE */
+@media (max-width: 700px) {
+  :hover {
+    background-color: inherit !important;
+    border: inherit !important;
+    color: inherit !important;
+    text-decoration: inherit !important;
+  }
+}
+/* GALLERIES */
+.gallery,
+.wp-block-gallery ul {
+  max-width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.gallery-item {
+  margin-right: 10px;
+}
+.gallery .gatsby-image-wrapper,
+.wp-block-gallery .gatsby-image-wrapper {
+  height: 100%;
+}
+/* COLUMNS */
+@media (min-width: 700px) {
+  .wp-block-columns .wp-block-column {
+    max-width: 50%;
+    padding: 1rem;
+  }
+}
+@media (max-width: 700px) {
+  .wp-block-columns {
+    display: block !important;
+  }
+  .wp-block-columns .wp-block-column {
+    width: 100%;
+  }
+}
+/* COVER IMAGES */
+.wp-block-cover.alignfull,
+[class*="__inner-container"] > *:not(.alignwide):not(.alignleft):not(.alignright):not(.is-style-wide),
+.wp-block-cover-image .wp-block-cover__inner-container, .wp-block-cover .wp-block-cover__inner-container  {
+  width: 100%;
+  min-width: 100%;
+  margin: 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.wp-block-cover.alignfull {
+  min-height: 80vh;
+  background-position: center;
+  background-size: cover;
+}
+.wp-block-cover.has-background-dim:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(120deg,var(--primaryColor),var(--secondaryColor));
+  background-color: var(--primaryColor);
+  opacity: .7;
+  mix-blend-mode: color;
+  mix-blend-mode: hard-light;
+  mix-blend-mode: hue;
+}
+.wp-block-cover.has-background-dim > * {
+  z-index: 100;
+  color: var(--whiteColor);
+  text-shadow: 0px 0px 4px rgba(150, 150, 150, 1);
+}
