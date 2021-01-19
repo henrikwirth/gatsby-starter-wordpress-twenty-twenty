@@ -143,6 +143,11 @@ button, .button, .faux-button, .wp-block-button__link, .wp-block-file .wp-block-
 } */
 
 /* MODAL MENU */
+@media (min-width: 700px) {
+  .header-toggles {
+    /* display: none; */
+  }
+}
 .menu-modal li.menu-item,
 .modal-menu a:focus,
 .modal-menu a:hover,
