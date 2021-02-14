@@ -9,7 +9,7 @@ import PostMeta from "../../components/PostMeta"
 import PostCategories from "../../components/PostCategories"
 import FeaturedMedia from "../../components/FeaturedMedia"
 
-export default ({ data }) => {
+const post = ({ data }) => {
   const { nextPage, previousPage, page } = data
   const {
     title,
@@ -85,3 +85,5 @@ export const query = graphql`
     }
   }
 `
+
+export default post;

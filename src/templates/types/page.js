@@ -4,7 +4,7 @@ import Layout from "../../components/Layout"
 import Seo from "../../components/Seo"
 import FeaturedMedia from "../../components/FeaturedMedia"
 
-export default ({ data }) => {
+const page = ({ data }) => {
   const { page } = data
   const { title, content, featuredImage, excerpt, databaseId } = page
 
@@ -55,3 +55,5 @@ export const query = graphql`
     }
   }
 `
+
+export default page;
