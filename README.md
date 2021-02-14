@@ -12,9 +12,9 @@ Checkout some options of the source plugin: [defaultPluginOptions](https://githu
 
 Last tested with the following plugin versions.
 
-- WPGraphQL: 0.12.1
-- WPGatsby: 0.4.16
-- gatsby-source-wordpress-experimental: 1.3.6
+- WPGraphQL: 1.1.3
+- WPGatsby: 1.0.3
+- gatsby-source-wordpress: 4.0.1
 
 ## WordPress Setup
 
