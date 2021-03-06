@@ -17,7 +17,6 @@
     "serve": "gatsby serve"
   },
   "dependencies": {
-    "@wordpress/block-library": "^2.1.0",
     "cache-manager-fs-hash": "^0.0.9",
     "dotenv": "^8.2.0",
     "gatsby": "^2.32.3",
