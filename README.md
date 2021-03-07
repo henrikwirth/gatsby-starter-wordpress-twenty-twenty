@@ -36,7 +36,7 @@ Last tested with the following plugin versions.
 
 ## Links
 
-- [gatsby-source-wordpress-experimental](https://github.com/gatsbyjs/gatsby-source-wordpress-experimental)
+- [gatsby-source-wordpress (v4)](https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-source-wordpress/README.md)
 - [WPGatsby - WordPress Plugin](https://github.com/gatsbyjs/wp-gatsby)
 - [Twenty Twenty - WordPress Theme](https://de.wordpress.org/themes/twentytwenty/)
 
