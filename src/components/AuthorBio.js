@@ -1,10 +1,13 @@
 import React from "react"
-import GatsbyImageWithIEPolyfill from "gatsby-image/withIEPolyfill"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { Link } from "gatsby"
 
 const AuthorBio = ({ author }) => {
   author = author?.node
   if (!author.description) return null
+
+  const avatar = getImage(author?.avatar.imageFile)
+
 
   const description = author.description.replace(/(\r\n|\n|\r)/gm, "<br/>")
 
@@ -13,14 +16,10 @@ const AuthorBio = ({ author }) => {
       <div className="author-title-wrapper">
         <div className="author-avatar vcard">
           <div className="avatar avatar-160 wp-user-avatar wp-user-avatar-160 alignnone photo">
-            {author?.avatar?.imageFile?.childImageSharp && (
-              <GatsbyImageWithIEPolyfill
-                fixed={author.avatar.imageFile.childImageSharp.fixed}
-                objectFit="cover"
-                objectPosition="50% 50%"
-                className="avatar"
-              />
-            )}
+            <GatsbyImage
+              image={avatar}
+              className="avatar"
+              alt={author.name} />
           </div>
         </div>
         <h2 className="author-title heading-size-4">By {author.name}</h2>
