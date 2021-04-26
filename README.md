@@ -2,9 +2,8 @@
 
 A port of the WordPress Twenty Twenty theme to Gatsby. 
 
-**Works pretty well but still a work in progress**
 
-This starter uses the new `gatsby-source-wordpress@v4`. You can find documentation for that package [here](https://www.gatsbyjs.com/plugins/gatsby-source-wordpress/).
+This starter uses **Gatsby V3** and the new `gatsby-source-wordpress@v5`. You can find documentation for that package [here](https://www.gatsbyjs.com/plugins/gatsby-source-wordpress/).
 
 Checkout some options of the source plugin: [plugin-options.md](https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-source-wordpress/docs/plugin-options.md)
 
@@ -12,9 +11,10 @@ Checkout some options of the source plugin: [plugin-options.md](https://github.c
 
 Last tested with the following plugin versions.
 
-- WPGraphQL: 1.1.3
-- WPGatsby: 1.0.3
-- gatsby-source-wordpress: 4.0.1
+- WPGraphQL: 1.3.5
+- WPGatsby: 1.0.8
+- gatsby-source-wordpress: 5.3.1
+- gatsby-plugin-image: 1.3.1,
 
 ## WordPress Setup
 
