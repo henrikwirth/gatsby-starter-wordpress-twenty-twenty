@@ -14,6 +14,7 @@ module.exports = {
     author: `@henrikwirth`,
   },
   plugins: [
+    `gatsby-plugin-image`,
     `gatsby-plugin-notifications`,
     `gatsby-plugin-sharp`,
     {
