@@ -3,21 +3,66 @@ import PropTypes from "prop-types"
 import { Helmet } from "react-helmet"
 import { StaticQuery, graphql } from "gatsby"
 
-function Seo({ description, lang, meta, keywords, title }) {
+function Seo({ description, lang, meta, keywords, title, socialImage, uri = "", }) {
+
+
+  const imageMeta = (siteUrl) =>
+    (siteUrl && socialImage?.localFile)
+      ? [
+        {
+          property: "og:image",
+          content: siteUrl + socialImage.localFile.publicURL,
+        },
+        {
+          property: "og:image:width",
+          content: socialImage.mediaDetails.width,
+        },
+        {
+          property: "og:image:height",
+          content: socialImage.mediaDetails.height,
+        },
+        {
+          name: "twitter:image",
+          content: siteUrl + socialImage.localFile.publicURL,
+        },
+        {
+          name: "twitter:image:width",
+          content: socialImage.mediaDetails.width,
+        },
+        {
+          name: "twitter:image:height",
+          content: socialImage.mediaDetails.height,
+        },
+        {
+          name: "twitter:image:alt",
+          content: socialImage.altText,
+        },
+      ]
+      : []
+
   return (
     <StaticQuery
       query={detailsQuery}
       render={(data) => {
+        const {site, wp} = data
+
+        const siteUrl = site.siteMetadata.siteUrl || ""
+
+
+        console.log({socialImage, site})
+
         const metaDescription =
           description ||
-          data.wp.generalSettings.description ||
-          data.site.siteMetadata.description
+          wp.generalSettings.description ||
+          site.siteMetadata.description
+
         const titleText = title
           ? `${title} | ${
-              data.wp.generalSettings.description ||
-              data.site.siteMetadata.title
+              wp.generalSettings.description ||
+              site.siteMetadata.title
             }`
-          : data.wp.generalSettings.description || data.site.siteMetadata.title
+          : wp.generalSettings.description || site.siteMetadata.title
+
         return (
           <Helmet
             htmlAttributes={{
@@ -25,10 +70,20 @@ function Seo({ description, lang, meta, keywords, title }) {
             }}
             title={titleText}
             titleTemplate={`%s`}
+            link={[
+              {
+                rel: 'canonical',
+                href: siteUrl + uri
+              }
+            ]}
             meta={[
               {
                 name: `description`,
                 content: metaDescription,
+              },
+              {
+                property: "og:url",
+                content: siteUrl + uri,
               },
               {
                 property: `og:title`,
@@ -48,7 +103,7 @@ function Seo({ description, lang, meta, keywords, title }) {
               },
               {
                 name: `twitter:creator`,
-                content: data.site.siteMetadata.author,
+                content: site.siteMetadata.author,
               },
               {
                 name: `twitter:title`,
@@ -67,6 +122,7 @@ function Seo({ description, lang, meta, keywords, title }) {
                     }
                   : []
               )
+              .concat(imageMeta(siteUrl))
               .concat(meta)}
           />
         )
@@ -87,6 +143,7 @@ Seo.propTypes = {
   meta: PropTypes.array,
   keywords: PropTypes.arrayOf(PropTypes.string),
   title: PropTypes.string.isRequired,
+  image: PropTypes.object
 }
 
 const detailsQuery = graphql`
@@ -96,6 +153,7 @@ const detailsQuery = graphql`
         title
         description
         author
+        siteUrl
       }
     }
     wp {
