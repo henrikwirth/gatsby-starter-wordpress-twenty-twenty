@@ -27,6 +27,7 @@ module.exports = async ({ actions, graphql }, options) => {
         context: {
           firstId: firstNode.id,
           archivePath: blogURI,
+          uri: `${blogURI}page/${index + 1}/`,
           archiveType: "post",
           offset: perPage * index,
           pageNumber: index + 1,

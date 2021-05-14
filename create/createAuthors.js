@@ -51,6 +51,7 @@ module.exports = async ({ actions, graphql }, options) => {
               firstId: firstNode.id,
               archiveType: "author",
               archivePath: userPath,
+              uri: `${userPath}page/${index + 1}/`,
               userDatabaseId: user.databaseId,
               offset: perPage * index,
               pageNumber: index + 1,

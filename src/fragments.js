@@ -52,6 +52,7 @@ export const fragments = graphql`
 
   fragment PostContent on WpPost {
     title
+    uri
     content
     date(formatString: "LL")
     excerpt
@@ -60,6 +61,11 @@ export const fragments = graphql`
         altText
         localFile {
           ...HeroImage
+          publicURL
+        }
+        mediaDetails {
+          width
+          height
         }
       }
     }
@@ -91,6 +97,7 @@ export const fragments = graphql`
 
   fragment PageContent on WpPage {
     title
+    uri
     content
     databaseId
     featuredImage {
@@ -98,6 +105,11 @@ export const fragments = graphql`
         altText
         localFile {
           ...HeroImage
+          publicURL
+        }
+        mediaDetails {
+          width
+          height
         }
       }
     }

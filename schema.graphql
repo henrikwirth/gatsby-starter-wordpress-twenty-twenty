@@ -740,7 +740,7 @@ type Query {
   site(buildTime: DateQueryOperatorInput, children: NodeFilterListInput, host: StringQueryOperatorInput, id: StringQueryOperatorInput, internal: InternalFilterInput, parent: NodeFilterInput, pathPrefix: StringQueryOperatorInput, polyfill: BooleanQueryOperatorInput, port: IntQueryOperatorInput, siteMetadata: SiteSiteMetadataFilterInput): Site
   siteBuildMetadata(buildTime: DateQueryOperatorInput, children: NodeFilterListInput, id: StringQueryOperatorInput, internal: InternalFilterInput, parent: NodeFilterInput): SiteBuildMetadata
   sitePage(children: NodeFilterListInput, component: StringQueryOperatorInput, componentChunkName: StringQueryOperatorInput, componentPath: StringQueryOperatorInput, context: SitePageContextFilterInput, id: StringQueryOperatorInput, internal: InternalFilterInput, internalComponentName: StringQueryOperatorInput, isCreatedByStatefulCreatePages: BooleanQueryOperatorInput, matchPath: StringQueryOperatorInput, parent: NodeFilterInput, path: StringQueryOperatorInput, pluginCreator: SitePluginFilterInput, pluginCreatorId: StringQueryOperatorInput): SitePage
-  sitePlugin(browserAPIs: StringQueryOperatorInput, children: NodeFilterListInput, id: StringQueryOperatorInput, internal: InternalFilterInput, name: StringQueryOperatorInput, nodeAPIs: StringQueryOperatorInput, packageJson: SitePluginPackageJsonFilterInput, parent: NodeFilterInput, pluginFilepath: StringQueryOperatorInput, pluginOptions: SitePluginPluginOptionsFilterInput, resolve: StringQueryOperatorInput, version: StringQueryOperatorInput): SitePlugin
+  sitePlugin(browserAPIs: StringQueryOperatorInput, children: NodeFilterListInput, id: StringQueryOperatorInput, internal: InternalFilterInput, name: StringQueryOperatorInput, nodeAPIs: StringQueryOperatorInput, packageJson: SitePluginPackageJsonFilterInput, parent: NodeFilterInput, pluginFilepath: StringQueryOperatorInput, pluginOptions: SitePluginPluginOptionsFilterInput, resolve: StringQueryOperatorInput, ssrAPIs: StringQueryOperatorInput, version: StringQueryOperatorInput): SitePlugin
   wp(allSettings: WpSettingsFilterInput, children: NodeFilterListInput, discussionSettings: WpDiscussionSettingsFilterInput, generalSettings: WpGeneralSettingsFilterInput, id: StringQueryOperatorInput, internal: InternalFilterInput, nodeType: StringQueryOperatorInput, parent: NodeFilterInput, readingSettings: WpReadingSettingsFilterInput, schemaMd5: StringQueryOperatorInput, viewer: WpUserFilterInput, wpGatsby: WpWPGatsbyFilterInput, writingSettings: WpWritingSettingsFilterInput): Wp
   wpCategory(ancestors: WpCategoryToAncestorsCategoryConnectionFilterInput, children: NodeFilterListInput, contentNodes: WpCategoryToContentNodeConnectionFilterInput, count: IntQueryOperatorInput, databaseId: IntQueryOperatorInput, description: StringQueryOperatorInput, id: StringQueryOperatorInput, internal: InternalFilterInput, link: StringQueryOperatorInput, name: StringQueryOperatorInput, nodeType: StringQueryOperatorInput, parent: NodeFilterInput, parentDatabaseId: IntQueryOperatorInput, parentId: IDQueryOperatorInput, posts: WpCategoryToPostConnectionFilterInput, slug: StringQueryOperatorInput, taxonomy: WpCategoryToTaxonomyConnectionEdgeFilterInput, termGroupId: IntQueryOperatorInput, termTaxonomyId: IntQueryOperatorInput, uri: StringQueryOperatorInput, wpChildren: WpCategoryToCategoryConnectionFilterInput, wpParent: WpCategoryToParentCategoryConnectionEdgeFilterInput): WpCategory
   wpComment(agent: StringQueryOperatorInput, approved: BooleanQueryOperatorInput, author: WpCommentToCommenterConnectionEdgeFilterInput, authorIp: StringQueryOperatorInput, children: NodeFilterListInput, commentedOn: WpCommentToContentNodeConnectionEdgeFilterInput, content: StringQueryOperatorInput, databaseId: IntQueryOperatorInput, date: DateQueryOperatorInput, dateGmt: DateQueryOperatorInput, id: StringQueryOperatorInput, internal: InternalFilterInput, karma: IntQueryOperatorInput, nodeType: StringQueryOperatorInput, parent: NodeFilterInput, parentDatabaseId: IntQueryOperatorInput, parentId: IDQueryOperatorInput, replies: WpCommentToCommentConnectionFilterInput, type: StringQueryOperatorInput, wpParent: WpCommentToParentCommentConnectionEdgeFilterInput): WpComment
@@ -885,6 +885,7 @@ type SitePageContext {
   perPage: Int
   previousPage: String
   totalPages: Int
+  uri: String
   userDatabaseId: Int
 }
 
@@ -915,6 +916,7 @@ type SitePlugin implements Node {
   pluginFilepath: String
   pluginOptions: SitePluginPluginOptions
   resolve: String
+  ssrAPIs: [String]
   version: String
 }
 
@@ -1038,6 +1040,7 @@ type SitePluginPluginOptionsTypePost {
 type SiteSiteMetadata {
   author: String
   description: String
+  siteUrl: String
   title: String
 }
 
@@ -1493,6 +1496,12 @@ type WpContentTypeToTaxonomyConnection {
 }
 
 "The template assigned to the node"
+type WpCoverTemplate implements WpContentTemplate {
+  "The name of the template"
+  templateName: String
+}
+
+"The template assigned to the node"
 type WpDefaultTemplate implements WpContentTemplate {
   "The name of the template"
   templateName: String
@@ -1510,6 +1519,12 @@ type WpEdge {
   next: Wp
   node: Wp!
   previous: Wp
+}
+
+"The template assigned to the node"
+type WpFullWidthTemplate implements WpContentTemplate {
+  "The name of the template"
+  templateName: String
 }
 
 "The general setting type"
@@ -1563,10 +1578,11 @@ type WpHierarchicalContentNodeToParentContentNodeConnectionEdge {
 
 "File details for a Media Item"
 type WpMediaDetails {
-  "The height of the mediaItem"
+  "The filename of the mediaItem"
   file: String
   "The height of the mediaItem"
   height: Int
+  "Meta information associated with the mediaItem"
   meta: WpMediaItemMeta
   "The available sizes of the mediaItem"
   sizes: [WpMediaSize]
@@ -1723,17 +1739,29 @@ type WpMediaItemGroupConnection {
 
 "Meta connected to a MediaItem"
 type WpMediaItemMeta {
+  "Aperture measurement of the media item."
   aperture: Float
+  "Information about the camera used to create the media item."
   camera: String
+  "The text string description associated with the media item."
   caption: String
+  "Copyright information associated with the media item."
   copyright: String
+  "The date/time when the media was created."
   createdTimestamp: Int
+  "The original creator of the media item."
   credit: String
+  "The focal length value of the media item."
   focalLength: Float
+  "The ISO (International Organization for Standardization) value of the media item."
   iso: Int
+  "List of keywords used to describe or identfy the media item."
   keywords: [String]
+  "The vertical or horizontal aspect of the media item."
   orientation: String
+  "The shutter speed information of the media item."
   shutterSpeed: Float
+  "A useful title for the media item."
   title: String
 }
 
@@ -1745,19 +1773,19 @@ type WpMediaItemToCommentConnection {
 
 "Details of an available size for a media item"
 type WpMediaSize {
-  "The file of the for the referenced size"
+  "The filename of the referenced size"
   file: String
   "The filesize of the resource"
   fileSize: Int
-  "The height of the for the referenced size"
+  "The height of the referenced size"
   height: String
-  "The mime type of the resource"
+  "The mime type of the referenced size"
   mimeType: String
   "The referenced size name"
   name: String
-  "The url of the for the referenced size"
+  "The url of the referenced size"
   sourceUrl: String
-  "The width of the for the referenced size"
+  "The width of the referenced size"
   width: String
 }
 
@@ -1770,6 +1798,7 @@ type WpMenu implements Node & WpDatabaseIdentifier & WpNode {
   databaseId: Int!
   id: ID!
   internal: Internal!
+  "The locations a menu is assigned to"
   locations: [WpMenuLocationEnum]
   "Connection between the Menu type and the MenuItem type"
   menuItems: WpMenuToMenuItemConnection
@@ -1824,6 +1853,7 @@ type WpMenuItem implements Node & WpDatabaseIdentifier & WpNode {
   label: String
   "Link relationship (XFN) of the menu item."
   linkRelationship: String
+  "The locations the menu item&#039;s Menu is assigned to"
   locations: [WpMenuLocationEnum]
   "The Menu a MenuItem is part of"
   menu: WpMenuItemToMenuConnectionEdge
@@ -3477,6 +3507,7 @@ enum SiteFieldsEnum {
   port
   siteMetadata___author
   siteMetadata___description
+  siteMetadata___siteUrl
   siteMetadata___title
 }
 
@@ -3534,6 +3565,7 @@ enum SitePageFieldsEnum {
   context___perPage
   context___previousPage
   context___totalPages
+  context___uri
   context___userDatabaseId
   id
   internalComponentName
@@ -3670,6 +3702,7 @@ enum SitePageFieldsEnum {
   pluginCreator___pluginOptions___url
   pluginCreator___pluginOptions___verbose
   pluginCreator___resolve
+  pluginCreator___ssrAPIs
   pluginCreator___version
 }
 
@@ -3815,6 +3848,7 @@ enum SitePluginFieldsEnum {
   pluginOptions___url
   pluginOptions___verbose
   resolve
+  ssrAPIs
   version
 }
 
@@ -6137,8 +6171,10 @@ enum WpMenuItemFieldsEnum {
 
 "Registered menu locations"
 enum WpMenuLocationEnum {
+  EXPANDED
   FOOTER
-  MENU_1
+  MOBILE
+  PRIMARY
   SOCIAL
 }
 
@@ -8568,6 +8604,7 @@ input SitePageContextFilterInput {
   perPage: IntQueryOperatorInput
   previousPage: StringQueryOperatorInput
   totalPages: IntQueryOperatorInput
+  uri: StringQueryOperatorInput
   userDatabaseId: IntQueryOperatorInput
 }
 
@@ -8605,6 +8642,7 @@ input SitePluginFilterInput {
   pluginFilepath: StringQueryOperatorInput
   pluginOptions: SitePluginPluginOptionsFilterInput
   resolve: StringQueryOperatorInput
+  ssrAPIs: StringQueryOperatorInput
   version: StringQueryOperatorInput
 }
 
@@ -8721,6 +8759,7 @@ input SitePluginSortInput {
 input SiteSiteMetadataFilterInput {
   author: StringQueryOperatorInput
   description: StringQueryOperatorInput
+  siteUrl: StringQueryOperatorInput
   title: StringQueryOperatorInput
 }
 

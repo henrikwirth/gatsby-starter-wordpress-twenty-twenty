@@ -6,13 +6,13 @@ import FeaturedMedia from "../../components/FeaturedMedia"
 
 const page = ({ data }) => {
   const { page } = data
-  const { title, content, featuredImage, excerpt, databaseId } = page
+  const { title, content, featuredImage, excerpt, databaseId, uri } = page
 
   return (
     <Layout
       bodyClass={`page-template-default page page-id-${databaseId} wp-embed-responsive singular missing-post-thumbnail has-no-pagination not-showing-comments footer-top-visible customize-support`}
     >
-      <Seo title={title} description={excerpt} />
+      <Seo title={title} description={excerpt} socialImage={featuredImage?.node} uri={uri} />
 
       <article
         className={`post-${databaseId} post page type-page status-publish hentry`}
