@@ -48,9 +48,6 @@ function Seo({ description, lang, meta, keywords, title, socialImage, uri = "", 
 
         const siteUrl = site.siteMetadata.siteUrl || ""
 
-
-        console.log({socialImage, site})
-
         const metaDescription =
           description ||
           wp.generalSettings.description ||
