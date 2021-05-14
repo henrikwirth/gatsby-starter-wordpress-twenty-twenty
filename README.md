@@ -14,8 +14,8 @@ Last tested with the following plugin versions.
 
 - WPGraphQL: 1.3.5
 - WPGatsby: 1.0.8
-- gatsby-source-wordpress: 5.3.1
-- gatsby-plugin-image: 1.3.1
+- gatsby-source-wordpress: 5.5.0
+- gatsby-plugin-image: 1.5.0
 
 ## WordPress Setup
 
