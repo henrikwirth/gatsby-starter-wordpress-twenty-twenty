@@ -58,18 +58,18 @@ module.exports = async ({ actions, graphql }, options) => {
         await Promise.all(
           chunkedContentNodes.map(async (nodesChunk, index) => {
             const firstNode = nodesChunk[0]
+            const path = index === 0
+              ? categoryPath
+              : `${categoryPath}page/${index + 1}/`
 
             await actions.createPage({
               component: resolve(`./src/templates/archive.js`),
-              path:
-                index === 0
-                  ? categoryPath
-                  : `${categoryPath}page/${index + 1}/`,
+              path: path,
               context: {
                 firstId: firstNode.id,
                 archiveType: "category",
                 archivePath: categoryPath,
-                uri: `${categoryPath}page/${index + 1}/`,
+                uri: path,
                 categoryDatabaseId: category.databaseId,
                 offset: perPage * index,
                 pageNumber: index + 1,
@@ -77,9 +77,9 @@ module.exports = async ({ actions, graphql }, options) => {
                 perPage,
               },
             })
-          })
+          }),
         )
       }
-    })
+    }),
   )
 }

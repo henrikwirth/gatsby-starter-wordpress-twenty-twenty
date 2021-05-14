@@ -43,15 +43,16 @@ module.exports = async ({ actions, graphql }, options) => {
       await Promise.all(
         chunkedContentNodes.map(async (nodesChunk, index) => {
           const firstNode = nodesChunk[0]
+          const path = index === 0 ? userPath : `${userPath}page/${index + 1}/`
 
           await actions.createPage({
             component: resolve(`./src/templates/archive.js`),
-            path: index === 0 ? userPath : `${userPath}page/${index + 1}/`,
+            path: path,
             context: {
               firstId: firstNode.id,
               archiveType: "author",
               archivePath: userPath,
-              uri: `${userPath}page/${index + 1}/`,
+              uri: path,
               userDatabaseId: user.databaseId,
               offset: perPage * index,
               pageNumber: index + 1,
