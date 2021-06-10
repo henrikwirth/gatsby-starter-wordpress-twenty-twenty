@@ -1,9 +1,23 @@
 import React from "react"
 import { Link } from "gatsby"
+import CookieConsent from 'react-cookie-consent';
 
 const Footer = ({}) => {
   return (
     <footer id="site-footer" role="contentinfo" className="header-footer-group">
+      <CookieConsent
+          enableDeclineButton
+          disableStyles={true}
+          containerClasses="cooConsent"
+          contentClasses="cooConsentContent"
+          buttonClasses="cooConsentButton"
+          declineButtonClasses="cooConsentButtonDecline"
+          location="bottom"
+          buttonText="Decline"
+          declineButtonText="Accept"
+          cookieName="gatsby-gdpr-google-analytics">
+          This site uses cookies to offer you a better experience. 
+      </CookieConsent>
       <div className="section-inner">
         <div className="footer-credits">
           <p className="footer-copyright">

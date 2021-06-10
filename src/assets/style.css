@@ -6569,3 +6569,44 @@ a.to-the-top > * {
     top: 0;
   }
 }
+.cooConsent {
+  bottom: 0px; 
+  align-items: baseline; 
+  background: #f5efe0;; 
+  color: #4a4a4a;
+  display: flex; 
+  flex-wrap: wrap; 
+  justify-content: space-between; 
+  left: 0px; 
+  position: fixed; 
+  width: 100%; 
+  z-index: 999;
+  font-size: smaller;
+}
+.cooConsentContent {
+  flex: 1 0 300px; 
+  margin: 15px;
+}
+.cooConsentButton {
+  background: rgb(255, 212, 45); 
+  border: 0px; 
+  border-radius: 0px; 
+  box-shadow: none; 
+  color: #4a4a4a;
+  cursor: pointer; 
+  flex: 0 0 auto; 
+  padding: 5px 10px; 
+  margin: 15px;  
+}
+.cooConsentButtonDecline {
+  background: none;
+  border: 0px; 
+  border-radius: 0px; 
+  box-shadow: none; 
+  color: #4a4a4a;
+  cursor: pointer; 
+  flex: 0 0 auto; 
+  padding: 5px 10px; 
+  margin: 15px;
+  font-size: smaller;
+}
