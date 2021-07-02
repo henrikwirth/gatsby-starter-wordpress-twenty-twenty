@@ -21,7 +21,7 @@ Last tested with the following plugin versions.
 
 1. Make sure to install the two required WP plugins [wp-gatsby](https://github.com/gatsbyjs/wp-gatsby) and [wp-graphql](https://github.com/wp-graphql/wp-graphql)
 2. Best you install and activate the default WordPress Twenty Twenty theme
-3. Make sure you have Menus with the following slugs: 
+3. Make sure you have Menus with the following slugs [You must add each menu to a location](https://github.com/gatsbyjs/gatsby/blob/83f140e4caf166cf094ed2083514078bc232a123/packages/gatsby-source-wordpress/docs/tutorials/using-wordpress-menus.md#menus-and-menu-items-in-wpgraphql): 
    -  `primary` - Thats the top menu
    -  `extended` - That is the menu that opens on the right side as drawer
    -  `social-links-menu` - For the Social menu in the footer and in the expanded drawer
