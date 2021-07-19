@@ -24,7 +24,7 @@
     "gatsby-plugin-react-svg": "^3.0.1",
     "gatsby-plugin-sharp": "^3.5.0",
     "gatsby-source-filesystem": "^3.5.0",
-    "gatsby-source-wordpress": "^5.5.0",
+    "gatsby-source-wordpress": "^5.9.2",
     "gatsby-transformer-sharp": "^3.5.0",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
